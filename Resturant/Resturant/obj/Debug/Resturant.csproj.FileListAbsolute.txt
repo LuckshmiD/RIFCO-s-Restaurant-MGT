@@ -1,0 +1,13 @@
+C:\Users\bhara\Desktop\Resturant\Resturant\obj\Debug\Resturant.Properties.Resources.resources
+C:\Users\bhara\Desktop\Resturant\Resturant\obj\Debug\Resturant.csproj.GenerateResource.Cache
+C:\Users\bhara\Desktop\Resturant\Resturant\obj\Debug\Resturant.csproj.CoreCompileInputs.cache
+C:\Users\bhara\Desktop\Resturant\Resturant\bin\Debug\Resturant.exe.config
+C:\Users\bhara\Desktop\Resturant\Resturant\bin\Debug\Resturant.exe
+C:\Users\bhara\Desktop\Resturant\Resturant\bin\Debug\Resturant.pdb
+C:\Users\bhara\Desktop\Resturant\Resturant\obj\Debug\Resturant.Welcome.resources
+C:\Users\bhara\Desktop\Resturant\Resturant\obj\Debug\Resturant.exe
+C:\Users\bhara\Desktop\Resturant\Resturant\obj\Debug\Resturant.pdb
+C:\Users\bhara\Desktop\Resturant\Resturant\obj\Debug\Cashier.Cash_Validation.resources
+C:\Users\bhara\Desktop\Resturant\Resturant\bin\Debug\itextsharp.dll
+C:\Users\bhara\Desktop\Resturant\Resturant\bin\Debug\itextsharp.xml
+C:\Users\bhara\Desktop\Resturant\Resturant\obj\Debug\Cashier.Credit_Card_Validation.resources
