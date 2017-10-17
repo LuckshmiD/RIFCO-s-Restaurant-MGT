@@ -26,5 +26,12 @@ namespace Resturant.Properties
                 return defaultInstance;
             }
         }
+
+        public string customermanagementConnectionString {
+            get
+            {
+                return ((string)(this["customermanagementConnectionString"]));
+            }
+        }
     }
 }

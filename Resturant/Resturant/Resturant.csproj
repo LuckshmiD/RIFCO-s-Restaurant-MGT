@@ -32,11 +32,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GSMCommServer, Version=1.21.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81, processorArchitecture=MSIL">
+      <HintPath>..\packages\GSMComm.1.21.1\lib\GSMCommServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GSMCommShared, Version=1.21.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81, processorArchitecture=MSIL">
+      <HintPath>..\packages\GSMComm.1.21.1\lib\GSMCommShared.dll</HintPath>
+    </Reference>
+    <Reference Include="GSMCommunication, Version=1.21.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81, processorArchitecture=MSIL">
+      <HintPath>..\packages\GSMComm.1.21.1\lib\GSMCommunication.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp, Version=5.5.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="PDUConverter, Version=1.21.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81, processorArchitecture=MSIL">
+      <HintPath>..\packages\GSMComm.1.21.1\lib\PDUConverter.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,11 +65,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bookings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings.designer.cs">
+      <DependentUpon>Bookings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cash_Validation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cash_Validation.designer.cs">
       <DependentUpon>Cash_Validation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cater.designer.cs">
+      <DependentUpon>Cater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmPayment.designer.cs">
+      <DependentUpon>ConfirmPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="createMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="createMenu.designer.cs">
+      <DependentUpon>createMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Credit_Card_Validation.cs">
       <SubType>Form</SubType>
@@ -60,19 +101,169 @@
     <Compile Include="Credit_Card_Validation.designer.cs">
       <DependentUpon>Credit_Card_Validation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerMain.designer.cs">
+      <DependentUpon>CustomerMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="customermanagementDataSet.Designer.cs" />
+    <Compile Include="customermanagementDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>customermanagementDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="databaseConnector.cs" />
+    <Compile Include="DeliveryPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeliveryPayment.designer.cs">
+      <DependentUpon>DeliveryPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Event.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Event.designer.cs">
+      <DependentUpon>Event.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FeedbkAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedbkAdmin.designer.cs">
+      <DependentUpon>FeedbkAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LargeCE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LargeCE.designer.cs">
+      <DependentUpon>LargeCE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginEcm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginEcm.designer.cs">
+      <DependentUpon>LoginEcm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainECM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainECM.designer.cs">
+      <DependentUpon>MainECM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Methods.cs" />
+    <Compile Include="Nonuser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Nonuser.designer.cs">
+      <DependentUpon>Nonuser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notification.designer.cs">
+      <DependentUpon>Notification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rating.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rating.designer.cs">
+      <DependentUpon>Rating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration.designer.cs">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegularCE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegularCE.designer.cs">
+      <DependentUpon>RegularCE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegUser.designer.cs">
+      <DependentUpon>RegUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Send_Message.cs" />
+    <Compile Include="Table.cs" />
+    <Compile Include="TableView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableView.designer.cs">
+      <DependentUpon>TableView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TakeawayPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakeawayPayment.designer.cs">
+      <DependentUpon>TakeawayPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Welcome.Designer.cs">
       <DependentUpon>Welcome.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Bookings.resx">
+      <DependentUpon>Bookings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cash_Validation.resx">
       <DependentUpon>Cash_Validation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cater.resx">
+      <DependentUpon>Cater.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmPayment.resx">
+      <DependentUpon>ConfirmPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="createMenu.resx">
+      <DependentUpon>createMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Credit_Card_Validation.resx">
       <DependentUpon>Credit_Card_Validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerMain.resx">
+      <DependentUpon>CustomerMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeliveryPayment.resx">
+      <DependentUpon>DeliveryPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Event.resx">
+      <DependentUpon>Event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedbkAdmin.resx">
+      <DependentUpon>FeedbkAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LargeCE.resx">
+      <DependentUpon>LargeCE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginEcm.resx">
+      <DependentUpon>LoginEcm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainECM.resx">
+      <DependentUpon>MainECM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Nonuser.resx">
+      <DependentUpon>Nonuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notification.resx">
+      <DependentUpon>Notification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -84,9 +275,41 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Rating.resx">
+      <DependentUpon>Rating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registration.aa-ER.resx">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registration.resx">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegularCE.resx">
+      <DependentUpon>RegularCE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegUser.resx">
+      <DependentUpon>RegUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableView.resx">
+      <DependentUpon>TableView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TakeawayPayment.resx">
+      <DependentUpon>TakeawayPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Welcome.resx">
       <DependentUpon>Welcome.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="customermanagementDataSet.xsc">
+      <DependentUpon>customermanagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="customermanagementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>customermanagementDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="customermanagementDataSet.xss">
+      <DependentUpon>customermanagementDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -102,6 +325,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\App.config" />
     <None Include="Resources\backspace %281%29.png" />
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +513,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\zero dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23246-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Application_46710.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_architecture-interior-27_809104.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_file_documents-10_854129 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_file_documents-10_854129.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_JD-18_2246839.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_notes_1118207.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_pen_stroke_sketch_doodle_lineart_69_451371 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_pen_stroke_sketch_doodle_lineart_69_451371.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_star_299040.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_star-favorite-feedback-rating_2075828 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_star-favorite-feedback-rating_2075828.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_user_male_3699.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-icon-th.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

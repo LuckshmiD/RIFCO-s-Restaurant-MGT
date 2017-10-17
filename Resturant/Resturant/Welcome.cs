@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cashier;
+using EventCaterMgt;
+using supplier;
+using Customer_Management;
 
 namespace Resturant
 {
@@ -20,8 +23,8 @@ namespace Resturant
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Credit_Card_Validation cv = new Credit_Card_Validation(10);
-            cv.Show();
+            Customer_Management.Form1 f = new Form1();
+            f.Show();
         }
     }
 }
