@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewItem.designer.cs">
+      <DependentUpon>AddNewItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bookings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,7 +126,20 @@
     <Compile Include="Dashboard.designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="databaseConnector.cs" />
+    <Compile Include="DeleteItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteItem.designer.cs">
+      <DependentUpon>DeleteItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeliveryMenu.designer.cs">
+      <DependentUpon>DeliveryMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeliveryPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +158,7 @@
     <Compile Include="FeedbkAdmin.designer.cs">
       <DependentUpon>FeedbkAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Item.cs" />
     <Compile Include="LargeCE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +176,12 @@
     </Compile>
     <Compile Include="MainECM.designer.cs">
       <DependentUpon>MainECM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MakeOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MakeOrder.designer.cs">
+      <DependentUpon>MakeOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="Methods.cs" />
     <Compile Include="Nonuser.cs">
@@ -179,6 +205,12 @@
     <Compile Include="Rating.designer.cs">
       <DependentUpon>Rating.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe.designer.cs">
+      <DependentUpon>Recipe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,12 +230,30 @@
       <DependentUpon>RegUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Send_Message.cs" />
+    <Compile Include="StockDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockDetails.designer.cs">
+      <DependentUpon>StockDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierDetailsSu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierDetailsSu.designer.cs">
+      <DependentUpon>SupplierDetailsSu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Table.cs" />
     <Compile Include="TableView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TableView.designer.cs">
       <DependentUpon>TableView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TakeawayMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakeawayMenu.designer.cs">
+      <DependentUpon>TakeawayMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="TakeawayPayment.cs">
       <SubType>Form</SubType>
@@ -217,6 +267,9 @@
     <Compile Include="Welcome.Designer.cs">
       <DependentUpon>Welcome.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddNewItem.resx">
+      <DependentUpon>AddNewItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bookings.resx">
       <DependentUpon>Bookings.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +294,12 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeleteItem.resx">
+      <DependentUpon>DeleteItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeliveryMenu.resx">
+      <DependentUpon>DeliveryMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeliveryPayment.resx">
       <DependentUpon>DeliveryPayment.cs</DependentUpon>
     </EmbeddedResource>
@@ -258,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainECM.resx">
       <DependentUpon>MainECM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MakeOrder.resx">
+      <DependentUpon>MakeOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nonuser.resx">
       <DependentUpon>Nonuser.cs</DependentUpon>
@@ -278,6 +340,9 @@
     <EmbeddedResource Include="Rating.resx">
       <DependentUpon>Rating.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recipe.resx">
+      <DependentUpon>Recipe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registration.aa-ER.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,8 +355,17 @@
     <EmbeddedResource Include="RegUser.resx">
       <DependentUpon>RegUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StockDetails.resx">
+      <DependentUpon>StockDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierDetailsSu.resx">
+      <DependentUpon>SupplierDetailsSu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TableView.resx">
       <DependentUpon>TableView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TakeawayMenu.resx">
+      <DependentUpon>TakeawayMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TakeawayPayment.resx">
       <DependentUpon>TakeawayPayment.cs</DependentUpon>

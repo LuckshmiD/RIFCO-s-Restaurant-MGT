@@ -11,6 +11,7 @@ using Cashier;
 using EventCaterMgt;
 using supplier;
 using Customer_Management;
+using OrderManagement;
 
 namespace Resturant
 {
@@ -23,7 +24,8 @@ namespace Resturant
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Customer_Management.Form1 f = new Form1();
+            // Add suitable overloads
+            TakeawayMenu f = new TakeawayMenu();
             f.Show();
         }
     }

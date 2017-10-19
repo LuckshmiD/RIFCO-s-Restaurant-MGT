@@ -56,3 +56,11 @@ C:\Users\bhara\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debu
 C:\Users\bhara\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Customer_Management.Registratio.aa-ER.resources
 C:\Users\bhara\Desktop\Restaurant_Management_System\Resturant\Resturant\bin\Debug\aa-ER\Resturant.resources.dll
 C:\Users\bhara\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\aa-ER\Resturant.resources.dll
+C:\Users\bhara\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\OrderManagement.AddNewItem.resources
+C:\Users\bhara\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\OrderManagement.DeleteItem.resources
+C:\Users\bhara\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\OrderManagement.DeliveryMenu.resources
+C:\Users\bhara\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\OrderManagement.MakeOrder.resources
+C:\Users\bhara\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\OrderManagement.Recipe.resources
+C:\Users\bhara\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\OrderManagement.StockDetails.resources
+C:\Users\bhara\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\OrderManagement.SupplierDetailsSu.resources
+C:\Users\bhara\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\OrderManagement.TakeawayMenu.resources
