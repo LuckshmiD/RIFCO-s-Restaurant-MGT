@@ -188,6 +188,12 @@
     <Compile Include="LoginEcm.designer.cs">
       <DependentUpon>LoginEcm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainECM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,6 +264,12 @@
     </Compile>
     <Compile Include="StockDetails.designer.cs">
       <DependentUpon>StockDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierDetails.designer.cs">
+      <DependentUpon>SupplierDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="SupplierDetailsSu.cs">
       <SubType>Form</SubType>
@@ -353,6 +365,9 @@
     <EmbeddedResource Include="LoginEcm.resx">
       <DependentUpon>LoginEcm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainECM.resx">
       <DependentUpon>MainECM.cs</DependentUpon>
     </EmbeddedResource>
@@ -398,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StockDetails.resx">
       <DependentUpon>StockDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierDetails.resx">
+      <DependentUpon>SupplierDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SupplierDetailsSu.resx">
       <DependentUpon>SupplierDetailsSu.cs</DependentUpon>
