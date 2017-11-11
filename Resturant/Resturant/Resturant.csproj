@@ -155,6 +155,7 @@
     <Compile Include="FeedbkAdmin.designer.cs">
       <DependentUpon>FeedbkAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Income.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="LargeCE.cs">
       <SubType>Form</SubType>
