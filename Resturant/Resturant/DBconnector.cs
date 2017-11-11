@@ -18,7 +18,7 @@ namespace RCTRM
         public DBconnector()
         {
             
-            connection1 = @"server=localhost;userid=root;password=;database=rest";
+            connection1 = @"server=localhost;userid=root;password=;database=rmsdatabase";
             connection = new MySqlConnection(connection1);
             connection.Open();   
         }

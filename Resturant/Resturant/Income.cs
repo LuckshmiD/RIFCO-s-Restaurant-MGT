@@ -92,7 +92,7 @@ namespace RCTRM
         public void viewGrid(DataGridView datagrid)
         {
             DataGridView dataGridView1 = datagrid;
-            string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rest";
+            string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rmsdatabase";
             MySqlConnection DBConnect = new MySqlConnection(ConnectString);
 
             string query = "Select * from income";
@@ -109,7 +109,7 @@ namespace RCTRM
         public void viewGrid1(DataGridView datagrid,string query)
         {
             DataGridView dataGridView1 = datagrid;
-            string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rest";
+            string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rmsdatabase";
             MySqlConnection DBConnect = new MySqlConnection(ConnectString);
 
             DataTable table = new DataTable();

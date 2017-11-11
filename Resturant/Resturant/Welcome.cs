@@ -12,6 +12,7 @@ using EventCaterMgt;
 using supplier;
 using Customer_Management;
 using OrderManagement;
+using RCTRM;
 
 namespace Resturant
 {
@@ -25,7 +26,7 @@ namespace Resturant
         private void button1_Click(object sender, EventArgs e)
         {
             // Add suitable overloads
-            TakeawayMenu f = new TakeawayMenu();
+            RCTRM.Dashboard f = new RCTRM.Dashboard();
             f.Show();
         }
     }
