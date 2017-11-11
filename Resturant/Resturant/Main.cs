@@ -7,27 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Cashier;
-using EventCaterMgt;
-using supplier;
-using Customer_Management;
-using OrderManagement;
-using RCTRM;
 
-namespace Resturant
+namespace supplier
 {
-    public partial class Welcome : Form
+    public partial class Main : Form
     {
-        public Welcome()
+        public Main()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Add suitable overloads
-            Main db = new Main();
-            db.Show();
+            this.Hide();
+            SupplierDetails main = new SupplierDetails();
+            main.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Stockdetails main = new Stockdetails();
+            main.Show();
         }
     }
 }

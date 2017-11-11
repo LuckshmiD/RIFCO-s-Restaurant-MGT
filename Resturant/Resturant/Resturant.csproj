@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Resturant</RootNamespace>
     <AssemblyName>Resturant</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -115,11 +116,20 @@
       <DependentUpon>CustomerMain.cs</DependentUpon>
     </Compile>
     <Compile Include="customermanagementDataSet.Designer.cs" />
+<<<<<<< HEAD
     <Compile Include="customermanagementDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>customermanagementDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DashB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashB.designer.cs">
+      <DependentUpon>DashB.cs</DependentUpon>
+    </Compile>
+=======
+>>>>>>> b76b6e44019661e796ce8ff71424b32cea464c1a
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +138,7 @@
     </Compile>
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="databaseConnector.cs" />
+    <Compile Include="DBconnector.cs" />
     <Compile Include="DeleteItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,11 +163,25 @@
     <Compile Include="Event.designer.cs">
       <DependentUpon>Event.cs</DependentUpon>
     </Compile>
+    <Compile Include="Expenditure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expenditure.designer.cs">
+      <DependentUpon>Expenditure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses.cs" />
     <Compile Include="FeedbkAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FeedbkAdmin.designer.cs">
       <DependentUpon>FeedbkAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Income.cs" />
+    <Compile Include="IncomeUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeUI.designer.cs">
+      <DependentUpon>IncomeUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Item.cs" />
     <Compile Include="LargeCE.cs">
@@ -170,6 +195,12 @@
     </Compile>
     <Compile Include="LoginEcm.designer.cs">
       <DependentUpon>LoginEcm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="MainECM.cs">
       <SubType>Form</SubType>
@@ -197,6 +228,12 @@
       <DependentUpon>Notification.cs</DependentUpon>
     </Compile>
     <Compile Include="Payment.cs" />
+    <Compile Include="ProfitMargin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfitMargin.designer.cs">
+      <DependentUpon>ProfitMargin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rating.cs">
@@ -236,6 +273,12 @@
     <Compile Include="StockDetails.designer.cs">
       <DependentUpon>StockDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="SupplierDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierDetails.designer.cs">
+      <DependentUpon>SupplierDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="SupplierDetailsSu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +303,12 @@
     </Compile>
     <Compile Include="TakeawayPayment.designer.cs">
       <DependentUpon>TakeawayPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrackRevExp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrackRevExp.designer.cs">
+      <DependentUpon>TrackRevExp.cs</DependentUpon>
     </Compile>
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
@@ -291,6 +340,9 @@
     <EmbeddedResource Include="CustomerMain.resx">
       <DependentUpon>CustomerMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DashB.resx">
+      <DependentUpon>DashB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -306,14 +358,23 @@
     <EmbeddedResource Include="Event.resx">
       <DependentUpon>Event.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Expenditure.resx">
+      <DependentUpon>Expenditure.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FeedbkAdmin.resx">
       <DependentUpon>FeedbkAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomeUI.resx">
+      <DependentUpon>IncomeUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LargeCE.resx">
       <DependentUpon>LargeCE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginEcm.resx">
       <DependentUpon>LoginEcm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainECM.resx">
       <DependentUpon>MainECM.cs</DependentUpon>
@@ -326,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Notification.resx">
       <DependentUpon>Notification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfitMargin.resx">
+      <DependentUpon>ProfitMargin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -358,6 +422,9 @@
     <EmbeddedResource Include="StockDetails.resx">
       <DependentUpon>StockDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SupplierDetails.resx">
+      <DependentUpon>SupplierDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SupplierDetailsSu.resx">
       <DependentUpon>SupplierDetailsSu.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,6 +437,9 @@
     <EmbeddedResource Include="TakeawayPayment.resx">
       <DependentUpon>TakeawayPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TrackRevExp.resx">
+      <DependentUpon>TrackRevExp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Welcome.resx">
       <DependentUpon>Welcome.cs</DependentUpon>
     </EmbeddedResource>
@@ -378,7 +448,6 @@
     </None>
     <None Include="customermanagementDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>customermanagementDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="customermanagementDataSet.xss">
