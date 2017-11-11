@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="databaseConnector.cs" />
+    <Compile Include="DBconnector.cs" />
     <Compile Include="DeleteItem.cs">
       <SubType>Form</SubType>
     </Compile>
