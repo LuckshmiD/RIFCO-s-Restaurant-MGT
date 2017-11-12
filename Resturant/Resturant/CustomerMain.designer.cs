@@ -308,6 +308,7 @@
             this.rectangleShape6.Location = new System.Drawing.Point(568, 44);
             this.rectangleShape6.Name = "rectangleShape6";
             this.rectangleShape6.Size = new System.Drawing.Size(219, 62);
+            this.rectangleShape6.Click += new System.EventHandler(this.rectangleShape6_Click);
             this.rectangleShape6.MouseHover += new System.EventHandler(this.rectangleShape2_MouseHover);
             // 
             // rectangleShape5

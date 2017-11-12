@@ -342,7 +342,7 @@ namespace Customer_Management
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int i;
+            //int i;
             
             if (textname.Text.Trim() == string.Empty)
             {
@@ -374,8 +374,7 @@ namespace Customer_Management
 
                 databaseConnection.Close();
             }
-            catch (Exception ex)
-            {
+            catch (Exception) { 
                 // id doesn't exist
                 MessageBox.Show("Customer details cannot be updated");
             }
@@ -517,18 +516,17 @@ namespace Customer_Management
 
         private void rectangleShape2_Click_1(object sender, EventArgs e)
         {
-            //this.Hide();
-            //sample s1 = new sample();
-            //s1.ShowDialog();
-           
+
+            Methods m1 = new Methods();
+             m1.getAddress(textmobile.Text);
+             m1.getName(textmobile.Text);
         }
 
         private void label10_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //sample s1 = new sample();
-            //s1.ShowDialog();
-
+            Methods m1 = new Methods();
+            m1.getAddress(textmobile.Text);
+            m1.getName(textmobile.Text);
 
         }
 
@@ -539,11 +537,16 @@ namespace Customer_Management
 
         private void rectangleShape4_Click_1(object sender, EventArgs e)
         {
-           // this.Hide();
+
+            this.Hide();
+            Form1 f1 = new Form1();
+            f1.ShowDialog();
+
+            // this.Hide();
             //Event e1=new Event();
             //e1.ShowDialog();
-            Methods m1 = new Methods();
-            int max = m1.getmaxcid();
+            // Methods m1 = new Methods();
+            //int max = m1.getmaxcid();
         }
 
         private void label14_Click(object sender, EventArgs e)

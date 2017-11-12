@@ -18,12 +18,31 @@ namespace Customer_Management
             con = new MySqlConnection(connectionString);
         }
 
+        //getname for delivery
+        public string getName(string mobile)
+        {
+            string Name = "";
+
+            string query = "select Name from customer where MobileNumber='" + mobile + "'; ";
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            con.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Name = (reader[0].ToString());
+            }
+            reader.Close();
+            con.Close();
+
+            return Name;
+
+        }
         //get address through CID for delivery
-        public string getAddress(int Cid)
+        public string getAddress(string mobile)
         {
             string Address = "";
 
-            string query = "select Address from customer where CID='" + Cid + "'; ";
+            string query = "select Address from customer where CID='" + mobile + "'; ";
             MySqlCommand cmd = new MySqlCommand(query, con);
             con.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -60,6 +79,7 @@ namespace Customer_Management
 
         }
 
+       
         public int getcountofRating(string rate)
         {
 
@@ -113,7 +133,84 @@ namespace Customer_Management
             con.Close();
             return max;
         }
+        //total Ecus
+        public int getEcust(string type)
+        {
 
-           }
+            int count = 0;
+            string query = "select count(*) from customer where Type= '" + type + "'";
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            con.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                count = Convert.ToInt32(reader[0].ToString());
+            }
+            reader.Close();
+            con.Close();
+            return count;
+        }
+
+        //total mob cus
+        public int getMcust(string type)
+        {
+
+            int count = 0;
+            string query = "select count(*) from customer where Type= '" + type + "'";
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            con.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                count = Convert.ToInt32(reader[0].ToString());
+            }
+            reader.Close();
+            con.Close();
+            return count;
+        }
+
+        //total customers
+        public int getcountofcus()
+        {
+
+            int count = 0;
+            string query = "select count(*) from customer ";
+
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            con.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                count = Convert.ToInt32(reader[0].ToString());
+            }
+            reader.Close();
+            con.Close();
+            return count;
+        }
+        public int getCID2(string email)
+        {
+
+            int cid = 0;
+          
+                string query = "select CID from customer where MobileNumber='" + email + "'; ";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                con.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    cid = Convert.ToInt32(reader[0].ToString());
+                }
+                reader.Close();
+                con.Close();
+            
+           
+            return cid;
+
+
+        }
+
+    }
 
 }

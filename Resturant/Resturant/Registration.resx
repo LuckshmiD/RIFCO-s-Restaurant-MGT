@@ -944,7 +944,7 @@
     <value>5</value>
   </data>
   <data name="rectangleShape4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>752, 197</value>
+    <value>758, 197</value>
   </data>
   <data name="rectangleShape4.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 41</value>
@@ -1087,6 +1087,18 @@
   <data name="&gt;&gt;rectangleShape1.Type" xml:space="preserve">
     <value>Microsoft.VisualBasic.PowerPacks.RectangleShape, Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="&gt;&gt;rectangleShape5.Name" xml:space="preserve">
+    <value>rectangleShape5</value>
+  </data>
+  <data name="&gt;&gt;rectangleShape5.Type" xml:space="preserve">
+    <value>Microsoft.VisualBasic.PowerPacks.RectangleShape, Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="&gt;&gt;rectangleShape3.Name" xml:space="preserve">
+    <value>rectangleShape3</value>
+  </data>
+  <data name="&gt;&gt;rectangleShape3.Type" xml:space="preserve">
+    <value>Microsoft.VisualBasic.PowerPacks.RectangleShape, Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="&gt;&gt;rectangleShape2.Name" xml:space="preserve">
     <value>rectangleShape2</value>
   </data>
@@ -1103,7 +1115,7 @@
     <value>customermanagementDataSet</value>
   </data>
   <data name="&gt;&gt;customermanagementDataSet.Type" xml:space="preserve">
-    <value>Customer_Management.customermanagementDataSet, customermanagementDataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Customer_Management.customermanagementDataSet, Resturant, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;customerBindingSource.Name" xml:space="preserve">
     <value>customerBindingSource</value>
@@ -1115,25 +1127,13 @@
     <value>customerTableAdapter</value>
   </data>
   <data name="&gt;&gt;customerTableAdapter.Type" xml:space="preserve">
-    <value>Customer_Management.customermanagementDataSetTableAdapters.customerTableAdapter, customermanagementDataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Customer_Management.customermanagementDataSetTableAdapters.customerTableAdapter, Resturant, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;customerTableAdapter1.Name" xml:space="preserve">
     <value>customerTableAdapter1</value>
   </data>
   <data name="&gt;&gt;customerTableAdapter1.Type" xml:space="preserve">
-    <value>Customer_Management.customermanagementDataSetTableAdapters.customerTableAdapter, customermanagementDataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;rectangleShape3.Name" xml:space="preserve">
-    <value>rectangleShape3</value>
-  </data>
-  <data name="&gt;&gt;rectangleShape3.Type" xml:space="preserve">
-    <value>Microsoft.VisualBasic.PowerPacks.RectangleShape, Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="&gt;&gt;rectangleShape5.Name" xml:space="preserve">
-    <value>rectangleShape5</value>
-  </data>
-  <data name="&gt;&gt;rectangleShape5.Type" xml:space="preserve">
-    <value>Microsoft.VisualBasic.PowerPacks.RectangleShape, Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Customer_Management.customermanagementDataSetTableAdapters.customerTableAdapter, Resturant, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Registratio</value>

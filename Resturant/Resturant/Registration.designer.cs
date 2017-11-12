@@ -33,6 +33,9 @@
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,6 +58,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.rectangleShape5 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.rectangleShape4 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.label5 = new System.Windows.Forms.Label();
@@ -64,11 +69,6 @@
             this.customerTableAdapter = new Customer_Management.customermanagementDataSetTableAdapters.customerTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.customerTableAdapter1 = new Customer_Management.customermanagementDataSetTableAdapters.customerTableAdapter();
-            this.rectangleShape3 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.rectangleShape5 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customermanagementDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
@@ -121,6 +121,26 @@
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label15.Name = "label15";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label14.Name = "label14";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label13.Name = "label13";
             // 
             // label12
             // 
@@ -299,6 +319,20 @@
             this.rectangleShape4});
             this.shapeContainer2.TabStop = false;
             // 
+            // rectangleShape5
+            // 
+            this.rectangleShape5.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            resources.ApplyResources(this.rectangleShape5, "rectangleShape5");
+            this.rectangleShape5.Name = "rectangleShape5";
+            this.rectangleShape5.Click += new System.EventHandler(this.rectangleShape4_Click_1);
+            // 
+            // rectangleShape3
+            // 
+            this.rectangleShape3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            resources.ApplyResources(this.rectangleShape3, "rectangleShape3");
+            this.rectangleShape3.Name = "rectangleShape3";
+            this.rectangleShape3.Click += new System.EventHandler(this.rectangleShape4_Click_1);
+            // 
             // rectangleShape2
             // 
             this.rectangleShape2.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -351,40 +385,6 @@
             // customerTableAdapter1
             // 
             this.customerTableAdapter1.ClearBeforeFill = true;
-            // 
-            // rectangleShape3
-            // 
-            this.rectangleShape3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            resources.ApplyResources(this.rectangleShape3, "rectangleShape3");
-            this.rectangleShape3.Name = "rectangleShape3";
-            this.rectangleShape3.Click += new System.EventHandler(this.rectangleShape4_Click_1);
-            // 
-            // label13
-            // 
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.label13.Name = "label13";
-            // 
-            // label14
-            // 
-            resources.ApplyResources(this.label14, "label14");
-            this.label14.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.label14.Name = "label14";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
-            // 
-            // rectangleShape5
-            // 
-            this.rectangleShape5.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            resources.ApplyResources(this.rectangleShape5, "rectangleShape5");
-            this.rectangleShape5.Name = "rectangleShape5";
-            this.rectangleShape5.Click += new System.EventHandler(this.rectangleShape4_Click_1);
-            // 
-            // label15
-            // 
-            resources.ApplyResources(this.label15, "label15");
-            this.label15.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.label15.Name = "label15";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // Registratio
             // 

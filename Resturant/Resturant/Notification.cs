@@ -11,6 +11,7 @@ using System.Net.Mail;
 using System.Net;
 using MySql.Data.MySqlClient;
 
+
 namespace Customer_Management
 {
     public partial class Notification : Form
@@ -77,7 +78,17 @@ namespace Customer_Management
                 // message.Subject = "Promotional Offers";
                 message.Subject = textsubject.Text.Trim(); ;
                 message.Body = textbody.Text.Trim();
+               
                 message.From = new MailAddress("myprojectmail001@gmail.com");
+
+
+
+
+                System.Net.Mail.Attachment attachment;
+                attachment = new System.Net.Mail.Attachment(textattach.Text.ToString());
+     
+                message.Attachments.Add(attachment);
+
 
                 // Email Address from where you send the mail
                 var fromAddress = "myprojectmail001@gmail.com";
@@ -99,7 +110,7 @@ namespace Customer_Management
                 string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
                 MySqlCommand cmd = null;
                 MySqlConnection databaseConnection = new MySqlConnection(connectionString);
-                string type = "Registered";
+                string type = "RegisteredE";
                 string queryString = "SELECT Email FROM customer where Type='"+type+"'and Email is not null";
                 // "SELECT Email FROM new where Email IS NOT NULL"
                 // string queryString = "SELECT Email FROM table WHERE NOT(Email <=> NULL)";

@@ -114,6 +114,7 @@
             this.label2.Size = new System.Drawing.Size(80, 24);
             this.label2.TabIndex = 14;
             this.label2.Text = "        CID";
+            this.label2.Visible = false;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel1
@@ -148,6 +149,7 @@
             this.label9.Size = new System.Drawing.Size(164, 22);
             this.label9.TabIndex = 23;
             this.label9.Text = "        Customer ID";
+            this.label9.Visible = false;
             // 
             // label8
             // 
@@ -156,9 +158,9 @@
             this.label8.ForeColor = System.Drawing.Color.Red;
             this.label8.Location = new System.Drawing.Point(652, 150);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 25);
+            this.label8.Size = new System.Drawing.Size(19, 25);
             this.label8.TabIndex = 22;
-            this.label8.Text = "label8";
+            this.label8.Text = ".";
             // 
             // label7
             // 
@@ -167,9 +169,9 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(654, 197);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 16);
+            this.label7.Size = new System.Drawing.Size(12, 16);
             this.label7.TabIndex = 21;
-            this.label7.Text = "label7";
+            this.label7.Text = ".";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6

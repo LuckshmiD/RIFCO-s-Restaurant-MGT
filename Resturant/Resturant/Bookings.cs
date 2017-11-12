@@ -59,13 +59,15 @@ namespace Customer_Management
             if (textocc.Text == "")
             {
                 MessageBox.Show("Please choose the number of occupants");
+                //added
+                return;
             }
             if ((starttext.Text == "10AM") && (endtext.Text != "12PM"))
             {
                 MessageBox.Show("Each Reservation can only be made for a time limit of 2 hours! Please chose the end time as 12PM! ");
 
             }
-            if ((starttext.Text == "10PM") && (endtext.Text != "2PM"))
+            if ((starttext.Text == "12PM") && (endtext.Text != "2PM"))
             {
                 MessageBox.Show("Each Reservation can only be made for a time limit of 2 hours! Please chose the end time as 2PM! ");
 
@@ -257,7 +259,7 @@ namespace Customer_Management
                 Int32 count = Convert.ToInt32(cmd.ExecuteScalar());
                 if (count > 0)
                 {
-                    if (((textmobile.Text != "") || (textname.Text != "") || (textocc.Text != "") || (starttext.Text != "") || (endtext.Text != "") || (tablenolabel.Text != "")))
+                   // if (((textmobile.Text != "") || (textname.Text != "") || (textocc.Text != "") || (starttext.Text != "") || (endtext.Text != "") || (tablenolabel.Text != "")))
 
                         MessageBox.Show("Reservation cannot be made!!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -273,7 +275,7 @@ namespace Customer_Management
                         // }
 
 
-                        //  databaseConnection.Close();
+                         databaseConnection.Close();
                         // }
                         // catch (Exception ex)
                         // {

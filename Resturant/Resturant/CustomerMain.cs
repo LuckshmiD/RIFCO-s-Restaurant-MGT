@@ -164,6 +164,13 @@ namespace Customer_Management
 
 
         }
+
+        private void rectangleShape6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            chartinterface c1 = new chartinterface();
+            c1.ShowDialog();
+        }
     }
     }
     

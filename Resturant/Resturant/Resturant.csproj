@@ -90,6 +90,24 @@
     <Compile Include="Cater.designer.cs">
       <DependentUpon>Cater.cs</DependentUpon>
     </Compile>
+    <Compile Include="Chart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chart.designer.cs">
+      <DependentUpon>Chart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="chartinterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="chartinterface.designer.cs">
+      <DependentUpon>chartinterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChartUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChartUser.designer.cs">
+      <DependentUpon>ChartUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConfirmPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +337,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cater.resx">
       <DependentUpon>Cater.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chart.resx">
+      <DependentUpon>Chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="chartinterface.resx">
+      <DependentUpon>chartinterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChartUser.resx">
+      <DependentUpon>ChartUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfirmPayment.resx">
       <DependentUpon>ConfirmPayment.cs</DependentUpon>
