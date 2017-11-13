@@ -125,10 +125,10 @@ namespace Customer_Management
         }*/
         private void button4_Click(object sender, EventArgs e)
         {
-            int i;
+            Int64 i;
             if ((textmobile.Text.Trim() != string.Empty))
             {
-                if ((textmobile.Text.Length != 10) || (!int.TryParse(textmobile.Text, out i)))
+                if ((textmobile.Text.Length != 10) || (!Int64.TryParse(textmobile.Text, out i)))
                 {
                     MessageBox.Show("Please enter a valid mobile number of 10 digits only");
                     return; // return because we don't want to run normal code of buton click
@@ -138,7 +138,7 @@ namespace Customer_Management
             //{
 
             {
-                MessageBox.Show("Please enter a valid Mobile Number or Email or continue as a Guest! Thank You! !!", "Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please enter a valid Mobile Number or sign in as a Guest! Thank You! !!", "Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
@@ -161,18 +161,36 @@ namespace Customer_Management
                     MySqlCommand cmd2 = new MySqlCommand(val2, databaseConnection);
                     count = count + Convert.ToInt32(cmd.ExecuteScalar());
                     count2 = count2 + Convert.ToInt32(cmd2.ExecuteScalar());
-                    if ((textmobile.Text.Trim() != string.Empty) && ((textemail.Text.Trim() != string.Empty)))
+                     if ((textmobile.Text.Trim() != string.Empty) && ((textemail.Text.Trim() != string.Empty)))
                     {
-                        if ((count == 1) && (count2 > 0))
-                        {
-                            MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Methods m1 = new Methods();
+                        if (count == 1) 
+                      
+                             MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                             Methods m1 = new Methods();
 
-                            //next page
-                            new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
-                        }
-                    }
-                    else if ((textmobile.Text.Trim() != string.Empty) && ((textemail.Text.Trim() == string.Empty)))
+                             //next page
+                             new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                         }
+                     /*
+                         else if ((count == 1) || (count2 > 0))
+                         {
+                             MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                             Methods m1 = new Methods();
+
+                             //next page
+                             new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                         }
+
+                         else if ((count == 1) || (count2 > 0))
+                         {
+                             MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                             Methods m1 = new Methods();
+
+                             //next page
+                             new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                         }
+                     }*/
+                    if ((textmobile.Text.Trim() != string.Empty) && ((textemail.Text.Trim() == string.Empty)))
                     {
                         if (count == 1)
                         {
@@ -183,21 +201,21 @@ namespace Customer_Management
                             new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
                         }
                     }
-                    else if ((textmobile.Text.Trim() == string.Empty) && ((textemail.Text.Trim() != string.Empty)))
-                        if (count2 >= 1)
-                        {
-                            MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Methods m1 = new Methods();
+                  //  else if ((textmobile.Text.Trim() == string.Empty) && ((textemail.Text.Trim() != string.Empty)))
+                       // if (count2 >= 1)
+                        //{
+                        //    MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //    Methods m1 = new Methods();
 
-                            //next page
-                            new MakeOrder(2, m1.getCID2(textemail.Text)).Show();
-                        }
+                        //    //next page
+                          //  new MakeOrder(2, m1.getCID2(textemail.Text)).Show();
+                      //  }
 
                     //next page
 
 
                     //else if(((textmobile.Text.Trim() != string.Empty) && ((textemail.Text.Trim() != string.Empty))))
-                    if ((count == 0) || (count2 == 0) && ((textemail.Text.Trim() == string.Empty)) && ((textmobile.Text.Trim() != string.Empty)))
+                    /*if ((count == 0) || (count2 == 0) && ((textemail.Text.Trim() == string.Empty)) && ((textmobile.Text.Trim() != string.Empty)))
                     {
 
 
@@ -214,13 +232,13 @@ namespace Customer_Management
 
 
                         //  databaseConnection.Close();
-                        MessageBox.Show("Thank you for registering with us!!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(" You have been registered  through your mobile!Thank you for registering with us!!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Methods m1 = new Methods();
 
                         //next page
                         new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
                     }
-                    
+                    */
                     else if ((count == 0) || (count2 == 0) && ((textmobile.Text.Trim() == string.Empty)) && ((textemail.Text.Trim() != string.Empty)))
                     {
 
@@ -238,7 +256,7 @@ namespace Customer_Management
 
 
                         databaseConnection.Close();
-                        MessageBox.Show("Thank you for registering with us!!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("You have been registered  through your mobile!Thank you for registering with us!!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Methods m1 = new Methods();
 
                         //next page
@@ -403,6 +421,173 @@ namespace Customer_Management
         private void button1_Click_1(object sender, EventArgs e)
         {
             
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            Int64 i;
+            if ((textmobile.Text.Trim() != string.Empty))
+            {
+                if ((textmobile.Text.Length != 10) || (!Int64.TryParse(textmobile.Text, out i)))
+                {
+                    MessageBox.Show("Please enter a valid mobile number of 10 digits only");
+                    return; // return because we don't want to run normal code of buton click
+                }
+            }
+            if ((textmobile.Text.Trim() == string.Empty) && (textemail.Text.Trim() == string.Empty))
+            //{
+
+            {
+                MessageBox.Show("Please enter a valid Email address or sign in as a Guest! Thank You! !!", "Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                //db
+                try
+                {
+                    string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
+                    MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+
+
+                    databaseConnection.Open();
+
+                    Int32 count = 0;
+                    Int32 count2 = 0;
+
+                    string val = "select count(*)  from customer where MobileNumber= '" + textmobile.Text.ToString() + "'";
+                    string val2 = "select count(*)  from customer where Email= '" + textemail.Text.ToString() + "'";
+                    MySqlCommand cmd = new MySqlCommand(val, databaseConnection);
+                    MySqlCommand cmd2 = new MySqlCommand(val2, databaseConnection);
+                    count = count + Convert.ToInt32(cmd.ExecuteScalar());
+                    count2 = count2 + Convert.ToInt32(cmd2.ExecuteScalar());
+                    if ((textmobile.Text.Trim() != string.Empty) && ((textemail.Text.Trim() != string.Empty)))
+                    {
+                        if (count == 1)
+
+                            MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Methods m1 = new Methods();
+
+                        //next page
+                        new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                    }
+                    /* if ((textmobile.Text.Trim() != string.Empty) && ((textemail.Text.Trim() != string.Empty)))
+                     {
+                         if ((count == 1) && (count2 > 0))
+                         {
+                             MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                             Methods m1 = new Methods();
+
+                             //next page
+                             new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                         }
+
+                         else if ((count == 1) || (count2 > 0))
+                         {
+                             MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                             Methods m1 = new Methods();
+
+                             //next page
+                             new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                         }
+
+                         else if ((count == 1) || (count2 > 0))
+                         {
+                             MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                             Methods m1 = new Methods();
+
+                             //next page
+                             new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                         }
+                     }*/
+                    // if ((textmobile.Text.Trim() != string.Empty) && ((textemail.Text.Trim() == string.Empty)))
+                    //{
+                    //  if (count == 1)
+                    // {
+                    //   MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    Methods m1 = new Methods();
+
+                    //next page
+                    //  new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                    //  }
+                    //  }
+                    else if ((textmobile.Text.Trim() == string.Empty) && ((textemail.Text.Trim() != string.Empty)))
+                        if (count2 >= 1)
+                        {
+                            MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Methods m1 = new Methods();
+
+                            //next page
+                            new MakeOrder(2, m1.getCID2(textemail.Text)).Show();
+                        }
+
+                    //next page
+
+
+                    //else if(((textmobile.Text.Trim() != string.Empty) && ((textemail.Text.Trim() != string.Empty))))
+                    if ((count == 0) || (count2 == 0) && ((textemail.Text.Trim() == string.Empty)) && ((textmobile.Text.Trim() != string.Empty)))
+                    {
+
+
+                        string type = "RegisteredM";
+                        string query = "INSERT INTO CUSTOMER (MobileNumber,Email,Type) VALUES ('" + this.textmobile.Text + "','" + this.textemail.Text + "','" + type + "');";
+                        //MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+                        MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+                        commandDatabase.CommandTimeout = 60;
+
+
+
+                        MySqlDataReader myReader = commandDatabase.ExecuteReader();
+                        myReader.Close();
+
+
+                        //  databaseConnection.Close();
+                        MessageBox.Show("You have been registered through your Thank you for registering with us!!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Methods m1 = new Methods();
+
+                        //next page
+                        new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                    }
+
+                    else if ((count == 0) || (count2 == 0) && ((textmobile.Text.Trim() == string.Empty)) && ((textemail.Text.Trim() != string.Empty)))
+                    {
+
+
+                        string type = "RegisteredE";
+                        string query = "INSERT INTO CUSTOMER (MobileNumber,Email,Type) VALUES ('" + this.textmobile.Text + "','" + this.textemail.Text + "','" + type + "');";
+                        //MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+                        MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+                        commandDatabase.CommandTimeout = 60;
+
+
+
+                        MySqlDataReader myReader = commandDatabase.ExecuteReader();
+                        myReader.Close();
+
+
+                        databaseConnection.Close();
+                        MessageBox.Show("You have been registered  through your email!Thank you for registering with us!!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Methods m1 = new Methods();
+
+                        //next page
+                        new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                    }
+
+
+
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
         }
     }
     }

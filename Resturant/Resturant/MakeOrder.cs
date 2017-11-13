@@ -16,9 +16,9 @@ namespace OrderManagement
 {
     public partial class MakeOrder : Form
     {
-        private int tableno=3;
+        private int tableno;
 
-        int custid = 0;
+        int custid;
 
         public MakeOrder(int no, int id)
         {
@@ -105,7 +105,7 @@ namespace OrderManagement
 
             try
             {
-                MessageBox.Show(itemtagcombo.Text);
+                //MessageBox.Show(itemtagcombo.Text);
                 MySqlCommand com = new MySqlCommand("SELECT itemcode,itemname,Description,portionsize,price,itemimage FROM items WHERE itemtag = '" + itemtagcombo.Text+ "' AND status = 'Active' ORDER BY itemname", conn);
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(com);
@@ -187,7 +187,7 @@ namespace OrderManagement
                     com.ExecuteNonQuery();
 
                     
-                        MySqlCommand comretrieve = new MySqlCommand("SELECT * FROM orderlist" + tableno + " ORDER BY itemname", conn);
+                        MySqlCommand comretrieve = new MySqlCommand("SELECT id,itemcode,itemname,portionsize,quantity,price FROM orderlist" + tableno + " ORDER BY itemname", conn);
 
                         MySqlDataAdapter adapter = new MySqlDataAdapter(comretrieve);
 
@@ -316,7 +316,7 @@ namespace OrderManagement
 
             try
             {
-                MessageBox.Show(itemcodedelete.ToString());
+                //MessageBox.Show(itemcodedelete.ToString());
 
                 tableorder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 tableorder.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -329,7 +329,7 @@ namespace OrderManagement
                     com.ExecuteNonQuery();
 
 
-                    MySqlCommand comretrieve = new MySqlCommand("SELECT * FROM orderlist" + tableno + " ORDER BY itemname", conn);
+                    MySqlCommand comretrieve = new MySqlCommand("SELECT id,itemcode,itemname,portionsize,quantity,price FROM orderlist" + tableno + " ORDER BY itemname", conn);
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(comretrieve);
 
