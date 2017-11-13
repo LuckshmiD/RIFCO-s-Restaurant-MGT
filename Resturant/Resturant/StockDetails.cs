@@ -302,7 +302,7 @@ namespace supplier
             con.Open();
             MySqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update  Stock set StockName='" + textBox2.Text + "',StockSize='" + textBox3.Text + "',Status='" + comboBox1.SelectedItem + "',Cost='" + textBox5.Text + "',Date='" + dateTimePicker1.Text + "'where StockCode='" + label9.Text + "'";
+            cmd.CommandText = "update  Stock set StockName='" + textBox2.Text + "',StockSize='" + textBox3.Text + "',Status='" + comboBox1.SelectedItem + "',UnitPrice='" +Convert.ToInt32(textBox5.Text) + "',Date='" + dateTimePicker1.Text + "'where StockCode='" + label9.Text + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -367,10 +367,10 @@ namespace supplier
 
         public void searchData(string valueOfData)
         {
-            MySqlConnection con = new MySqlConnection("Server=localhost;Database=project;Uid=root;Pwd=;");
+            MySqlConnection con = new MySqlConnection("Server=localhost;Database=rmsdatabase;Uid=root;Pwd=;");
             MySqlCommand cmd;
 
-            string query = "select * from supplier where CONCAT(SupplierCode,SupplierName,Address,Status,District,PhoneNumber,EmailAddress) like '%" + valueOfData + "%'";
+            string query = "select * from stock where CONCAT(StockCode,StockName,StockSize,Status,UnitPrice,Date) like '%" + valueOfData + "%'";
             cmd = new MySqlCommand(query, con);
             adp = new MySqlDataAdapter(cmd);
             dt = new DataTable();
@@ -384,11 +384,12 @@ namespace supplier
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-                textBox2.Text = row.Cells[0].Value.ToString();
-                textBox3.Text = row.Cells[1].Value.ToString();
-                comboBox1.SelectedItem = row.Cells[2].Value.ToString();
-                textBox5.Text = row.Cells[3].Value.ToString();
-                dateTimePicker1.Text = row.Cells[4].Value.ToString();
+                label9.Text = row.Cells[0].Value.ToString();
+                textBox2.Text = row.Cells[1].Value.ToString();
+                textBox3.Text = row.Cells[2].Value.ToString();
+                comboBox1.SelectedItem = row.Cells[3].Value.ToString();
+                textBox5.Text = row.Cells[4].Value.ToString();
+                dateTimePicker1.Text = row.Cells[5].Value.ToString();
             }
         }
 

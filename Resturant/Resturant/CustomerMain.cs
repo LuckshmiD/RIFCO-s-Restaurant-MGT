@@ -171,6 +171,15 @@ namespace Customer_Management
             chartinterface c1 = new chartinterface();
             c1.ShowDialog();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            chartinterface c1 = new chartinterface();
+            c1.ShowDialog();
+        }
     }
     }
+    
     

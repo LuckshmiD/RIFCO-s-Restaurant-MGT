@@ -314,17 +314,17 @@
     <Compile Include="TakeawayPayment.designer.cs">
       <DependentUpon>TakeawayPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestModule.Designer.cs">
+      <DependentUpon>TestModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrackRevExp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TrackRevExp.designer.cs">
       <DependentUpon>TrackRevExp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Welcome.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Welcome.Designer.cs">
-      <DependentUpon>Welcome.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddNewItem.resx">
       <DependentUpon>AddNewItem.cs</DependentUpon>
@@ -456,11 +456,11 @@
     <EmbeddedResource Include="TakeawayPayment.resx">
       <DependentUpon>TakeawayPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestModule.resx">
+      <DependentUpon>TestModule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TrackRevExp.resx">
       <DependentUpon>TrackRevExp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Welcome.resx">
-      <DependentUpon>Welcome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="customermanagementDataSet.xsc">
       <DependentUpon>customermanagementDataSet.xsd</DependentUpon>

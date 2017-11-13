@@ -224,7 +224,7 @@ namespace Customer_Management
 
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
 
-            string type = "Registered";
+            string type = "RegisteredM";
             string query = "INSERT INTO CUSTOMER (MobileNumber,Name,Address,Email,Type) VALUES ('" + this.textmobile.Text + "','" + this.textname.Text + "','" + this.textaddress.Text + "','" + this.textemail.Text + "','"+type+"');";
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -271,7 +271,7 @@ namespace Customer_Management
         {
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
             // Delete the item with ID 1
-            string query = "DELETE FROM customer WHERE CID=  '" + label8.Text.ToString() + "'";
+            string query = "DELETE FROM customer WHERE CID=  '" + Convert.ToInt32(label12.Text) + "'";
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -358,7 +358,7 @@ namespace Customer_Management
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
             // Update the properties of the row with ID 1
 
-            string query = "UPDATE customer SET Name='" + textname.Text.ToString() + "',Address='" + textaddress.Text.ToString() + "',Email='" + textemail.Text.ToString() + "' WHERE CID ='" + label8.Text.ToString() + "'";
+            string query = "UPDATE customer SET Name='" + textname.Text.ToString() + "',Address='" + textaddress.Text.ToString() + "',Email='" + textemail.Text.ToString() + "' WHERE CID ='" +Convert.ToInt32(label12.Text) + "'";
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -551,8 +551,8 @@ namespace Customer_Management
 
         private void label14_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //Cater c1 = new Cater();
+            this.Hide();
+            //new Cater();
             //c1.ShowDialog();
             Methods m1 = new Methods();
             int max=m1.getmaxcid();
