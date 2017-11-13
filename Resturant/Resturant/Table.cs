@@ -57,7 +57,7 @@ namespace Cashier
         public DataTable get_OrderlistTable()
         {
             DataTable tbl = new DataTable();
-            reader = db.getData("SELECT * FROM `orderlist" + table_no+"`");
+            reader = db.getData("SELECT * FROM orderlist" + table_no+"");
             tbl.Load(reader);
 
             return tbl;
@@ -66,6 +66,17 @@ namespace Cashier
         public float get_total_price()
         {
             reader = db.getData("Select SUM(quantity * price) as price from table" + table_no);
+            reader.Read();
+            float price = reader.GetFloat("price");
+
+            reader.Close();
+
+            return price;
+        }
+
+        public float get_orderlist_price()
+        {
+            reader = db.getData("Select SUM(quantity * price) as price from orderlist" + table_no);
             reader.Read();
             float price = reader.GetFloat("price");
 

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Customer_Management;
 using EventCaterMgt;
+using OrderManagement;
+using Cashier;
 
 namespace Resturant
 {
@@ -32,6 +34,11 @@ namespace Resturant
         private void Event_Click(object sender, EventArgs e)
         {
             new MainECM().Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Dashboard().Show();
         }
     }
 }
