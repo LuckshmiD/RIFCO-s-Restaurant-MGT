@@ -198,7 +198,7 @@ namespace OrderManagement
             {
                 conn.Open();
 
-                MessageBox.Show(itemc.ToString());
+                //MessageBox.Show(itemc.ToString());
                 MySqlCommand com = new MySqlCommand("SELECT itemname FROM items where itemname='" + itemname + "' and itemcode !='"+ itemc + "'", conn);
                 
                 MySqlDataReader reader = com.ExecuteReader();
@@ -225,7 +225,7 @@ namespace OrderManagement
             try
             {
                 conn.Open();
-                MessageBox.Show(itemcode.ToString());
+                //MessageBox.Show(itemcode.ToString());
                 MySqlCommand cmd = new MySqlCommand("Select * from items where itemname like '"+itemname+"%'", conn);
 
 

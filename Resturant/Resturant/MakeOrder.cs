@@ -11,6 +11,8 @@ using MySql.Data.MySqlClient;
 using System.IO;
 using System.Drawing.Imaging;
 using Cashier;
+using System.Runtime.InteropServices;
+using Resturant.Properties;
 
 namespace OrderManagement
 {
@@ -20,9 +22,34 @@ namespace OrderManagement
 
         int custid;
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect, // x-coordinate of upper-left corner
+            int nTopRect, // y-coordinate of upper-left corner
+            int nRightRect, // x-coordinate of lower-right corner
+            int nBottomRect, // y-coordinate of lower-right corner
+            int nWidthEllipse, // height of ellipse
+            int nHeightEllipse // width of ellipse
+        );
+
         public MakeOrder(int no, int id)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+
             tableno = no;
             tablelabel.Text = tablelabel.Text + tableno;
             custid = id;
@@ -479,6 +506,61 @@ namespace OrderManagement
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CloseWindow_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void CloseWindow_MouseMove(object sender, MouseEventArgs e)
+        {
+            CloseWindow.BackgroundImage = Resources.error;
+        }
+
+        private void CloseWindow_MouseLeave(object sender, EventArgs e)
+        {
+            CloseWindow.BackgroundImage = Resources.error__1_;
+        }
+
+        private void button5_MouseMove(object sender, MouseEventArgs e)
+        {
+            button5.BackgroundImage = Resources.search;
+        }
+
+        private void button5_MouseLeave(object sender, EventArgs e)
+        {
+            button5.BackgroundImage = Resources.search__1_;
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            button3.BackgroundImage = Resources.plus__1_;
+        }
+
+        private void button3_MouseMove(object sender, MouseEventArgs e)
+        {
+            button3.BackgroundImage = Resources.plus;
+        }
+
+        private void remove_MouseLeave(object sender, EventArgs e)
+        {
+            remove.BackgroundImage = Resources.minus__1_;
+        }
+
+        private void remove_MouseMove(object sender, MouseEventArgs e)
+        {
+            remove.BackgroundImage = Resources.minus;
+        }
+
+        private void button4_MouseLeave(object sender, EventArgs e)
+        {
+            button4.BackgroundImage = Resources.success__1_;
+        }
+
+        private void button4_MouseMove(object sender, MouseEventArgs e)
+        {
+            button4.BackgroundImage = Resources.success;
         }
     }
 }

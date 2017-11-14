@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
 using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
+using Resturant.Properties;
 
 namespace OrderManagement
 {
@@ -17,9 +19,34 @@ namespace OrderManagement
     {
         private Item updateitem,additem;
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect, // x-coordinate of upper-left corner
+            int nTopRect, // y-coordinate of upper-left corner
+            int nRightRect, // x-coordinate of lower-right corner
+            int nBottomRect, // y-coordinate of lower-right corner
+            int nWidthEllipse, // height of ellipse
+            int nHeightEllipse // width of ellipse
+        );
+
         public AddNewItem()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+
             updateItem.Visible = false;
         }
 
@@ -51,7 +78,7 @@ namespace OrderManagement
 
                 // For convenience the string of Portion size is simplified by
                 // taking the first letter of each size category
-                MessageBox.Show(psizef.Text);
+                //MessageBox.Show(psizef.Text);
                 if (psizef.Text == "Small")
                 {
                     porsize = "s";
@@ -73,7 +100,7 @@ namespace OrderManagement
                     checkPSize = false;
                 }
 
-                MessageBox.Show(status.Text);
+                //MessageBox.Show(status.Text);
 
                 if (status.SelectedItem == null)
                 {
@@ -84,7 +111,7 @@ namespace OrderManagement
                     checkstatus = true;
                 }
 
-                MessageBox.Show(status.Text);
+                //MessageBox.Show(status.Text);
 
                 if (itemtagf.SelectedItem == null)
                 {
@@ -109,7 +136,7 @@ namespace OrderManagement
                 {
                     additem = new Item(itemnamef.Text, itemtagf.Text, desc.Text, psizef.Text);
 
-                    MessageBox.Show("This : " + additem.getItemTag());
+                    //MessageBox.Show("This : " + additem.getItemTag());
 
                     MemoryStream ms = new MemoryStream();
                     imagebox.Image.Save(ms, imagebox.Image.RawFormat);
@@ -130,7 +157,7 @@ namespace OrderManagement
                     }
                     read.Close();
 
-                    MessageBox.Show(Convert.ToString(price));
+                    //MessageBox.Show(Convert.ToString(price));
                     //suganthy
                     MySqlCommand com= new MySqlCommand("INSERT INTO items(itemname,Description,itemtag,status,portionsize,itemimage,price) VALUES (@itemname,@description,@itemtag,@status,@portionsize,@image,'"+price+"') ", conn);
 
@@ -581,7 +608,7 @@ namespace OrderManagement
                     byte[] img = ms.ToArray();
 
 
-                    MessageBox.Show(updateitem.getItemCode().ToString());
+                    //MessageBox.Show(updateitem.getItemCode().ToString());
                     //MessageBox.Show(updateitem.getDescription());
                     //MessageBox.Show(updateitem.getItemName());
                     //MessageBox.Show(updateitem.getPSize());
@@ -1075,6 +1102,21 @@ namespace OrderManagement
         private void totalprice_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void CloseWindow_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void CloseWindow_MouseMove(object sender, MouseEventArgs e)
+        {
+            CloseWindow.BackgroundImage = Resources.error;
+        }
+
+        private void CloseWindow_MouseLeave(object sender, EventArgs e)
+        {
+            CloseWindow.BackgroundImage = Resources.error__1_;
         }
 
         public void tableload()
