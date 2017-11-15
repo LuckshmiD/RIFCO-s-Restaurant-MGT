@@ -54,44 +54,59 @@ namespace Customer_Management
         //SEARCH TABLE ACCORDING TO NO OF OCCUPANTS
         private void button2_Click(object sender, EventArgs e)
 
-
         {
-            if (textocc.Text == "")
+            if (starttext.Text == "--Select--")
             {
-                MessageBox.Show("Please choose the number of occupants");
-                //added
+                MessageBox.Show("Please choose the start time");
                 return;
             }
+
+
             if ((starttext.Text == "10AM") && (endtext.Text != "12PM"))
             {
                 MessageBox.Show("Each Reservation can only be made for a time limit of 2 hours! Please chose the end time as 12PM! ");
-
+                return;
             }
             if ((starttext.Text == "12PM") && (endtext.Text != "2PM"))
             {
                 MessageBox.Show("Each Reservation can only be made for a time limit of 2 hours! Please chose the end time as 2PM! ");
-
+                return;
             }
             if ((starttext.Text == "2PM") && (endtext.Text != "4PM"))
             {
                 MessageBox.Show("Each Reservation can only be made for a time limit of 2 hours! Please chose the end time as 4PM! ");
-
+                return;
             }
             if ((starttext.Text == "4PM") && (endtext.Text != "6PM"))
             {
                 MessageBox.Show("Each Reservation can only be made for a time limit of 2 hours! Please chose the end time as 6PM! ");
-
+                return;
             }
             if ((starttext.Text == "6PM") && (endtext.Text != "8PM"))
             {
                 MessageBox.Show("Each Reservation can only be made for a time limit of 2 hours! Please chose the end time as 8PM! ");
-
+                return;
             }
             if ((starttext.Text == "8PM") && (endtext.Text != "10PM"))
             {
                 MessageBox.Show("Each Reservation can only be made for a time limit of 2 hours! Please chose the end time as 10PM! ");
-
+                return;
             }
+            if (textocc.Text == "--Select--")
+            {
+                MessageBox.Show("Please choose the number of occupants");
+                return;
+            }
+
+            var currdate = DateTime.Now.ToString("yyyy-MM-dd");
+            var resdate = datetext.Value.Date.ToString("yyyy-MM-dd");
+            if (DateTime.Parse(resdate) < DateTime.Parse(currdate))
+            {
+                MessageBox.Show("Please choose a valid date");
+                return;
+            }
+
+
 
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
@@ -322,6 +337,29 @@ namespace Customer_Management
             starttext.SelectedIndex = 0;
             endtext.SelectedIndex = 0;
             textocc.SelectedIndex = 0;
+            var currdate = DateTime.Now.ToString("yyyy-MM-dd");
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
+
+            string query = "DELETE FROM bookings where ResDate <'" + currdate + "' ";
+
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+
+            try
+            {
+                databaseConnection.Open();
+                reader = commandDatabase.ExecuteReader();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)

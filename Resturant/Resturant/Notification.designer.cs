@@ -38,11 +38,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textattach = new System.Windows.Forms.RichTextBox();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.rectangleShape4 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.textattach = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // rectangleShape1
@@ -122,7 +125,7 @@
             this.label11.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.label11.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F);
             this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(674, 350);
+            this.label11.Location = new System.Drawing.Point(774, 415);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(72, 24);
             this.label11.TabIndex = 15;
@@ -136,7 +139,7 @@
             this.button1.FlatAppearance.BorderSize = 5;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(530, 341);
+            this.button1.Location = new System.Drawing.Point(625, 406);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 43);
             this.button1.TabIndex = 20;
@@ -148,6 +151,8 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textattach);
             this.panel1.Controls.Add(this.button1);
@@ -157,43 +162,11 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textbody);
             this.panel1.Controls.Add(this.shapeContainer1);
-            this.panel1.Location = new System.Drawing.Point(76, 97);
+            this.panel1.Location = new System.Drawing.Point(50, 62);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(791, 414);
+            this.panel1.Size = new System.Drawing.Size(883, 468);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.rectangleShape4});
-            this.shapeContainer1.Size = new System.Drawing.Size(787, 410);
-            this.shapeContainer1.TabIndex = 17;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // rectangleShape4
-            // 
-            this.rectangleShape4.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.rectangleShape4.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
-            this.rectangleShape4.BorderColor = System.Drawing.Color.Red;
-            this.rectangleShape4.BorderWidth = 2;
-            this.rectangleShape4.CornerRadius = 5;
-            this.rectangleShape4.Location = new System.Drawing.Point(652, 343);
-            this.rectangleShape4.Name = "rectangleShape4";
-            this.rectangleShape4.Size = new System.Drawing.Size(115, 40);
-            this.rectangleShape4.Click += new System.EventHandler(this.rectangleShape4_Click);
-            // 
-            // textattach
-            // 
-            this.textattach.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textattach.Location = new System.Drawing.Point(197, 247);
-            this.textattach.Name = "textattach";
-            this.textattach.Size = new System.Drawing.Size(450, 38);
-            this.textattach.TabIndex = 21;
-            this.textattach.Text = "";
             // 
             // label2
             // 
@@ -205,6 +178,61 @@
             this.label2.Size = new System.Drawing.Size(143, 18);
             this.label2.TabIndex = 22;
             this.label2.Text = "Attachment Path";
+            // 
+            // textattach
+            // 
+            this.textattach.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textattach.Location = new System.Drawing.Point(197, 247);
+            this.textattach.Name = "textattach";
+            this.textattach.Size = new System.Drawing.Size(450, 38);
+            this.textattach.TabIndex = 21;
+            this.textattach.Text = "";
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.rectangleShape4});
+            this.shapeContainer1.Size = new System.Drawing.Size(879, 464);
+            this.shapeContainer1.TabIndex = 17;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // rectangleShape4
+            // 
+            this.rectangleShape4.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.rectangleShape4.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.rectangleShape4.BorderColor = System.Drawing.Color.Red;
+            this.rectangleShape4.BorderWidth = 2;
+            this.rectangleShape4.CornerRadius = 5;
+            this.rectangleShape4.Location = new System.Drawing.Point(747, 409);
+            this.rectangleShape4.Name = "rectangleShape4";
+            this.rectangleShape4.Size = new System.Drawing.Size(115, 40);
+            this.rectangleShape4.Click += new System.EventHandler(this.rectangleShape4_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(678, 35);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(198, 250);
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button2.FlatAppearance.BorderSize = 5;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(712, 291);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(134, 44);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "Load Image";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Notification
             // 
@@ -221,6 +249,7 @@
             this.Load += new System.EventHandler(this.Notification_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +270,7 @@
         private Microsoft.VisualBasic.PowerPacks.RectangleShape rectangleShape4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox textattach;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button2;
     }
 }

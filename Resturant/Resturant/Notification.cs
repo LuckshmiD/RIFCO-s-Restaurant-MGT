@@ -65,11 +65,14 @@ namespace Customer_Management
         }
 
         private void Notification_Load(object sender, EventArgs e)
-        { }
+        {
+            
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+           
+                try
             {
                 MailMessage message = new MailMessage();
 
@@ -83,12 +86,14 @@ namespace Customer_Management
 
 
 
+                if (textattach.Text.Trim() != string.Empty)
+                {
 
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment(textattach.Text.ToString());
-     
-                message.Attachments.Add(attachment);
+                    System.Net.Mail.Attachment attachment;
+                    attachment = new System.Net.Mail.Attachment(textattach.Text.ToString());
 
+                    message.Attachments.Add(attachment);
+                }
 
                 // Email Address from where you send the mail
                 var fromAddress = "myprojectmail001@gmail.com";
@@ -168,6 +173,7 @@ namespace Customer_Management
             {
                 MessageBox.Show(ex.Message);
                 {
+                    
                 }
 
 
@@ -196,6 +202,7 @@ namespace Customer_Management
 
 
             }
+           
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -209,6 +216,24 @@ namespace Customer_Management
             Form1 f1 = new Form1();
             f1.ShowDialog();
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // open file dialog   
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters  
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp;)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box  
+                pictureBox1.Image = new Bitmap(open.FileName);
+                // image file path  
+                textattach.Text = open.FileName;
+            }
+
+
+
         }
     }
 }
