@@ -71,6 +71,7 @@
             this.one.MouseDown += new System.Windows.Forms.MouseEventHandler(this.one_MouseDown);
             this.one.MouseLeave += new System.EventHandler(this.one_MouseLeave);
             this.one.MouseHover += new System.EventHandler(this.one_MouseHover);
+            this.one.MouseMove += new System.Windows.Forms.MouseEventHandler(this.one_MouseMove);
             this.one.MouseUp += new System.Windows.Forms.MouseEventHandler(this.one_MouseUp);
             // 
             // two
@@ -88,6 +89,7 @@
             this.two.MouseDown += new System.Windows.Forms.MouseEventHandler(this.two_MouseDown);
             this.two.MouseLeave += new System.EventHandler(this.two_MouseLeave);
             this.two.MouseHover += new System.EventHandler(this.two_MouseHover);
+            this.two.MouseMove += new System.Windows.Forms.MouseEventHandler(this.two_MouseMove);
             this.two.MouseUp += new System.Windows.Forms.MouseEventHandler(this.two_MouseUp);
             // 
             // three
@@ -105,6 +107,7 @@
             this.three.MouseDown += new System.Windows.Forms.MouseEventHandler(this.three_MouseDown);
             this.three.MouseLeave += new System.EventHandler(this.three_MouseLeave);
             this.three.MouseHover += new System.EventHandler(this.three_MouseHover);
+            this.three.MouseMove += new System.Windows.Forms.MouseEventHandler(this.three_MouseMove);
             this.three.MouseUp += new System.Windows.Forms.MouseEventHandler(this.three_MouseUp);
             // 
             // four
@@ -122,6 +125,7 @@
             this.four.MouseDown += new System.Windows.Forms.MouseEventHandler(this.four_MouseDown);
             this.four.MouseLeave += new System.EventHandler(this.four_MouseLeave);
             this.four.MouseHover += new System.EventHandler(this.four_MouseHover);
+            this.four.MouseMove += new System.Windows.Forms.MouseEventHandler(this.four_MouseMove);
             this.four.MouseUp += new System.Windows.Forms.MouseEventHandler(this.four_MouseUp);
             // 
             // five
@@ -139,6 +143,7 @@
             this.five.MouseDown += new System.Windows.Forms.MouseEventHandler(this.five_MouseDown);
             this.five.MouseLeave += new System.EventHandler(this.five_MouseLeave);
             this.five.MouseHover += new System.EventHandler(this.five_MouseHover);
+            this.five.MouseMove += new System.Windows.Forms.MouseEventHandler(this.five_MouseMove);
             this.five.MouseUp += new System.Windows.Forms.MouseEventHandler(this.five_MouseUp);
             // 
             // six
@@ -156,6 +161,7 @@
             this.six.MouseDown += new System.Windows.Forms.MouseEventHandler(this.six_MouseDown);
             this.six.MouseLeave += new System.EventHandler(this.six_MouseLeave);
             this.six.MouseHover += new System.EventHandler(this.six_MouseHover);
+            this.six.MouseMove += new System.Windows.Forms.MouseEventHandler(this.six_MouseMove);
             this.six.MouseUp += new System.Windows.Forms.MouseEventHandler(this.six_MouseUp);
             // 
             // seven
@@ -173,6 +179,7 @@
             this.seven.MouseDown += new System.Windows.Forms.MouseEventHandler(this.seven_MouseDown);
             this.seven.MouseLeave += new System.EventHandler(this.seven_MouseLeave);
             this.seven.MouseHover += new System.EventHandler(this.seven_MouseHover);
+            this.seven.MouseMove += new System.Windows.Forms.MouseEventHandler(this.seven_MouseMove);
             this.seven.MouseUp += new System.Windows.Forms.MouseEventHandler(this.seven_MouseUp);
             // 
             // eight
@@ -190,6 +197,7 @@
             this.eight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.eight_MouseDown);
             this.eight.MouseLeave += new System.EventHandler(this.eight_MouseLeave);
             this.eight.MouseHover += new System.EventHandler(this.eight_MouseHover);
+            this.eight.MouseMove += new System.Windows.Forms.MouseEventHandler(this.eight_MouseMove);
             this.eight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.eight_MouseUp);
             // 
             // nine
@@ -207,6 +215,7 @@
             this.nine.MouseDown += new System.Windows.Forms.MouseEventHandler(this.nine_MouseDown);
             this.nine.MouseLeave += new System.EventHandler(this.nine_MouseLeave);
             this.nine.MouseHover += new System.EventHandler(this.nine_MouseHover);
+            this.nine.MouseMove += new System.Windows.Forms.MouseEventHandler(this.nine_MouseMove);
             this.nine.MouseUp += new System.Windows.Forms.MouseEventHandler(this.nine_MouseUp);
             // 
             // zero
@@ -224,6 +233,7 @@
             this.zero.MouseDown += new System.Windows.Forms.MouseEventHandler(this.zero_MouseDown);
             this.zero.MouseLeave += new System.EventHandler(this.zero_MouseLeave);
             this.zero.MouseHover += new System.EventHandler(this.zero_MouseHover);
+            this.zero.MouseMove += new System.Windows.Forms.MouseEventHandler(this.zero_MouseMove);
             this.zero.MouseUp += new System.Windows.Forms.MouseEventHandler(this.zero_MouseUp);
             // 
             // backspace
@@ -241,6 +251,7 @@
             this.backspace.MouseDown += new System.Windows.Forms.MouseEventHandler(this.backspace_MouseDown);
             this.backspace.MouseLeave += new System.EventHandler(this.backspace_MouseLeave);
             this.backspace.MouseHover += new System.EventHandler(this.backspace_MouseHover);
+            this.backspace.MouseMove += new System.Windows.Forms.MouseEventHandler(this.backspace_MouseMove);
             this.backspace.MouseUp += new System.Windows.Forms.MouseEventHandler(this.backspace_MouseUp);
             // 
             // pay
@@ -259,6 +270,7 @@
             this.pay.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pay_MouseDown);
             this.pay.MouseLeave += new System.EventHandler(this.pay_MouseLeave);
             this.pay.MouseHover += new System.EventHandler(this.pay_MouseHover);
+            this.pay.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pay_MouseMove);
             this.pay.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pay_MouseUp);
             // 
             // priceLabel
@@ -286,6 +298,7 @@
             this.Cancel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Cancel_MouseDown);
             this.Cancel.MouseLeave += new System.EventHandler(this.Cancel_MouseLeave);
             this.Cancel.MouseHover += new System.EventHandler(this.Cancel_MouseHover);
+            this.Cancel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Cancel_MouseMove);
             this.Cancel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Cancel_MouseUp);
             // 
             // dot
@@ -304,6 +317,7 @@
             this.dot.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dot_MouseDown);
             this.dot.MouseLeave += new System.EventHandler(this.dot_MouseLeave);
             this.dot.MouseHover += new System.EventHandler(this.dot_MouseHover);
+            this.dot.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dot_MouseMove);
             this.dot.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dot_MouseUp);
             // 
             // Cash_Validation

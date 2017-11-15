@@ -382,88 +382,46 @@ namespace Cashier
 
 
         private void one_MouseHover(object sender, EventArgs e)
-        {
-            one.BackgroundImage = Resources.one_dark;
-            one.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void three_MouseHover(object sender, EventArgs e)
-        {
-            three.BackgroundImage = Resources.three_dark;
-            three.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void two_MouseHover(object sender, EventArgs e)
-        {
-            two.BackgroundImage = Resources.two_dark;
-            two.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void four_MouseHover(object sender, EventArgs e)
-        {
-            four.BackgroundImage = Resources.four_dark;
-            four.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void five_MouseHover(object sender, EventArgs e)
-        {
-            five.BackgroundImage = Resources.five_dark;
-            five.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void six_MouseHover(object sender, EventArgs e)
-        {
-            six.BackgroundImage = Resources.six_dark;
-            six.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void seven_MouseHover(object sender, EventArgs e)
-        {
-            seven.BackgroundImage = Resources.seven_dark;
-            seven.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void eight_MouseHover(object sender, EventArgs e)
-        {
-            eight.BackgroundImage = Resources.eight_dark;
-            eight.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void nine_MouseHover(object sender, EventArgs e)
-        {
-            nine.BackgroundImage = Resources.nine_dark;
-            nine.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void zero_MouseHover(object sender, EventArgs e)
-        {
-            zero.BackgroundImage = Resources.zero_dark;
-            zero.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void dot_MouseHover(object sender, EventArgs e)
-        {
-            dot.BackgroundImage = Resources.dot_dark;
-            dot.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void backspace_MouseHover(object sender, EventArgs e)
-        {
-            backspace.BackgroundImage = Resources.backspace_dark;
-            backspace.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void pay_MouseHover(object sender, EventArgs e)
-        {
-            pay.BackgroundImage = Resources.success;
-            pay.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void Cancel_MouseHover(object sender, EventArgs e)
-        {
-            Cancel.BackgroundImage = Resources.error;
-            Cancel.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
 
 
@@ -564,12 +522,88 @@ namespace Cashier
         private void Cancel_MouseClick(object sender, MouseEventArgs e)
         {}
 
-        
+        private void one_MouseMove(object sender, MouseEventArgs e)
+        {
+            one.BackgroundImage = Resources.one_dark;
+            one.BackgroundImageLayout = ImageLayout.Zoom;
+        }
 
+        private void two_MouseMove(object sender, MouseEventArgs e)
+        {
+            two.BackgroundImage = Resources.two_dark;
+            two.BackgroundImageLayout = ImageLayout.Zoom;
+        }
 
+        private void three_MouseMove(object sender, MouseEventArgs e)
+        {
+            three.BackgroundImage = Resources.three_dark;
+            three.BackgroundImageLayout = ImageLayout.Zoom;
+        }
 
+        private void four_MouseMove(object sender, MouseEventArgs e)
+        {
+            four.BackgroundImage = Resources.four_dark;
+            four.BackgroundImageLayout = ImageLayout.Zoom;
+        }
 
+        private void five_MouseMove(object sender, MouseEventArgs e)
+        {
+            five.BackgroundImage = Resources.five_dark;
+            five.BackgroundImageLayout = ImageLayout.Zoom;
+        }
 
-        
+        private void six_MouseMove(object sender, MouseEventArgs e)
+        {
+            six.BackgroundImage = Resources.six_dark;
+            six.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        private void seven_MouseMove(object sender, MouseEventArgs e)
+        {
+            seven.BackgroundImage = Resources.seven_dark;
+            seven.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        private void eight_MouseMove(object sender, MouseEventArgs e)
+        {
+            eight.BackgroundImage = Resources.eight_dark;
+            eight.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        private void nine_MouseMove(object sender, MouseEventArgs e)
+        {
+            nine.BackgroundImage = Resources.nine_dark;
+            nine.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        private void dot_MouseMove(object sender, MouseEventArgs e)
+        {
+            dot.BackgroundImage = Resources.dot_dark;
+            dot.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        private void zero_MouseMove(object sender, MouseEventArgs e)
+        {
+            zero.BackgroundImage = Resources.zero_dark;
+            zero.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        private void backspace_MouseMove(object sender, MouseEventArgs e)
+        {
+            backspace.BackgroundImage = Resources.backspace_dark;
+            backspace.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        private void pay_MouseMove(object sender, MouseEventArgs e)
+        {
+            pay.BackgroundImage = Resources.success;
+            pay.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        private void Cancel_MouseMove(object sender, MouseEventArgs e)
+        {
+            Cancel.BackgroundImage = Resources.error;
+            Cancel.BackgroundImageLayout = ImageLayout.Zoom;
+        }
     }
 }

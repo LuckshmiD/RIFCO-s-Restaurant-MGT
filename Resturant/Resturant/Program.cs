@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OrderManagement;
+using Cashier;
 
 namespace Resturant
 {
@@ -17,7 +18,7 @@ namespace Resturant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MakeOrder(2,123));
+            Application.Run(new Dashboard());
         }
     }
 }

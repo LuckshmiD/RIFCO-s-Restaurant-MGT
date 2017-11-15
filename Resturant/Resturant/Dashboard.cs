@@ -56,6 +56,7 @@ namespace Cashier
             this.WindowState = FormWindowState.Maximized;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
+            
         }
 
         private void t_Tick(object sender, EventArgs e)
@@ -510,10 +511,7 @@ namespace Cashier
         }
 
         private void close_MouseHover(object sender, EventArgs e)
-        {
-            close.BackgroundImage = Resources.error;
-            close.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void close_MouseLeave(object sender, EventArgs e)
         {
@@ -521,8 +519,15 @@ namespace Cashier
             close.BackgroundImageLayout = ImageLayout.Zoom;
         }
 
-        
+        private void close_MouseMove(object sender, MouseEventArgs e)
+        {
+            close.BackgroundImage = Resources.error;
+            close.BackgroundImageLayout = ImageLayout.Zoom;
+        }
 
-        
+        private void button5_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
     }
 }

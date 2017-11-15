@@ -209,10 +209,7 @@ namespace Cashier
         }
 
         private void CreditCard_MouseHover(object sender, EventArgs e)
-        {
-            CreditCard.BackgroundImage = Resources.credit_dark;
-            CreditCard.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void CreditCard_MouseLeave(object sender, EventArgs e)
         {
@@ -227,10 +224,7 @@ namespace Cashier
         }
 
         private void Cash_MouseHover(object sender, EventArgs e)
-        {
-            Cash.BackgroundImage = Resources.cash_dark;
-            Cash.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void close_Click(object sender, EventArgs e)
         {
@@ -238,10 +232,7 @@ namespace Cashier
         }
 
         private void close_MouseHover(object sender, EventArgs e)
-        {
-            close.BackgroundImage = Resources.error;
-            close.BackgroundImageLayout = ImageLayout.Zoom;
-        }
+        {}
 
         private void close_MouseLeave(object sender, EventArgs e)
         {
@@ -252,6 +243,24 @@ namespace Cashier
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void close_MouseMove(object sender, MouseEventArgs e)
+        {
+            close.BackgroundImage = Resources.error;
+            close.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        private void Cash_MouseMove(object sender, MouseEventArgs e)
+        {
+            Cash.BackgroundImage = Resources.cash_dark;
+            Cash.BackgroundImageLayout = ImageLayout.Zoom;
+        }
+
+        private void CreditCard_MouseMove(object sender, MouseEventArgs e)
+        {
+            CreditCard.BackgroundImage = Resources.credit_dark;
+            CreditCard.BackgroundImageLayout = ImageLayout.Zoom;
         }
     }
 }
