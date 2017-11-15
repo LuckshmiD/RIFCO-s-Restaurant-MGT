@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Net.Mail;
 using OrderManagement;
 
 
@@ -19,7 +20,20 @@ namespace Customer_Management
         {
             InitializeComponent();
         }
+        public bool IsValid(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
 
+                return true;
+            }
+            catch (FormatException)
+            {
+
+                return false;
+            }
+        }
         public static string mobile;
 
         public static string Mobile { get => mobile; set => mobile = value; }
@@ -171,7 +185,7 @@ namespace Customer_Management
                             Methods m1 = new Methods();
 
                             //next page
-                            //new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                            new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
                         }
 
 
@@ -196,7 +210,7 @@ namespace Customer_Management
                             Methods m1 = new Methods();
 
                             //next page
-                            // new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                             new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
                         }
 
 
@@ -306,6 +320,7 @@ namespace Customer_Management
                     MessageBox.Show("Please enter a valid mobile number of 10 digits only");
                     return; // return because we don't want to run normal code of buton click
                 }
+
             }
             if ((textmobile.Text.Trim() == string.Empty) && (textemail.Text.Trim() == string.Empty))
 
@@ -337,41 +352,48 @@ namespace Customer_Management
 
                     if ((textemail.Text.Trim() != string.Empty))
                     {
-                        if (count2 == 1)
+                        bool result = IsValid(textemail.Text);
+                        if (result == true)
                         {
-                            MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Methods m1 = new Methods();
+                            if (count2 == 1)
+                            {
+                                MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Methods m1 = new Methods();
 
-                            //next page
-                            //new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                                //next page
+                                //new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                            }
+
+
+                            else if (count2 == 0)
+                            {
+
+
+                                string type = "RegisteredE";
+                                string query = "INSERT INTO CUSTOMER (MobileNumber,Email,Type) VALUES ('" + this.textmobile.Text + "','" + this.textemail.Text + "','" + type + "');";
+
+                                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+                                commandDatabase.CommandTimeout = 60;
+
+
+
+                                MySqlDataReader myReader = commandDatabase.ExecuteReader();
+                                myReader.Close();
+
+
+                                databaseConnection.Close();
+                                MessageBox.Show("You have been registered  through your Email!Thank you for registering with us!!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Methods m1 = new Methods();
+
+                                //next page
+                                // new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                            }
+
                         }
-
-
-                        else if (count2 == 0)
+                        else if (result == false)
                         {
-
-
-                            string type = "RegisteredE";
-                            string query = "INSERT INTO CUSTOMER (MobileNumber,Email,Type) VALUES ('" + this.textmobile.Text + "','" + this.textemail.Text + "','" + type + "');";
-
-                            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-                            commandDatabase.CommandTimeout = 60;
-
-
-
-                            MySqlDataReader myReader = commandDatabase.ExecuteReader();
-                            myReader.Close();
-
-
-                            databaseConnection.Close();
-                            MessageBox.Show("You have been registered  through your Email!Thank you for registering with us!!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Methods m1 = new Methods();
-
-                            //next page
-                            // new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                            MessageBox.Show("Please enter a valid email address");
                         }
-
-
 
                     }
                 }

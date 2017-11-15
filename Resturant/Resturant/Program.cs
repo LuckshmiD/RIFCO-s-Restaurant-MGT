@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OrderManagement;
 using Cashier;
+using Customer_Management;
 
 namespace Resturant
 {
@@ -18,7 +19,8 @@ namespace Resturant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
+            //Application.Run(new Dashboard());
+            Application.Run(new Form1());
         }
     }
 }

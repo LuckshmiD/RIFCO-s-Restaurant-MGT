@@ -210,6 +210,25 @@ namespace Customer_Management
 
 
         }
+        //get number lux
+        public string getNumber(int cid)
+        {
+            string number = "";
+
+            string query = "select MobileNumber from customer where CID='" + cid + "'; ";
+            MySqlCommand cmd = new MySqlCommand(query, con);
+            con.Open();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                number = (reader[0].ToString());
+            }
+            reader.Close();
+            con.Close();
+
+            return number;
+
+        }
 
     }
 

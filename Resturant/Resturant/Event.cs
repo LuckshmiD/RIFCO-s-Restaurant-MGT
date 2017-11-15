@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Customer_Management;
 using System.Text.RegularExpressions;
 
 namespace EventCaterMgt
@@ -20,7 +21,15 @@ namespace EventCaterMgt
             InitializeComponent();
             con = new MySqlConnection(@"server=localhost;userid=root;password=;database=rmsdatabase");
         }
-       
+        public Event(int cid, string number, string name)
+        {
+            InitializeComponent();
+            con = new MySqlConnection(@"server=localhost;userid=root;password=;database=rmsdatabase");
+            cusid.Text = Convert.ToString(cid);
+            cusname.Text = name;
+            cuscontact.Text = number;
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -62,8 +71,8 @@ namespace EventCaterMgt
                 {
                     MessageBox.Show("Please fill in all the fields.!!!");
                 }
-               
-               else  if (!phoneNumpattern.IsMatch(cuscontact.Text))
+
+                else if (!phoneNumpattern.IsMatch(cuscontact.Text))
                 {
                     MessageBox.Show("Invalid contact number \n It should be \n Eg : 0777565689 \n 0 followed with 9 digits");
                 }
@@ -80,7 +89,7 @@ namespace EventCaterMgt
                     con.Open();
                     MySqlCommand cmd = con.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "Insert into event(ename,datetime,count,duration,cusContact,time,package) values('"+ename.Text+"','" + date.Text + "','" + Convert.ToInt32(count.Text) + "','" + Convert.ToInt32(duration.SelectedItem) + "','" + cuscontact.Text + "','" + time.Text + "','"+packcombo.SelectedItem +"')";
+                    cmd.CommandText = "Insert into event(ename,datetime,count,duration,cusContact,time,package) values('" + ename.Text + "','" + date.Text + "','" + Convert.ToInt32(count.Text) + "','" + Convert.ToInt32(duration.SelectedItem) + "','" + cuscontact.Text + "','" + time.Text + "','" + packcombo.SelectedItem + "')";
                     cmd.ExecuteReader();
                     con.Close();
                     MessageBox.Show("Successfully Saved");
@@ -99,7 +108,7 @@ namespace EventCaterMgt
             catch (Exception ee)
             {
                 MessageBox.Show("" + ee, "ERRor", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               // con.Close();
+                // con.Close();
 
             }
         }
@@ -252,7 +261,7 @@ namespace EventCaterMgt
 
         private void button1_Click(object sender, EventArgs e)
         {
-        try
+            try
             {
                 con.Open();
                 string quer = "select CID from customer where MobileNumber= '" + cuscontact.Text + "'";// customer table ,cid is cater id
@@ -261,11 +270,24 @@ namespace EventCaterMgt
                 MySqlCommand cmd1 = new MySqlCommand(quer1, con);
                 if (cmd.ExecuteScalar() != null)
                 {
-                    cusid.Text = cmd.ExecuteScalar().ToString();
-                    cusname.Text = cmd1.ExecuteScalar().ToString();
+                    if (cmd1.ExecuteScalar().ToString() != "")
+                    {
+                        cusid.Text = cmd.ExecuteScalar().ToString();
+                        cusname.Text = cmd1.ExecuteScalar().ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Number not found Please Register");
+                        new Registratio().Show();
+
+                    }
                 }
-                else {
+
+                else
+                {
                     MessageBox.Show("Number not found Please Register");
+                    new Registratio().Show();
+
                 }
 
                 con.Close();
@@ -278,7 +300,7 @@ namespace EventCaterMgt
             {
                 con.Close();
             }
-        
+
 
         }
 
@@ -313,53 +335,53 @@ namespace EventCaterMgt
             try
             {
                 con.Open();
-               
-                    string pack = packcombo.SelectedItem.ToString();
-                    double price;
-                
-                    
-                    string que = "select price from package where pname = '" + pack + "'";
-                    MySqlCommand cmd = new MySqlCommand(que, con);
-                    MySqlDataReader read = cmd.ExecuteReader();
-                if(read.Read())
+
+                string pack = packcombo.SelectedItem.ToString();
+                double price;
+
+
+                string que = "select price from package where pname = '" + pack + "'";
+                MySqlCommand cmd = new MySqlCommand(que, con);
+                MySqlDataReader read = cmd.ExecuteReader();
+                if (read.Read())
                 {
-                    packprice.Text = read.GetDouble("price").ToString();                    
+                    packprice.Text = read.GetDouble("price").ToString();
                     price = Convert.ToDouble(packprice.Text);
 
                     double du, hd, tot;
                     du = Convert.ToDouble(duamount.Text);
 
-                    
-                    
-                        hd = Convert.ToDouble(count.Text);
-                        tot = du + hd + price;
-
-                        duhead.Text = Convert.ToString(tot);
 
 
-                        read.Close();
-                    
+                    hd = Convert.ToDouble(count.Text);
+                    tot = du + hd + price;
+
+                    duhead.Text = Convert.ToString(tot);
+
+
+                    read.Close();
+
                 }
 
-                
-                
 
 
-                  string  add = "select pname as MainMenu,mainmeal as MainMeal,dessert as Dessert,drink as Drink,price as Price from package where pname='"+pack+"'";
-                   MySqlCommand cmd1 = new MySqlCommand(add, con);
-
-                   MySqlDataAdapter sda = new MySqlDataAdapter();
-                   sda.SelectCommand = cmd1;
-                   DataTable dbdataset = new DataTable();
-                    sda.Fill(dbdataset);
-                    BindingSource bsource = new BindingSource();
-
-                    bsource.DataSource = dbdataset;
-                    dataGridView2.DataSource = bsource;
-                    sda.Update(dbdataset);
 
 
-        }
+                string add = "select pname as MainMenu,mainmeal as MainMeal,dessert as Dessert,drink as Drink,price as Price from package where pname='" + pack + "'";
+                MySqlCommand cmd1 = new MySqlCommand(add, con);
+
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = cmd1;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bsource = new BindingSource();
+
+                bsource.DataSource = dbdataset;
+                dataGridView2.DataSource = bsource;
+                sda.Update(dbdataset);
+
+
+            }
             catch (Exception ex)
             {
                 // MessageBox.Show(ex.Message);
@@ -408,10 +430,10 @@ namespace EventCaterMgt
                     con.Open();
                     MySqlCommand cmd1 = con.CreateCommand();
                     cmd1.CommandType = CommandType.Text;
-                    cmd1.CommandText = "Insert into event(ename,datetime,count,duration,cusContact,time,package) values('" + ename.Text + "','" + date.Text + "','" + Convert.ToInt32(count.Text) + "','" + Convert.ToInt32(duration.SelectedItem) + "','" + cuscontact.Text + "','" + time.Text + "','" + packcombo.SelectedItem + "')";
+                    cmd1.CommandText = "Insert into event(ename,datetime,count,duration,cusContact,time,package,cusId,cusname) values('" + ename.Text + "','" + date.Text + "','" + Convert.ToInt32(count.Text) + "','" + Convert.ToInt32(duration.SelectedItem) + "','" + cuscontact.Text + "','" + time.Text + "','" + packcombo.SelectedItem + "','" + Convert.ToInt32(cusid.Text) + "','" + cusname.Text + "')";
                     cmd1.ExecuteReader();
                     con.Close();
-                   // MessageBox.Show("Successfully Saved");
+                    // MessageBox.Show("Successfully Saved");
 
 
                     // string inc = "insert into income(Descri,Type,Date,Voucher_No,Amount) values('Cash','Sales','"+date.Text+"','V"+cusid.Text+"','"+Convert.ToDouble(duhead.Text)+"')";
@@ -431,16 +453,17 @@ namespace EventCaterMgt
 
                         dsrtcombo.Text = "Choose From Here";
                         duration.SelectedIndex = -1;
-                        packcombo.SelectedIndex = -1;
+                        packprice.Text = "0";
+                        // packcombo.SelectedIndex = -1;
                         count.Text = "";
                         hdamount.Text = "";
-                        duamount.Text = "";
+                        duamount.Text = "0";
                         duhead.Text = "";
-                        dsrt.Text = "";
+                        dsrt.Text = "0";
                         cusid.Text = "";
                         cusname.Text = "";
                         Advance.Text = "";
-                        packprice.Text = "";
+
                         date.Text = "";
                         //count.Text = "";
                         cuscontact.Text = "";
@@ -512,7 +535,7 @@ namespace EventCaterMgt
 
 
                     hd = Convert.ToDouble(count.Text);
-                    tot = du + (hd * (pack1 + dsrt1));
+                    tot = du + (hd * (pack1) + dsrt1);
 
                     duhead.Text = Convert.ToString(tot);
                     Advance.Text = Convert.ToString(tot * .50);
@@ -559,9 +582,9 @@ namespace EventCaterMgt
                 double c = Convert.ToDouble(count.Text);
                 double pp = Convert.ToDouble(packprice.Text);
                 double ds = Convert.ToDouble(dsrt.Text);
-                double Iprice = c*(pp+ds);
-              
-                
+                double Iprice = c * (pp + ds);
+
+
 
                 if (count.Text == "")
                 {
@@ -570,17 +593,17 @@ namespace EventCaterMgt
                 else
                 {
                     //Iprice = Convert.ToDouble(price1.Text) * Convert.ToDouble(count.Text);
-                    string add = "insert into eventorders values('" + cusid.Text + "','" + pack + "','" + items + "','"+c+"','" + Iprice + "')";
+                    string add = "insert into eventorders values('" + cusid.Text + "','" + pack + "','" + items + "','" + c + "','" + Iprice + "')";
                     con.Open();
                     MySqlCommand cmd = new MySqlCommand(add, con);
 
                     cmd.ExecuteReader();
                     con.Close();
- 
-                      MessageBox.Show("Successfully added");
-                      count.Text = "";
-                      dsrt.Text = "";
-                      packprice.Text = "";
+
+                    //  MessageBox.Show("Successfully added");
+                    // count.Text = "";
+                    //  dsrt.Text = "";
+                    //  packprice.Text = "";
 
 
                     add = "select Package, Items, Quantity, Price from eventorders where customer = '" + cusid.Text + "'";
@@ -598,15 +621,45 @@ namespace EventCaterMgt
                     sda.Update(dbdataset);
                 }
                 double final = Convert.ToDouble(duhead.Text);
-               // double itotal = Convert.ToDouble(Itot.Text);
+                // double itotal = Convert.ToDouble(Itot.Text);
                 double duration = Convert.ToDouble(duamount.Text);
-              //  final = itotal + duration;
+                //  final = itotal + duration;
                 duhead.Text = Convert.ToString(final);
                 Advance.Text = Convert.ToString(final * 0.50);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+                string add1 = "truncate table eventorders";
+                MySqlCommand cmd = new MySqlCommand(add1, con);
+                cmd.ExecuteReader();
+                con.Close();
+
+                con.Open();
+                add1 = "insert into eventorders values(0,'0','0',0,0)";
+                cmd = new MySqlCommand(add1, con);
+                cmd.ExecuteReader();
+                con.Close();
+
+                DataTable emptyDT1 = new DataTable();
+                eventOrder.DataSource = emptyDT1;
+
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
             }
             finally
             {

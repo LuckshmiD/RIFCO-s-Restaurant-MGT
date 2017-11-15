@@ -63,6 +63,7 @@
             this.dsrt = new System.Windows.Forms.Label();
             this.eventOrder = new System.Windows.Forms.DataGridView();
             this.AddOrder = new System.Windows.Forms.Button();
+            this.Clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventOrder)).BeginInit();
@@ -417,11 +418,22 @@
             this.AddOrder.UseVisualStyleBackColor = true;
             this.AddOrder.Click += new System.EventHandler(this.AddOrder_Click);
             // 
+            // Clear
+            // 
+            this.Clear.Location = new System.Drawing.Point(570, 483);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(75, 23);
+            this.Clear.TabIndex = 70;
+            this.Clear.Text = "Clear";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
             // Event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 511);
+            this.Controls.Add(this.Clear);
             this.Controls.Add(this.AddOrder);
             this.Controls.Add(this.eventOrder);
             this.Controls.Add(this.label11);
@@ -507,6 +519,7 @@
         private System.Windows.Forms.Label dsrt;
         private System.Windows.Forms.DataGridView eventOrder;
         private System.Windows.Forms.Button AddOrder;
+        private System.Windows.Forms.Button Clear;
     }
 }
 

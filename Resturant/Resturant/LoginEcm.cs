@@ -53,7 +53,7 @@ namespace EventCaterMgt
                     {
                         if (reader.GetString("password") == password)
                         {
-                            MessageBox.Show(uname + " logged in successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                           // MessageBox.Show(uname + " logged in successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             // MainECM me = new MainECM();
                             createMenu main = new createMenu();
 

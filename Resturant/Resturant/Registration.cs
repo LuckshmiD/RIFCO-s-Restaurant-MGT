@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Text.RegularExpressions;
+using EventCaterMgt;
 
 namespace Customer_Management
 {
@@ -208,11 +209,11 @@ namespace Customer_Management
                 MessageBox.Show("Please enter a valid name");
                 return; // return because we don't want to run normal code of buton click
             }
-            else if (textaddress.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show("Please enter a valid address");
-                return; // return because we don't want to run normal code of buton click
-            }
+            //else if (textaddress.Text.Trim() == string.Empty)
+            //{
+              //  MessageBox.Show("Please enter a valid address");
+                //return; // return because we don't want to run normal code of buton click
+            //}
             //else if (textemail.Text.Trim() == string.Empty)
             // {
             //   MessageBox.Show("Please enter a valid address");
@@ -527,6 +528,7 @@ namespace Customer_Management
             Methods m1 = new Methods();
             m1.getAddress(textmobile.Text);
             m1.getName(textmobile.Text);
+            //m1.getNumber(label12.Text);
 
         }
 
@@ -539,32 +541,38 @@ namespace Customer_Management
         {
 
             this.Hide();
-            Form1 f1 = new Form1();
-            f1.ShowDialog();
 
-            // this.Hide();
-            //Event e1=new Event();
-            //e1.ShowDialog();
-            // Methods m1 = new Methods();
-            //int max = m1.getmaxcid();
+
+            Methods m1 = new Methods();
+            int cid = m1.getmaxcid();
+            string number = m1.getNumber(cid);
+            string name = m1.getName(number);
+            new Cater(cid, number, name).Show();
         }
 
         private void label14_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //new Cater();
-            //c1.ShowDialog();
+
+
             Methods m1 = new Methods();
-            int max=m1.getmaxcid();
+            int cid = m1.getmaxcid();
+          // MessageBox.Show(cid.ToString());
+            string number = m1.getNumber(cid);
+            string name = m1.getName(number);
+           new Cater(cid, number, name).Show();
         }
 
         private void label15_Click(object sender, EventArgs e)
         {
-            // this.Hide();
-            //Event e1=new Event();
-            //e1.ShowDialog();
+            this.Hide();
+
+
             Methods m1 = new Methods();
-            int max = m1.getmaxcid();
+            int cid = m1.getmaxcid();
+            string number = m1.getNumber(cid);
+            string name = m1.getName(number);
+            new Event(cid, number, name).Show();
         }
     }
     }

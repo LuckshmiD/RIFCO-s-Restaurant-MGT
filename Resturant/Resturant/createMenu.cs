@@ -682,9 +682,9 @@ namespace EventCaterMgt
                             name.Text = "";
                             mprice.Text = "";
                             chooseType.SelectedIndex = -1;
-                            dsrtcombo.SelectedIndex = -1;
-                            drnkcombo.SelectedIndex = -1;
-                            mealcombo.SelectedIndex = -1;
+                            //dsrtcombo.SelectedIndex = -1;
+                            //drnkcombo.SelectedIndex = -1;
+                            //mealcombo.SelectedIndex = -1;
                         }
                         fillPackageDataGrid();
 
@@ -787,14 +787,15 @@ namespace EventCaterMgt
                         name.Text = "";
                         mprice.Text = "";
                         chooseType.SelectedIndex = -1;
-                        dsrtcombo.SelectedIndex = -1;
-                        drnkcombo.SelectedIndex = -1;
-                        mealcombo.SelectedIndex = -1;
+                        //dsrtcombo.SelectedIndex = -1;
+                        //drnkcombo.SelectedIndex = -1;
+                        //mealcombo.SelectedIndex = -1;
                     }
                     fillPackageDataGrid(); 
                     MessageBox.Show("Successfully updated");
 
                 }
+                addPackComboItems();
             }
             catch (Exception ex)
             {
@@ -950,14 +951,15 @@ namespace EventCaterMgt
                     name.Text = "";
                     mprice.Text = "";
                     chooseType.SelectedIndex = -1;
-                    dsrtcombo.SelectedIndex = -1;
-                    drnkcombo.SelectedIndex = -1;
-                    mealcombo.SelectedIndex = -1;
+                    //dsrtcombo.SelectedIndex = -1;
+                    //drnkcombo.SelectedIndex = -1;
+                    //mealcombo.SelectedIndex = -1;
 
                     fillPackageDataGrid();
                     MessageBox.Show("Successfully deleted");
 
                 }
+                addPackComboItems();
             }
             catch (Exception ex)
             {

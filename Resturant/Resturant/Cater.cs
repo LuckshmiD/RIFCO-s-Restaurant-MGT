@@ -9,10 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Text.RegularExpressions;
+using Customer_Management;
+
 namespace EventCaterMgt
+   
 {
     public partial class Cater : Form
     {
+        private  int Cid1 = 0;
         MySqlConnection con;
         public Cater()
         {
@@ -20,7 +24,19 @@ namespace EventCaterMgt
             con = new MySqlConnection(@"server=localhost;userid=root;password=;database=rmsdatabase");
         }
 
+        public Cater(int cid, string number,string name)
+        {
 
+            InitializeComponent();
+            con = new MySqlConnection(@"server=localhost;userid=root;password=;database=rmsdatabase");
+
+            Cid1 = cid;
+         
+          
+            cusid.Text = cusid.Text + Cid1.ToString();
+            cusname.Text = name;
+            cuscontact.Text =number;
+        }
         public bool cusExist(string cus)
         {
             bool val = true;
@@ -250,12 +266,25 @@ namespace EventCaterMgt
                 MySqlCommand cmd1 = new MySqlCommand(quer1, con);
                 if (cmd.ExecuteScalar() != null)
                 {
-                    cusid.Text = cmd.ExecuteScalar().ToString();
-                    cusname.Text = cmd1.ExecuteScalar().ToString();
+                    if (cmd1.ExecuteScalar().ToString() != "")
+                    {
+                        cusid.Text = cmd.ExecuteScalar().ToString();
+                        cusname.Text = cmd1.ExecuteScalar().ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Number not found Please Register");
+                        new Registratio().Show();
+
+                    }
                 }
+
                 else {
                     MessageBox.Show("Number not found Please Register");
-                }
+                    new Registratio().Show();
+                                 
+            }
+                
 
                 con.Close();
             }
@@ -413,7 +442,7 @@ namespace EventCaterMgt
                     con.Open();
                     MySqlCommand cmd1 = con.CreateCommand();
                     cmd1.CommandType = CommandType.Text;
-                    cmd1.CommandText = "Insert into cater(datetime,address,count,duration,cusContact,time) values('" + date.Text + "','" + address.Text + "','" + Convert.ToInt32(count.Text) + "','" + Convert.ToInt32(duration.SelectedItem) + "','" + cuscontact.Text + "','" + time.Text + "')";
+                    cmd1.CommandText = "Insert into cater(datetime,address,count,duration,cusContact,time,cusId,cusname) values('" + date.Text + "','" + address.Text + "','" + Convert.ToInt32(count.Text) + "','" + Convert.ToInt32(duration.SelectedItem) + "','" + cuscontact.Text + "','" + time.Text + "','" + Convert.ToInt32(cusid.Text) + "','" + cusname.Text + "')";
                     cmd1.ExecuteReader();
                     con.Close();
                   //  MessageBox.Show("Successfully Saved");
