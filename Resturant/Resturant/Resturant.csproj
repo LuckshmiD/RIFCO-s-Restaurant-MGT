@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,8 +32,14 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="GSMCommServer, Version=1.21.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81, processorArchitecture=MSIL">
       <HintPath>..\packages\GSMComm.1.21.1\lib\GSMCommServer.dll</HintPath>
     </Reference>
@@ -55,6 +62,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,6 +79,18 @@
     </Compile>
     <Compile Include="AddNewItem.designer.cs">
       <DependentUpon>AddNewItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BillReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BillReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BillReportViewer.Designer.cs">
+      <DependentUpon>BillReportViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Bookings.cs">
       <SubType>Form</SubType>
@@ -126,6 +146,12 @@
     <Compile Include="Credit_Card_Validation.designer.cs">
       <DependentUpon>Credit_Card_Validation.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerMain.cs">
       <SubType>Form</SubType>
@@ -167,6 +193,12 @@
     <Compile Include="DeliveryPayment.designer.cs">
       <DependentUpon>DeliveryPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="EpenditureReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EpenditureReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Event.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +217,12 @@
     </Compile>
     <Compile Include="FeedbkAdmin.designer.cs">
       <DependentUpon>FeedbkAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Income.cs" />
     <Compile Include="IncomeUI.cs">
@@ -276,6 +314,12 @@
     <Compile Include="RegUser.designer.cs">
       <DependentUpon>RegUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Send_Message.cs" />
     <Compile Include="StockDetails.cs">
       <SubType>Form</SubType>
@@ -329,6 +373,13 @@
     <EmbeddedResource Include="AddNewItem.resx">
       <DependentUpon>AddNewItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BillReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BillReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillReportViewer.resx">
+      <DependentUpon>BillReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bookings.resx">
       <DependentUpon>Bookings.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,6 +407,10 @@
     <EmbeddedResource Include="Credit_Card_Validation.resx">
       <DependentUpon>Credit_Card_Validation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerMain.resx">
       <DependentUpon>CustomerMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,6 +429,10 @@
     <EmbeddedResource Include="DeliveryPayment.resx">
       <DependentUpon>DeliveryPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EpenditureReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EpenditureReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Event.resx">
       <DependentUpon>Event.cs</DependentUpon>
     </EmbeddedResource>
@@ -382,6 +441,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FeedbkAdmin.resx">
       <DependentUpon>FeedbkAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IncomeUI.resx">
       <DependentUpon>IncomeUI.cs</DependentUpon>
@@ -437,6 +499,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegUser.resx">
       <DependentUpon>RegUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockDetails.resx">
       <DependentUpon>StockDetails.cs</DependentUpon>
@@ -741,6 +806,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

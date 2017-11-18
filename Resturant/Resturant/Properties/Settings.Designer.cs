@@ -22,7 +22,6 @@ namespace Resturant.Properties {
                 return defaultInstance;
             }
         }
-
         public string customermanagementConnectionString
         {
             get

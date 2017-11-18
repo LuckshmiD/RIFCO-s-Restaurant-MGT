@@ -117,7 +117,7 @@ namespace Cashier
                 }
                 
                 
-                pay.insertRecord(custID, 222, "dcbsdbcj", 100);
+                pay.insertRecord(custID, 222, date, 100);
                 table.clear_table();
                 this.Close();
             }
@@ -175,9 +175,8 @@ namespace Cashier
                         sm.email(email, reciept);
                     }
                 }
-                pay.insertRecord(custID, 222, "dcbsdbcj", 100);
 
-
+                pay.insertRecord(custID, 222, date, 100);
                 table.clear_table();
                 this.Close();
             }
