@@ -123,7 +123,7 @@ namespace Cashier
                 com.ExecuteNonQuery();
 
                 databaseConnector db1 = new databaseConnector();
-                db1.executeStatement("INSERT INTO `table"+ tbl.get_table_no() + "`(`item_id`,`item_name`,`potionsize`,`quantity`,`price`) SELECT `itemcode`,`itemname`,`portionsize`,`quantity`,`price` FROM `orderlist"+ tbl.get_table_no() + "` ");
+                db1.executeStatement("INSERT INTO `table"+ tbl.get_table_no() + "`(`item_id`,`custid`,`item_name`,`potionsize`,`quantity`,`price`) SELECT `itemcode`,`custid`,`itemname`,`portionsize`,`quantity`,`price` FROM `orderlist" + tbl.get_table_no() + "` ");
 
 
                 //com.Parameters.Add("@itemcode", MySqlDbType.Int32).Value = itemcode.Text;

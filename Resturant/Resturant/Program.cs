@@ -22,7 +22,7 @@ namespace Resturant
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Dashboard());
             //Application.Run(new BillReportViewer());
-            Application.Run(new Login());
+            Application.Run(new Starting_Page());
         }
     }
 }

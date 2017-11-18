@@ -59,14 +59,21 @@
             this.Advance = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.dsrtcombo = new System.Windows.Forms.ComboBox();
-            this.dsrt = new System.Windows.Forms.Label();
             this.eventOrder = new System.Windows.Forms.DataGridView();
             this.AddOrder = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
+            this.AddPackage = new System.Windows.Forms.Button();
+            this.DessertGrid = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Item1 = new System.Windows.Forms.Label();
+            this.price1 = new System.Windows.Forms.Label();
+            this.AddItem = new System.Windows.Forms.Button();
+            this.Remove = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DessertGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -183,7 +190,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(775, 59);
+            this.label9.Location = new System.Drawing.Point(781, 17);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 13);
             this.label9.TabIndex = 45;
@@ -272,7 +279,7 @@
             // 
             this.duhead.AutoSize = true;
             this.duhead.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.duhead.Location = new System.Drawing.Point(542, 228);
+            this.duhead.Location = new System.Drawing.Point(609, 384);
             this.duhead.Name = "duhead";
             this.duhead.Size = new System.Drawing.Size(22, 24);
             this.duhead.TabIndex = 56;
@@ -317,7 +324,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(554, 48);
+            this.dataGridView2.Size = new System.Drawing.Size(388, 48);
             this.dataGridView2.TabIndex = 60;
             // 
             // addPayment
@@ -338,12 +345,14 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(671, 87);
+            this.dataGridView1.Location = new System.Drawing.Point(692, 33);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(240, 162);
             this.dataGridView1.TabIndex = 63;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click_2);
             // 
             // Advance
             // 
@@ -367,31 +376,11 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(543, 255);
+            this.label11.Location = new System.Drawing.Point(610, 411);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(31, 13);
             this.label11.TabIndex = 67;
             this.label11.Text = "Total";
-            // 
-            // dsrtcombo
-            // 
-            this.dsrtcombo.FormattingEnabled = true;
-            this.dsrtcombo.Location = new System.Drawing.Point(671, 297);
-            this.dsrtcombo.Name = "dsrtcombo";
-            this.dsrtcombo.Size = new System.Drawing.Size(242, 21);
-            this.dsrtcombo.TabIndex = 62;
-            this.dsrtcombo.Text = "Choose From Here";
-            this.dsrtcombo.SelectedIndexChanged += new System.EventHandler(this.dsrtcombo_SelectedIndexChanged);
-            // 
-            // dsrt
-            // 
-            this.dsrt.AutoSize = true;
-            this.dsrt.Location = new System.Drawing.Point(919, 300);
-            this.dsrt.Name = "dsrt";
-            this.dsrt.Size = new System.Drawing.Size(13, 13);
-            this.dsrt.TabIndex = 64;
-            this.dsrt.Text = "..";
-            this.dsrt.Click += new System.EventHandler(this.dsrt_Click);
             // 
             // eventOrder
             // 
@@ -405,12 +394,14 @@
             this.eventOrder.Name = "eventOrder";
             this.eventOrder.ReadOnly = true;
             this.eventOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.eventOrder.Size = new System.Drawing.Size(554, 150);
+            this.eventOrder.Size = new System.Drawing.Size(388, 150);
             this.eventOrder.TabIndex = 68;
+            this.eventOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.eventOrder_CellContentClick);
+            this.eventOrder.Click += new System.EventHandler(this.eventOrder_Click);
             // 
             // AddOrder
             // 
-            this.AddOrder.Location = new System.Drawing.Point(759, 255);
+            this.AddOrder.Location = new System.Drawing.Point(784, 196);
             this.AddOrder.Name = "AddOrder";
             this.AddOrder.Size = new System.Drawing.Size(75, 23);
             this.AddOrder.TabIndex = 69;
@@ -420,7 +411,7 @@
             // 
             // Clear
             // 
-            this.Clear.Location = new System.Drawing.Point(570, 483);
+            this.Clear.Location = new System.Drawing.Point(404, 483);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(75, 23);
             this.Clear.TabIndex = 70;
@@ -428,20 +419,99 @@
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
+            // AddPackage
+            // 
+            this.AddPackage.Location = new System.Drawing.Point(237, 255);
+            this.AddPackage.Name = "AddPackage";
+            this.AddPackage.Size = new System.Drawing.Size(85, 23);
+            this.AddPackage.TabIndex = 71;
+            this.AddPackage.Text = "Add Package";
+            this.AddPackage.UseVisualStyleBackColor = true;
+            this.AddPackage.Click += new System.EventHandler(this.AddPackage_Click);
+            // 
+            // DessertGrid
+            // 
+            this.DessertGrid.AllowUserToAddRows = false;
+            this.DessertGrid.AllowUserToDeleteRows = false;
+            this.DessertGrid.AllowUserToResizeColumns = false;
+            this.DessertGrid.AllowUserToResizeRows = false;
+            this.DessertGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DessertGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DessertGrid.Location = new System.Drawing.Point(425, 32);
+            this.DessertGrid.Name = "DessertGrid";
+            this.DessertGrid.ReadOnly = true;
+            this.DessertGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DessertGrid.Size = new System.Drawing.Size(240, 163);
+            this.DessertGrid.TabIndex = 72;
+            this.DessertGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DessertGrid_CellContentClick);
+            this.DessertGrid.Click += new System.EventHandler(this.DessertGrid_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(530, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 13);
+            this.label12.TabIndex = 73;
+            this.label12.Text = "Menu";
+            // 
+            // Item1
+            // 
+            this.Item1.AutoSize = true;
+            this.Item1.Location = new System.Drawing.Point(600, 236);
+            this.Item1.Name = "Item1";
+            this.Item1.Size = new System.Drawing.Size(13, 13);
+            this.Item1.TabIndex = 74;
+            this.Item1.Text = "..";
+            // 
+            // price1
+            // 
+            this.price1.AutoSize = true;
+            this.price1.Location = new System.Drawing.Point(747, 236);
+            this.price1.Name = "price1";
+            this.price1.Size = new System.Drawing.Size(13, 13);
+            this.price1.TabIndex = 75;
+            this.price1.Text = "..";
+            // 
+            // AddItem
+            // 
+            this.AddItem.Location = new System.Drawing.Point(506, 198);
+            this.AddItem.Name = "AddItem";
+            this.AddItem.Size = new System.Drawing.Size(75, 23);
+            this.AddItem.TabIndex = 77;
+            this.AddItem.Text = "Add Item";
+            this.AddItem.UseVisualStyleBackColor = true;
+            this.AddItem.Click += new System.EventHandler(this.AddItem_Click);
+            // 
+            // Remove
+            // 
+            this.Remove.Location = new System.Drawing.Point(404, 356);
+            this.Remove.Name = "Remove";
+            this.Remove.Size = new System.Drawing.Size(75, 23);
+            this.Remove.TabIndex = 78;
+            this.Remove.Text = "Remove";
+            this.Remove.UseVisualStyleBackColor = true;
+            this.Remove.Click += new System.EventHandler(this.Remove_Click);
+            // 
             // Event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 511);
+            this.Controls.Add(this.Remove);
+            this.Controls.Add(this.AddItem);
+            this.Controls.Add(this.price1);
+            this.Controls.Add(this.Item1);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.DessertGrid);
+            this.Controls.Add(this.AddPackage);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.AddOrder);
             this.Controls.Add(this.eventOrder);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.Advance);
-            this.Controls.Add(this.dsrt);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.dsrtcombo);
             this.Controls.Add(this.addPayment);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.packprice);
@@ -477,6 +547,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DessertGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,11 +586,17 @@
         private System.Windows.Forms.Label Advance;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox dsrtcombo;
-        private System.Windows.Forms.Label dsrt;
         private System.Windows.Forms.DataGridView eventOrder;
         private System.Windows.Forms.Button AddOrder;
         private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.Button AddPackage;
+        private System.Windows.Forms.DataGridView DessertGrid;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label Item1;
+        private System.Windows.Forms.Label price1;
+        private System.Windows.Forms.Button AddItem;
+        private System.Windows.Forms.Button Remove;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

@@ -30,6 +30,39 @@ namespace EventCaterMgt
             cuscontact.Text = number;
         }
 
+        public void LoadEventList()
+        {
+            string add = "select  Item, Quantity, Price from eventlisttemp where customer = '" + cusid.Text + "', Date='"+ date.Text +"'";
+
+            MySqlCommand cmd1 = new MySqlCommand(add, con);
+
+            MySqlDataAdapter sda = new MySqlDataAdapter();
+            sda.SelectCommand = cmd1;
+            DataTable dbdataset = new DataTable();
+            sda.Fill(dbdataset);
+            BindingSource bsource = new BindingSource();
+
+            bsource.DataSource = dbdataset;
+            eventOrder.DataSource = bsource;
+            sda.Update(dbdataset);
+        }
+
+        public void fillEventorderlist()
+        {
+            string add = "select Item,Quantity,Price from eventlisttemp";
+            MySqlCommand cmd1 = new MySqlCommand(add, con);
+
+            MySqlDataAdapter sda = new MySqlDataAdapter();
+            sda.SelectCommand = cmd1;
+            DataTable dbdataset = new DataTable();
+            sda.Fill(dbdataset);
+            BindingSource bsource = new BindingSource();
+
+            bsource.DataSource = dbdataset;
+            eventOrder.DataSource = bsource;
+            sda.Update(dbdataset);
+        }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -175,11 +208,14 @@ namespace EventCaterMgt
             {
                 string selectquery = "Select * from package";
                 string selectquery1 = "Select * from extras";
+               
 
 
                 con.Open();
                 MySqlCommand command = new MySqlCommand(selectquery, con);
                 MySqlCommand command1 = new MySqlCommand(selectquery1, con);
+               
+
 
                 MySqlDataReader reader = command.ExecuteReader();
 
@@ -193,13 +229,13 @@ namespace EventCaterMgt
                 reader.Close();
 
 
-                reader = command1.ExecuteReader();
-                while (reader.Read())
-                {
-                    dsrtcombo.Items.Add(reader.GetString("Features"));
+                ////reader = command1.ExecuteReader();
+                ////while (reader.Read())
+                ////{
+                ////    dsrtcombo.Items.Add(reader.GetString("Features"));
 
-                }
-                reader.Close();
+                ////}
+                ////reader.Close();
                 string add2 = "select Features,Price from extras";
                 MySqlDataAdapter sda2 = new MySqlDataAdapter(add2, con);
                 DataTable dbdataset2 = new DataTable();
@@ -207,14 +243,40 @@ namespace EventCaterMgt
                 dataGridView1.DataSource = dbdataset2;
 
 
-                string add3 = "select Package,Items,Quantity,Price from eventorders";
-                MySqlDataAdapter sda3 = new MySqlDataAdapter(add3, con);
-                DataTable dbdataset3 = new DataTable();
-                sda3.Fill(dbdataset3);
-                eventOrder.DataSource = dbdataset3;
+                ////string add3 = "select Package,Items,Quantity,Price from eventorders";
+                ////MySqlDataAdapter sda3 = new MySqlDataAdapter(add3, con);
+                ////DataTable dbdataset3 = new DataTable();
+                ////sda3.Fill(dbdataset3);
+                ////eventOrder.DataSource = dbdataset3;
+
+                //string add3 = "select Item,Quantity,Price from eventlisttemp";
+                //MySqlDataAdapter sda3 = new MySqlDataAdapter(add3, con);
+                //DataTable dbdataset3 = new DataTable();
+                //sda3.Fill(dbdataset3);
+                //eventOrder.DataSource = dbdataset3;
+
+                string add4 = "select bevdessert as Menu,price as Price from bevdessert";
+                MySqlDataAdapter sda4 = new MySqlDataAdapter(add4, con);
+                DataTable dbdataset4 = new DataTable();
+                sda4.Fill(dbdataset4);
+                DessertGrid.DataSource = dbdataset4;
+
+
+               // con.Open();
+                string add1 = "truncate table eventlisttemp";
+                MySqlCommand cmd = new MySqlCommand(add1, con);
+                cmd.ExecuteReader();
+                con.Close();
+
+                con.Open();
+                add1 = "insert into eventlisttemp values(0,'2017-01-01',0,'0',0,0)";
+                cmd = new MySqlCommand(add1, con);
+                cmd.ExecuteReader();
+                con.Close();
 
 
 
+                fillEventorderlist();
 
 
 
@@ -278,7 +340,7 @@ namespace EventCaterMgt
                     else
                     {
                         MessageBox.Show("Number not found Please Register");
-                        new Registratio().Show();
+                        //new Registratio().Show();
 
                     }
                 }
@@ -286,7 +348,7 @@ namespace EventCaterMgt
                 else
                 {
                     MessageBox.Show("Number not found Please Register");
-                    new Registratio().Show();
+                    //new Registratio().Show();
 
                 }
 
@@ -350,14 +412,11 @@ namespace EventCaterMgt
 
                     double du, hd, tot;
                     du = Convert.ToDouble(duamount.Text);
-
-
-
                     hd = Convert.ToDouble(count.Text);
-                    tot = du + hd + price;
+                    tot = du + (hd* price);
 
                     duhead.Text = Convert.ToString(tot);
-
+                    Advance.Text = (tot * 0.50).ToString();
 
                     read.Close();
 
@@ -430,7 +489,7 @@ namespace EventCaterMgt
                     con.Open();
                     MySqlCommand cmd1 = con.CreateCommand();
                     cmd1.CommandType = CommandType.Text;
-                    cmd1.CommandText = "Insert into event(ename,datetime,count,duration,cusContact,time,package,cusId,cusname) values('" + ename.Text + "','" + date.Text + "','" + Convert.ToInt32(count.Text) + "','" + Convert.ToInt32(duration.SelectedItem) + "','" + cuscontact.Text + "','" + time.Text + "','" + packcombo.SelectedItem + "','" + Convert.ToInt32(cusid.Text) + "','" + cusname.Text + "')";
+                    cmd1.CommandText = "Insert into event(ename,datetime,count,duration,cusContact,time,cusId,cusname) values('" + ename.Text + "','" + date.Text + "','" + Convert.ToInt32(count.Text) + "','" + Convert.ToInt32(duration.SelectedItem) + "','" + cuscontact.Text + "','" + time.Text + "','" + Convert.ToInt32(cusid.Text) + "','" + cusname.Text + "')";
                     cmd1.ExecuteReader();
                     con.Close();
                     // MessageBox.Show("Successfully Saved");
@@ -438,12 +497,7 @@ namespace EventCaterMgt
 
                     // string inc = "insert into income(Descri,Type,Date,Voucher_No,Amount) values('Cash','Sales','"+date.Text+"','V"+cusid.Text+"','"+Convert.ToDouble(duhead.Text)+"')";
                     string add = "insert into paymentecm (payprice,cusid,dateToBePaid) values('" + Convert.ToDouble(duhead.Text) + "','" + cusid.Text + "','" + date.Text + "')";
-                    if (dsrtcombo.SelectedIndex < 0)
-                    {
-                        MessageBox.Show("Please select any features from the menu..!!!");
-                    }
-                    else
-                    {
+
                         con.Open();
                         MySqlCommand cmd = new MySqlCommand(add, con);
 
@@ -451,7 +505,7 @@ namespace EventCaterMgt
                         con.Close();
                         MessageBox.Show("Successfully Payment added");
 
-                        dsrtcombo.Text = "Choose From Here";
+                       // dsrtcombo.Text = "Choose From Here";
                         duration.SelectedIndex = -1;
                         packprice.Text = "0";
                         // packcombo.SelectedIndex = -1;
@@ -459,7 +513,8 @@ namespace EventCaterMgt
                         hdamount.Text = "";
                         duamount.Text = "0";
                         duhead.Text = "";
-                        dsrt.Text = "0";
+                       // dsrt.Text = "0";
+                        price1.Text = "0";
                         cusid.Text = "";
                         cusname.Text = "";
                         Advance.Text = "";
@@ -470,10 +525,9 @@ namespace EventCaterMgt
                         time.Text = "";
                         ename.Text = "";
 
-                        DataTable emptyDT = new DataTable();
-                        eventOrder.DataSource = emptyDT;
+                       
 
-                        string add1 = "insert into eventordersmain select * from eventorders";
+                        string add1 = "insert into eventlist select * from eventlisttemp";
                         // string inc = "insert into income(Descri,Type,Date,Voucher_No,Amount) values('Cash','Sales','"+date.Text+"','V"+cusid.Text+"','"+Convert.ToDouble(duhead.Text)+"')";
 
                         con.Open();
@@ -482,13 +536,13 @@ namespace EventCaterMgt
                         con.Close();
 
                         con.Open();
-                        add1 = "truncate table eventorders";
+                        add1 = "truncate table eventlisttemp";
                         cmd = new MySqlCommand(add1, con);
                         cmd.ExecuteReader();
                         con.Close();
 
                         con.Open();
-                        add1 = "insert into eventorders values(0,'0','0',0,0)";
+                        add1 = "insert into eventlisttemp values(0,'2017-01-01',0,'0',0,0)";
                         cmd = new MySqlCommand(add1, con);
                         cmd.ExecuteReader();
                         con.Close();
@@ -496,7 +550,9 @@ namespace EventCaterMgt
                         DataTable emptyDT1 = new DataTable();
                         dataGridView2.DataSource = emptyDT1;
 
-                    }
+                    fillEventorderlist();
+
+                    
                 }
             }
             catch (Exception ex)
@@ -511,49 +567,49 @@ namespace EventCaterMgt
 
         private void dsrtcombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                con.Open();
+            //////try
+            //////{
+            //////    con.Open();
 
-                string pack = dsrtcombo.SelectedItem.ToString();
-                //  double price;
+            //////    string pack = dsrtcombo.SelectedItem.ToString();
+            //////    //  double price;
 
-                string que = "select price from extras where Features = '" + pack + "'";
-                MySqlCommand cmd = new MySqlCommand(que, con);
-                MySqlDataReader read = cmd.ExecuteReader();
-                if (read.Read())
-                {
-                    dsrt.Text = read.GetDouble("price").ToString();
-
-
-                    double du, hd, tot, dsrt1, pack1;
-                    du = Convert.ToDouble(duamount.Text);
-                    // meal1 = Convert.ToDouble(meal.Text);
-                    dsrt1 = Convert.ToDouble(dsrt.Text);
-                    pack1 = Convert.ToDouble(packprice.Text);
+            //////    string que = "select price from extras where Features = '" + pack + "'";
+            //////    MySqlCommand cmd = new MySqlCommand(que, con);
+            //////    MySqlDataReader read = cmd.ExecuteReader();
+            //////    if (read.Read())
+            //////    {
+            //////        dsrt.Text = read.GetDouble("price").ToString();
 
 
+            //////        double du, hd, tot, dsrt1, pack1;
+            //////        du = Convert.ToDouble(duamount.Text);
+            //////        // meal1 = Convert.ToDouble(meal.Text);
+            //////        dsrt1 = Convert.ToDouble(dsrt.Text);
+            //////        pack1 = Convert.ToDouble(packprice.Text);
 
-                    hd = Convert.ToDouble(count.Text);
-                    tot = du + (hd * (pack1) + dsrt1);
-
-                    duhead.Text = Convert.ToString(tot);
-                    Advance.Text = Convert.ToString(tot * .50);
 
 
-                    read.Close();
+            //////        hd = Convert.ToDouble(count.Text);
+            //////        tot = du + (hd * (pack1) + dsrt1);
 
-                }
-            }
+            //////        duhead.Text = Convert.ToString(tot);
+            //////        Advance.Text = Convert.ToString(tot * .50);
 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.Close();
-            }
+
+            //////        read.Close();
+
+            //////    }
+            //////}
+
+            //////catch (Exception ex)
+            //////{
+            //////    MessageBox.Show(ex.Message);
+            //////}
+            //////finally
+            //////{
+            //////    con.Close();
+            //////}
 
         }
 
@@ -577,12 +633,13 @@ namespace EventCaterMgt
             try
             {
                 string pack = packcombo.Text;
-                string items = dsrtcombo.Text;
+                string items = Item1.Text;
 
-                double c = Convert.ToDouble(count.Text);
-                double pp = Convert.ToDouble(packprice.Text);
-                double ds = Convert.ToDouble(dsrt.Text);
-                double Iprice = c * (pp + ds);
+                double c = Convert.ToInt32(count.Text);
+               // double pp = Convert.ToDouble(packprice.Text);
+                double ds = Convert.ToDouble(price1.Text);
+               double Iprice = 1 *  ds;
+                int feCount = 1;
 
 
 
@@ -592,40 +649,36 @@ namespace EventCaterMgt
                 }
                 else
                 {
-                    //Iprice = Convert.ToDouble(price1.Text) * Convert.ToDouble(count.Text);
-                    string add = "insert into eventorders values('" + cusid.Text + "','" + pack + "','" + items + "','" + c + "','" + Iprice + "')";
+                
+
+                    string add = "insert into eventlisttemp (Date,CusId,Item,Quantity,Price) values('" + date.Text + "','" + cusid.Text + "','" + items + "','" + feCount + "','"+ Iprice +"')";
                     con.Open();
                     MySqlCommand cmd = new MySqlCommand(add, con);
 
                     cmd.ExecuteReader();
                     con.Close();
 
-                    //  MessageBox.Show("Successfully added");
-                    // count.Text = "";
-                    //  dsrt.Text = "";
-                    //  packprice.Text = "";
+                    con.Open();
+                    add = "select sum(Price) from eventlisttemp where CusId='" + cusid.Text + "'and Date='" + date.Text + "'";
+                    cmd = new MySqlCommand(add, con);
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    if (read.Read())
+                    {
+                        double total = read.GetDouble("sum(Price)");
+                        double durationamnt = Convert.ToDouble(duamount.Text);
+                        duhead.Text = (total + durationamnt).ToString();
+                        read.Close();
+                    }
 
+                    con.Close();
 
-                    add = "select Package, Items, Quantity, Price from eventorders where customer = '" + cusid.Text + "'";
+                    double final = Convert.ToDouble(duhead.Text);
 
-                    MySqlCommand cmd1 = new MySqlCommand(add, con);
+                    Advance.Text = Convert.ToString(final * 0.50);
+                    fillEventorderlist();
 
-                    MySqlDataAdapter sda = new MySqlDataAdapter();
-                    sda.SelectCommand = cmd1;
-                    DataTable dbdataset = new DataTable();
-                    sda.Fill(dbdataset);
-                    BindingSource bsource = new BindingSource();
-
-                    bsource.DataSource = dbdataset;
-                    eventOrder.DataSource = bsource;
-                    sda.Update(dbdataset);
                 }
-                double final = Convert.ToDouble(duhead.Text);
-                // double itotal = Convert.ToDouble(Itot.Text);
-                double duration = Convert.ToDouble(duamount.Text);
-                //  final = itotal + duration;
-                duhead.Text = Convert.ToString(final);
-                Advance.Text = Convert.ToString(final * 0.50);
+    
             }
             catch (Exception ex)
             {
@@ -642,19 +695,18 @@ namespace EventCaterMgt
             try
             {
                 con.Open();
-                string add1 = "truncate table eventorders";
+                string add1 = "truncate table eventlisttemp";
                 MySqlCommand cmd = new MySqlCommand(add1, con);
                 cmd.ExecuteReader();
                 con.Close();
 
                 con.Open();
-                add1 = "insert into eventorders values(0,'0','0',0,0)";
+                add1 = "insert into eventlisttemp values(0,'2017-01-01',0,'0',0,0)";
                 cmd = new MySqlCommand(add1, con);
                 cmd.ExecuteReader();
                 con.Close();
 
-                DataTable emptyDT1 = new DataTable();
-                eventOrder.DataSource = emptyDT1;
+                fillEventorderlist();
 
             }
             catch (Exception ee)
@@ -666,7 +718,303 @@ namespace EventCaterMgt
                 con.Close();
             }
         }
+
+        private void eventOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.eventOrder.Rows[e.RowIndex];
+                Item1.Text = row.Cells[0].Value.ToString();//item
+                count.Text = row.Cells[1].Value.ToString();//qty
+                                                           //  price1.Text = row.Cells[2].Value.ToString();//price
+                string x = row.Cells[2].Value.ToString();
+                double y = (Convert.ToDouble(x)) / Convert.ToDouble(count.Text);
+                price1.Text = Convert.ToString(y);
+            }
+        }
+
+        private void AddPackage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string pack = packcombo.Text;
+               // string items = dsrtcombo.Text;
+
+                double c = Convert.ToInt32(count.Text);
+                double pp = Convert.ToDouble(packprice.Text);
+               // double ds = Convert.ToDouble(dsrt.Text);
+                double Iprice = c * pp;
+                
+
+
+                    string add = "insert into eventlisttemp (Date,CusId,Item,Quantity,Price) values('" + date.Text + "','" + cusid.Text + "','" + pack + "','" + c + "','" + Iprice + "')";
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand(add, con);
+
+                    cmd.ExecuteReader();
+                    con.Close();
+
+                //  MessageBox.Show("Successfully added");
+                // count.Text = "";
+                //  dsrt.Text = "";
+                //  packprice.Text = "";
+                con.Open();
+                add = "select sum(Price) from eventlisttemp where CusId='" + cusid.Text + "'and Date='"+date.Text+"'";
+                cmd = new MySqlCommand(add, con);
+                MySqlDataReader read = cmd.ExecuteReader();
+                if (read.Read())
+                {
+                    double total = read.GetDouble("sum(Price)");
+                    double durationamnt = Convert.ToDouble(duamount.Text);
+                    duhead.Text = (total+durationamnt).ToString();
+                    read.Close();
+                }
+
+                con.Close();
+
+                fillEventorderlist();
+
+                double final = Convert.ToDouble(duhead.Text);
+            
+                Advance.Text = Convert.ToString(final * 0.50);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        private void DessertGrid_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                price1.Text = DessertGrid.CurrentRow.Cells["Price"].Value.ToString();
+                //bevName.Text = dataGridView2.CurrentRow.Cells["BeveragesDesserts"].Value.ToString();
+                Item1.Text = DessertGrid.CurrentRow.Cells["Menu"].Value.ToString();
+
+
+                double price = Convert.ToDouble(price1.Text);
+                int cnt = Convert.ToInt32(count.Text);
+                double advance = Convert.ToDouble(Advance.Text);
+
+                con.Open();
+              // string add = "select sum(Price) from eventlisttemp where CusId='" + cusid.Text + "'and Date='" + date.Text + "'";
+                string add = "select sum(Price) from eventlisttemp ";
+                MySqlCommand cmd = new MySqlCommand(add, con);
+                MySqlDataReader read = cmd.ExecuteReader();
+                if (read.Read())
+                {
+                    double total = read.GetDouble("sum(Price)");
+                    double durationamnt = Convert.ToDouble(duamount.Text);
+                    duhead.Text = (total + durationamnt+ cnt*price).ToString();
+                    advance = Convert.ToDouble(duhead.Text) * 0.50;
+                    Advance.Text = advance.ToString();
+                    read.Close();
+                }
+
+                con.Close();
+             
+
+            }
+            catch (Exception ie)
+            {
+                MessageBox.Show(ie.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        private void dataGridView1_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                price1.Text = dataGridView1.CurrentRow.Cells["Price"].Value.ToString();
+                //bevName.Text = dataGridView2.CurrentRow.Cells["BeveragesDesserts"].Value.ToString();
+                Item1.Text = dataGridView1.CurrentRow.Cells["Features"].Value.ToString();
+                double price = Convert.ToDouble(price1.Text);
+                //int cnt = Convert.ToInt32(count.Text);
+                double advance = Convert.ToDouble(Advance.Text);
+
+                con.Open();
+              //  string add = "select sum(Price) from eventlisttemp where CusId='" + cusid.Text + "'and Date='" + date.Text + "'";
+                string add = "select sum(Price) from eventlisttemp";
+                MySqlCommand cmd = new MySqlCommand(add, con);
+                MySqlDataReader read = cmd.ExecuteReader();
+                if (read.Read())
+                {
+                    double total = read.GetDouble("sum(Price)");
+                    double durationamnt = Convert.ToDouble(duamount.Text);
+                    duhead.Text = (total + durationamnt + price).ToString();
+                    advance = Convert.ToDouble(duhead.Text) * 0.50;
+                    Advance.Text = advance.ToString();
+                    read.Close();
+                }
+
+                con.Close();
+
+            }
+            catch (Exception ie)
+            {
+                MessageBox.Show(ie.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        private void AddItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string pack = packcombo.Text;
+                string items = Item1.Text;
+
+                double c = Convert.ToInt32(count.Text);
+              //  double pp = Convert.ToDouble(packprice.Text);
+              //  double ds = Convert.ToDouble(dsrt.Text);                
+               double dsrtprice = Convert.ToDouble(price1.Text);
+                double Iprice = c*dsrtprice;
+
+
+
+                if (count.Text == "")
+                {
+                    MessageBox.Show("Please enter the head count");
+                }
+                else
+                {
+
+
+                    string add = "insert into eventlisttemp (Date,CusId,Item,Quantity,Price) values('" + date.Text + "','" + cusid.Text + "','" + Item1.Text + "','" + c + "','" + Iprice + "')";
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand(add, con);
+
+                    cmd.ExecuteReader();
+                    con.Close();
+
+                    con.Open();
+                    add = "select sum(Price) from eventlisttemp where CusId='" + cusid.Text + "'and Date='" + date.Text + "'";
+                    cmd = new MySqlCommand(add, con);
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    if (read.Read())
+                    {
+                        double total = read.GetDouble("sum(Price)");
+                        double durationamnt = Convert.ToDouble(duamount.Text);
+                        duhead.Text = (total + durationamnt).ToString();
+                        read.Close();
+                    }
+
+                    con.Close();
+                    double final = Convert.ToDouble(duhead.Text);
+
+                    Advance.Text = Convert.ToString(final * 0.50);
+                    fillEventorderlist();
+
+                }
+                //double final = Convert.ToDouble(duhead.Text);
+                //// double itotal = Convert.ToDouble(Itot.Text);
+                //double duration = Convert.ToDouble(duamount.Text);
+                ////  final = itotal + duration;
+                //duhead.Text = Convert.ToString(final);
+                //Advance.Text = Convert.ToString(final * 0.50);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        private void DessertGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Remove_Click(object sender, EventArgs e)
+        {
+            if (count.Text != "")
+            {
+                try
+                {
+                    string upd = "delete from eventlisttemp  where Item ='" + Item1.Text + "'and CusId='" + cusid.Text + "'";
+
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand(upd, con);
+
+                    cmd.ExecuteReader();
+                    con.Close();
+                    MessageBox.Show("Removed");
+                    Item1.Text = "";
+                    price1.Text = "";
+                    //  count.Text = "";
+                    fillEventorderlist();
+
+                    con.Open();
+                    string add = "select sum(Price) from eventlisttemp where CusId='" + cusid.Text + "'and Date='" + date.Text + "'";
+                    cmd = new MySqlCommand(add, con);
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    if (read.Read())
+                    {
+                        double total = read.GetDouble("sum(Price)");
+                        double durationamnt = Convert.ToDouble(duamount.Text);
+                        duhead.Text = (total + durationamnt).ToString();
+                        read.Close();
+                    }
+
+                    con.Close();
+
+
+
+
+                    fillEventorderlist();
+
+
+                    //
+                    double final = Convert.ToDouble(duhead.Text);
+                  
+                    Advance.Text = Convert.ToString(final * 0.50);
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select an Item to Delete");
+            }
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void eventOrder_Click(object sender, EventArgs e)
+        {
+
+     
+        }
     }
     }
+    
     
 

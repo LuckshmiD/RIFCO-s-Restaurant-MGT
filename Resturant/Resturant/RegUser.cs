@@ -16,9 +16,18 @@ namespace Customer_Management
 {
     public partial class RegUser : Form
     {
+        int table;
+
         public RegUser()
         {
             InitializeComponent();
+        }
+
+        public RegUser(int Tno)
+        {
+            InitializeComponent();
+
+            table = Tno;
         }
         public bool IsValid(string emailaddress)
         {
@@ -139,7 +148,7 @@ namespace Customer_Management
         }*/
         private void button4_Click(object sender, EventArgs e)
         {
-
+            
             Int64 i;
             if ((textmobile.Text.Trim() != string.Empty))
             {
@@ -150,17 +159,16 @@ namespace Customer_Management
                 }
             }
             if ((textmobile.Text.Trim() == string.Empty) && (textemail.Text.Trim() == string.Empty))
-
-
             {
                 MessageBox.Show("Please enter a valid Mobile Number or sign in as a Guest! Thank You! !!", "Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
-            }
+            }            
             else
             {
                 //db
                 try
                 {
+                    
                     string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
                     MySqlConnection databaseConnection = new MySqlConnection(connectionString);
 
@@ -181,11 +189,12 @@ namespace Customer_Management
                     {
                         if (count == 1)
                         {
+                            
                             MessageBox.Show("You have been already registerered !!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Methods m1 = new Methods();
 
                             //next page
-                            new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                            new MakeOrder(table, m1.getCID(textmobile.Text)).Show();
                         }
 
 
@@ -210,7 +219,7 @@ namespace Customer_Management
                             Methods m1 = new Methods();
 
                             //next page
-                             new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                             new MakeOrder(table, m1.getCID(textmobile.Text)).Show();
                         }
 
 
@@ -297,7 +306,7 @@ namespace Customer_Management
             }
 
 
-            new MakeOrder(2, 0).Show();
+            new MakeOrder(table, 0).Show();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -386,7 +395,7 @@ namespace Customer_Management
                                 Methods m1 = new Methods();
 
                                 //next page
-                                // new MakeOrder(2, m1.getCID(textmobile.Text)).Show();
+                                new MakeOrder(table, m1.getCID(textemail.Text)).Show();
                             }
 
                         }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using supplier;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -878,14 +879,14 @@ namespace EventCaterMgt
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            //LargeCE li = new LargeCE();
-            //li.show();
+            LargeCE li = new LargeCE();
+            li.Show();
         }
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            //RegularCE ri = new RegularCE();
-            //    ri.show();
+            RegularCE ri = new RegularCE();
+                ri.Show();
         }
 
         private void button2Delete_Click(object sender, EventArgs e)

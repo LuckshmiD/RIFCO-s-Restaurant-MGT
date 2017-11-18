@@ -14,7 +14,7 @@ namespace OrderManagement
         private MySqlConnection DBConnect;
 
         public DatabaseConnection() {
-            Connection = " datasource =localhost ; username= root; password= ; database = RMSDatabase ";
+            Connection = " datasource =localhost ; username= root; password= ; database = rmsdatabase ";
             
         }
 

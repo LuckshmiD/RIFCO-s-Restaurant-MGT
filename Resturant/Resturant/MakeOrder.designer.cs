@@ -50,6 +50,7 @@
             this.tablelabel = new System.Windows.Forms.Label();
             this.CloseWindow = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.menu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableorder)).BeginInit();
@@ -328,11 +329,29 @@
             this.label6.TabIndex = 35;
             this.label6.Text = "Item Tag";
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Resturant.Properties.Resources.left_arrow_thin_symbol_in_circular_button;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(13, 10);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 38);
+            this.button1.TabIndex = 36;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
+            this.button1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button1_MouseMove);
+            // 
             // MakeOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1216, 587);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.CloseWindow);
             this.Controls.Add(this.tablelabel);
@@ -392,5 +411,6 @@
         private System.Windows.Forms.Label tablelabel;
         private System.Windows.Forms.Button CloseWindow;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
     }
 }

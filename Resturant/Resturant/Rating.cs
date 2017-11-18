@@ -20,7 +20,7 @@ namespace Customer_Management
 
             Customer c1 = new Customer();
             int value = c1.GetNewCusId(connectionString);
-           // label2.Text = value.ToString();
+            label2.Text = value.ToString();
 
 
 
@@ -48,32 +48,32 @@ namespace Customer_Management
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             label8.Text = "Very Poor";
-           // label7.Text = 1.ToString();
+            label7.Text = 1.ToString();
             //pictureBox2.BackColor = Color.LightGreen;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             label8.Text = "Poor";
-            //label7.Text = 2.ToString();
+            label7.Text = 2.ToString();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             label8.Text = "Satisfactory";
-            //label7.Text = 3.ToString();
+            label7.Text = 3.ToString();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             label8.Text = "Good";
-            //label7.Text = 4.ToString();
+            label7.Text = 4.ToString();
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             label8.Text = "Excellent";
-            //label7.Text = 5.ToString();
+            label7.Text = 5.ToString();
             pictureBox6.BackColor = Color.Red;
         }
 
@@ -106,8 +106,8 @@ namespace Customer_Management
                     MessageBox.Show("Thank You for Rating us!!!", "Customer Rating", MessageBoxButtons.OK, MessageBoxIcon.None);
                     databaseConnection.Close();
                     this.Hide();
-                    Lastpage h1 = new Lastpage();
-                    h1.ShowDialog();
+                    //Lastpage h1 = new Lastpage();
+                    //h1.ShowDialog();
                 }
 
                 //label3.Text = "You have rated us with      " + label7.Text +"     STARS";

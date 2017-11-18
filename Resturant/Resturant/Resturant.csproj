@@ -80,6 +80,12 @@
     <Compile Include="AddNewItem.designer.cs">
       <DependentUpon>AddNewItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminModuleInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminModuleInterface.Designer.cs">
+      <DependentUpon>AdminModuleInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="BillReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,6 +100,9 @@
     </Compile>
     <Compile Include="Bookings.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookings.designer.cs">
+      <DependentUpon>Bookings.cs</DependentUpon>
     </Compile>
     <Compile Include="Cash_Validation.cs">
       <SubType>Form</SubType>
@@ -260,6 +269,9 @@
     <Compile Include="Rating.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Rating.designer.cs">
+      <DependentUpon>Rating.cs</DependentUpon>
+    </Compile>
     <Compile Include="Revenue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +381,12 @@
     <Compile Include="Signup.designer.cs">
       <DependentUpon>Signup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Starting_Page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Starting_Page.Designer.cs">
+      <DependentUpon>Starting_Page.cs</DependentUpon>
+    </Compile>
     <Compile Include="StockDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -427,12 +445,18 @@
     <EmbeddedResource Include="AddNewItem.resx">
       <DependentUpon>AddNewItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminModuleInterface.resx">
+      <DependentUpon>AdminModuleInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BillReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BillReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="BillReportViewer.resx">
       <DependentUpon>BillReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookings.resx">
+      <DependentUpon>Bookings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cash_Validation.resx">
       <DependentUpon>Cash_Validation.cs</DependentUpon>
@@ -514,6 +538,9 @@
     <EmbeddedResource Include="meeting.resx">
       <DependentUpon>meeting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rating.resx">
+      <DependentUpon>Rating.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Revenue.resx">
       <DependentUpon>Revenue.cs</DependentUpon>
     </EmbeddedResource>
@@ -577,6 +604,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Starting_Page.resx">
+      <DependentUpon>Starting_Page.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockDetails.resx">
       <DependentUpon>StockDetails.cs</DependentUpon>

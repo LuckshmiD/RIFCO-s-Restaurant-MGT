@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Resturant;
 
 namespace HRManagement
 {
@@ -48,7 +49,7 @@ namespace HRManagement
                 else {
                    
                     this.Hide();
-                    new Employee_Home().Show();
+                    new AdminModuleInterface().Show();
                 }
                 
                 //disp_data();

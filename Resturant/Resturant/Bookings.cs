@@ -61,8 +61,8 @@ namespace Customer_Management
                 MessageBox.Show("Please choose the start time");
                 return;
             }
-          
-            
+
+
             if ((starttext.Text == "10AM") && (endtext.Text != "12PM"))
             {
                 MessageBox.Show("Each Reservation can only be made for a time limit of 2 hours! Please chose the end time as 12PM! ");
@@ -101,14 +101,14 @@ namespace Customer_Management
 
             var currdate = DateTime.Now.ToString("yyyy-MM-dd");
             var resdate = datetext.Value.Date.ToString("yyyy-MM-dd");
-            if (DateTime.Parse(resdate) <DateTime.Parse(currdate))
+            if (DateTime.Parse(resdate) < DateTime.Parse(currdate))
             {
                 MessageBox.Show("Please choose a valid date");
                 return;
             }
 
 
-                string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
 
             string strSQL = "select * from tab where NoofSeats= '" + textocc.Text.ToString() + "'";
@@ -155,7 +155,7 @@ namespace Customer_Management
                 //gets a collection that contains all the rows
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 //populate the textbox from specific value of the coordinates of column and row.
-                texttable.Text = row.Cells[1].Value.ToString();
+                tablenolabel.Text = row.Cells[1].Value.ToString();
                 datetext.Text = row.Cells[3].Value.ToString();
                 starttext.Text = row.Cells[4].Value.ToString();
                 endtext.Text = row.Cells[5].Value.ToString();
@@ -169,7 +169,7 @@ namespace Customer_Management
             {
                 string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
 
-                string query = "DELETE FROM bookings WHERE TableId=  '" + texttable.Text.ToString() + "'  and ResDate = '" + datetext.Value.Date.ToString("yyyy-MM-dd") + "' and StartTime= '" + starttext.Text.ToString() + "' and EndTime = '" + endtext.Text.ToString() + "'";
+                string query = "DELETE FROM bookings WHERE TableId=  '" + tablenolabel.Text.ToString() + "'  and ResDate = '" + datetext.Value.Date.ToString("yyyy-MM-dd") + "' and StartTime= '" + starttext.Text.ToString() + "' and EndTime = '" + endtext.Text.ToString() + "'";
 
                 MySqlConnection databaseConnection = new MySqlConnection(connectionString);
                 MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -222,7 +222,7 @@ namespace Customer_Management
                 string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
                 MySqlConnection databaseConnection = new MySqlConnection(connectionString);
 
-                string strSQL = "select * from bookings where TableID= '" + texttable.Text.ToString() + "' and ResDate= '" + datetext.Value.Date.ToString("yyyy-MM-dd") + "' and StartTime='" + starttext.Text.ToString() + "' and EndTime= '" + endtext.Text.ToString() + "'";
+                string strSQL = "select * from bookings where TableID= '" + tablenolabel.Text.ToString() + "' and ResDate= '" + datetext.Value.Date.ToString("yyyy-MM-dd") + "' and StartTime='" + starttext.Text.ToString() + "' and EndTime= '" + endtext.Text.ToString() + "'";
                 //int strSQLcount = "select count(MobileNumber) from customer where MobileNumber= '" + textmobile.Text.ToString() + "'";
                 //if (strSQLcount != 0)
 
@@ -257,7 +257,7 @@ namespace Customer_Management
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            if ((textmobile.Text == "") || (textname.Text == "") || (textocc.Text == "") || (starttext.Text == "") || (endtext.Text == "") || (texttable.Text == ""))
+            if ((textmobile.Text == "") || (textname.Text == "") || (textocc.Text == "") || (starttext.Text == "") || (endtext.Text == "") || (tablenolabel.Text == ""))
             {
                 MessageBox.Show("Please Fill in all required fields!.", "Required Fields", MessageBoxButtons.OK, MessageBoxIcon.None);
 
@@ -271,21 +271,21 @@ namespace Customer_Management
             {
                 databaseConnection.Open();
                 //string strSQL = "select * from customer where MobileNumber= '" + textmobile.Text.ToString() + "'";
-                string strSQL2 = "select count(*) from bookings where TableID= '" + texttable.Text.ToString() + "' and ResDate= '" + datetext.Value.Date.ToString("yyyy-MM-dd") + "' and StartTime='" + starttext.Text.ToString() + "' and EndTime= '" + endtext.Text.ToString() + "'";
+                string strSQL2 = "select count(*) from bookings where TableID= '" + tablenolabel.Text.ToString() + "' and ResDate= '" + datetext.Value.Date.ToString("yyyy-MM-dd") + "' and StartTime='" + starttext.Text.ToString() + "' and EndTime= '" + endtext.Text.ToString() + "'";
                 MySqlCommand cmd = new MySqlCommand(strSQL2, databaseConnection);
                 Int32 count = Convert.ToInt32(cmd.ExecuteScalar());
-                if (count ==1)
+                if (count == 1)
                 {
-                   // if (((textmobile.Text != "") || (textname.Text != "") || (textocc.Text != "") || (starttext.Text != "") || (endtext.Text != "") || (texttable.Text != "")))
+                    // if (((textmobile.Text != "") || (textname.Text != "") || (textocc.Text != "") || (starttext.Text != "") || (endtext.Text != "") || (texttable.Text != "")))
 
-                        MessageBox.Show("Reservation cannot be made!!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Reservation cannot be made!!", "Registered Customer", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 else
                 {
-                    if (((textmobile.Text != "") || (textname.Text != "") || (textocc.Text != "") || (starttext.Text != "") || (endtext.Text != "") || (texttable.Text != "")))
+                    if (((textmobile.Text != "") || (textname.Text != "") || (textocc.Text != "") || (starttext.Text != "") || (endtext.Text != "") || (tablenolabel.Text != "")))
                     {
-                        string query2 = "INSERT INTO bookings (TableID,MobileNumber,ResDate,StartTime,EndTime) VALUES ('" + this.texttable.Text + "','" + this.textmobile.Text + "','" + this.datetext.Value.Date.ToString("yyyy-MM-dd") + "','" + this.starttext.Text + "','" + this.endtext.Text + "')";
+                        string query2 = "INSERT INTO bookings (TableID,MobileNumber,ResDate,StartTime,EndTime) VALUES ('" + this.tablenolabel.Text + "','" + this.textmobile.Text + "','" + this.datetext.Value.Date.ToString("yyyy-MM-dd") + "','" + this.starttext.Text + "','" + this.endtext.Text + "')";
                         MySqlCommand cmd1 = new MySqlCommand(query2, databaseConnection);
                         MySqlDataReader myReader = cmd1.ExecuteReader();
 
@@ -313,16 +313,16 @@ namespace Customer_Management
 
 
 
-                        databaseConnection.Open();
-                        MySqlDataAdapter mydata = new MySqlDataAdapter(strSQL, databaseConnection);
-                        MySqlCommandBuilder cBuilder = new MySqlCommandBuilder(mydata);
-                        DataSet ds = new DataSet();
-                        mydata.Fill(ds);
-                        dataGridView1.DataSource = ds.Tables[0];
-                        databaseConnection.Close();
-                    }
+                    databaseConnection.Open();
+                    MySqlDataAdapter mydata = new MySqlDataAdapter(strSQL, databaseConnection);
+                    MySqlCommandBuilder cBuilder = new MySqlCommandBuilder(mydata);
+                    DataSet ds = new DataSet();
+                    mydata.Fill(ds);
+                    dataGridView1.DataSource = ds.Tables[0];
+                    databaseConnection.Close();
                 }
-            
+            }
+
 
 
             catch (Exception ex)
@@ -371,7 +371,7 @@ namespace Customer_Management
                     reader = commandDatabase.ExecuteReader();
                     reader.Close();
 
-                    string query2 = "INSERT INTO expiredres (TableID,MobileNumber,ResDate,StartTime,EndTime) VALUES ('" + this.texttable.Text + "','" + this.textmobile.Text + "','" + this.datetext.Value.Date.ToString("yyyy-MM-dd") + "','" + this.starttext.Text + "','" + this.endtext.Text + "')";
+                    string query2 = "INSERT INTO expiredres (TableID,MobileNumber,ResDate,StartTime,EndTime) VALUES ('" + this.tablenolabel.Text + "','" + this.textmobile.Text + "','" + this.datetext.Value.Date.ToString("yyyy-MM-dd") + "','" + this.starttext.Text + "','" + this.endtext.Text + "')";
                     MySqlCommand cmd1 = new MySqlCommand(query2, databaseConnection);
                     MySqlDataReader myReader = cmd1.ExecuteReader();
                     myReader.Close();
@@ -384,12 +384,12 @@ namespace Customer_Management
                 }
 
                 {
-                   
+
                     // }
 
 
                     databaseConnection.Close();
-                  
+
 
                 }
             }
@@ -404,8 +404,9 @@ namespace Customer_Management
             string strSQLcount = "select count(*) from customer where MobileNumber= '" + textmobile.Text.ToString() + "'";
             MySqlCommand cmd = new MySqlCommand(strSQLcount, databaseConnection);
 
-            Int32 count =Convert.ToInt32(cmd.ExecuteScalar());
-           try{
+            Int32 count = Convert.ToInt32(cmd.ExecuteScalar());
+            try
+            {
                 if (count == 1)
                 {
                     string strSQL = "select Name from customer where MobileNumber= '" + textmobile.Text.ToString() + "'";
@@ -418,17 +419,17 @@ namespace Customer_Management
                 }
                 else if (count == 0)
                 {
-                    MessageBox.Show("Please register the customer before making the reservation! Thank you!","Register",MessageBoxButtons.OK,MessageBoxIcon.Information);
-       
-                 }
-
-
-
-
-
-
+                    MessageBox.Show("Please register the customer before making the reservation! Thank you!", "Register", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
+
+
+
+
+
+
+
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -447,7 +448,7 @@ namespace Customer_Management
                 //gets a collection that contains all the rows
                 DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
                 //populate the textbox from specific value of the coordinates of column and row.
-                texttable.Text = row.Cells[0].Value.ToString();
+                tablenolabel.Text = row.Cells[0].Value.ToString();
 
             }
         }
@@ -562,11 +563,11 @@ namespace Customer_Management
                 //gets a collection that contains all the rows
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 //populate the textbox from specific value of the coordinates of column and row.
-                texttable.Text = row.Cells[1].Value.ToString();
+                tablenolabel.Text = row.Cells[1].Value.ToString();
                 textmobile.Text = row.Cells[2].Value.ToString();
                 //.Text = row.Cells[3].Value.ToString();
                 starttext.Text = row.Cells[4].Value.ToString();
-                endtext.Text= row.Cells[5].Value.ToString();
+                endtext.Text = row.Cells[5].Value.ToString();
 
 
 
@@ -577,7 +578,7 @@ namespace Customer_Management
         private void button1_Click_1(object sender, EventArgs e)
         {
             var currdate = DateTime.Now.ToString("yyyy-MM-dd");
-            texttable.Text = " ";
+            tablenolabel.Text = " ";
             starttext.SelectedIndex = 0;
             endtext.SelectedIndex = 0;
             textocc.SelectedIndex = 0;
@@ -587,7 +588,7 @@ namespace Customer_Management
             dataGridView2.ClearSelection();
             dataGridView1.ClearSelection();
 
-}
+        }
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -617,7 +618,7 @@ namespace Customer_Management
                 dataGridView1.DataSource = ds.Tables[0];
                 databaseConnection.Close();
             }
-            
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

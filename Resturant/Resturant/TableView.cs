@@ -83,6 +83,7 @@ namespace Cashier
                     name = tableData.GetString("item_name");
                     quantity = tableData.GetInt32("quantity");
                     price = tableData.GetFloat("price");
+                    custID = tableData.GetInt32("custid");
 
                     reciept = reciept + name + " (" + quantity.ToString() + " X " + price.ToString() + ") = " + (price * quantity).ToString() + "\n";
                 }
@@ -96,7 +97,7 @@ namespace Cashier
 
                 if (custID != 0) {
                     databaseConnector db = new databaseConnector();
-                    MySqlDataReader reader = db.getData("SELECT Email, MobileNumber FROM `customer` WHERE CID = 1");
+                    MySqlDataReader reader = db.getData("SELECT Email, MobileNumber FROM `customer` WHERE CID = "+custID);
 
                     reader.Read();
                     string email = reader.GetString("Email");
@@ -104,7 +105,7 @@ namespace Cashier
                     reader.Close();
                     Send_Message sm = new Send_Message();
 
-                    if (mobileNumber > 0)
+                    if (false && mobileNumber > 0)
                     {
                         
                         sm.sms(reciept, "0770112998");
@@ -143,6 +144,7 @@ namespace Cashier
                     name = tableData.GetString("item_name");
                     quantity = tableData.GetInt32("quantity");
                     price = tableData.GetFloat("price");
+                    custID = tableData.GetInt32("custid");
 
                     reciept = reciept + name + " (" + quantity.ToString() + " X " + price.ToString() + ") = " + (price * quantity).ToString() + "\n";
                 }
@@ -157,7 +159,7 @@ namespace Cashier
                 if (custID != 0)
                 {
                     databaseConnector db = new databaseConnector();
-                    MySqlDataReader reader = db.getData("SELECT Email, MobileNumber FROM `customer` WHERE CID = 1");
+                    MySqlDataReader reader = db.getData("SELECT Email, MobileNumber FROM `customer` WHERE CID = "+custID);
 
                     reader.Read();
                     string email = reader.GetString("Email");
@@ -165,7 +167,7 @@ namespace Cashier
                     reader.Close();
                     Send_Message sm = new Send_Message();
 
-                    if (mobileNumber > 0)
+                    if (false && mobileNumber > 0)
                     {
                         //
                         sm.sms(reciept, "0770112998");

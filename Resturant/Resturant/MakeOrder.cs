@@ -13,6 +13,7 @@ using System.Drawing.Imaging;
 using Cashier;
 using System.Runtime.InteropServices;
 using Resturant.Properties;
+using Customer_Management;
 
 namespace OrderManagement
 {
@@ -203,9 +204,10 @@ namespace OrderManagement
                 {
                     conn.Open();
                     //MySqlCommand com = new MySqlCommand("INSERT INTO orderlist(itemcode,itemname,portionsize,quantity) VALUES ('" + itemcode.Text + "','" + itemname.Text + "','" + psize.Text + "','" + qty.Value + "')", conn);
-                    MySqlCommand com = new MySqlCommand("INSERT INTO orderlist"+tableno+" (itemcode,itemname,portionsize,quantity,price) VALUES (@itemcode,@itemname,@portionsize,@quantity,@price)", conn);
+                    MySqlCommand com = new MySqlCommand("INSERT INTO orderlist"+tableno+ " (custid,itemcode,itemname,portionsize,quantity,price) VALUES (@custid,@itemcode,@itemname,@portionsize,@quantity,@price)", conn);
 
                     com.Parameters.Add("@itemcode", MySqlDbType.Int32).Value = itemcode.Text;
+                    com.Parameters.Add("@custid", MySqlDbType.Int32).Value = custid;
                     com.Parameters.Add("@itemname", MySqlDbType.VarChar).Value = itemname.Text;
                     com.Parameters.Add("@portionsize", MySqlDbType.VarChar).Value = psize.Text;
                     com.Parameters.Add("@quantity", MySqlDbType.Int32).Value = qty.Value;
@@ -294,10 +296,32 @@ namespace OrderManagement
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ConfirmPayment cp = new ConfirmPayment(tableno);
+            DatabaseConnection DC = new DatabaseConnection();
+            MySqlConnection con = DC.getConnection(); 
+            try
+            {
+                
 
-            cp.Show();
-            
+                con.Open();
+
+                MySqlCommand com = new MySqlCommand("Select * from orderlist"+tableno , con);
+                MySqlDataReader read = com.ExecuteReader();
+
+
+                if (read.Read())
+                {
+                    ConfirmPayment cp = new ConfirmPayment(tableno);
+
+                    cp.Show();
+                }
+                else{
+                    MessageBox.Show("Please select an item before finalizing order");
+                }
+            }
+            catch (Exception te) {
+                MessageBox.Show(te.Message);
+                con.Close();
+            }
 
         }
 
@@ -561,6 +585,46 @@ namespace OrderManagement
         private void button4_MouseMove(object sender, MouseEventArgs e)
         {
             button4.BackgroundImage = Resources.success;
+        }
+
+        private void button1_MouseMove(object sender, MouseEventArgs e)
+        {
+            button1.BackgroundImage = Resources.backspace_dark;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackgroundImage = Resources.left_arrow_thin_symbol_in_circular_button;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DatabaseConnection DC = new DatabaseConnection();
+            MySqlConnection con = DC.getConnection();
+            try
+            {
+
+
+                con.Open();
+
+                MySqlCommand com = new MySqlCommand("Select * from table" + tableno, con);
+                MySqlDataReader read = com.ExecuteReader();
+
+
+                if (read.Read())
+                {
+                    button1.Visible = false;
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
+            catch (Exception te)
+            {
+                MessageBox.Show(te.Message);
+                con.Close();
+            }
         }
     }
 }

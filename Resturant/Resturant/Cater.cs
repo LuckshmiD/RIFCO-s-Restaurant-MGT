@@ -91,6 +91,21 @@ namespace EventCaterMgt
 
                 con.Open();
 
+                string add9 = "truncate table orders123";
+                MySqlCommand cmd9 = new MySqlCommand(add9, con);
+                cmd9.ExecuteReader();
+                con.Close();
+
+
+                con.Open();
+
+                add9 = "insert into orders123 values (0,'0',0,0)";
+                cmd9 = new MySqlCommand(add9, con);
+                cmd9.ExecuteReader();
+                con.Close();
+
+
+
                 string add2 = "select bevdessert as BeveragesDesserts,price as Price from bevdessert";
                 string add1 = "select lunchdinner as MainMenu,price as Price from lunchdinner";
                 string add3 = "select Items,Quantity,Price from orders123";//recheck
@@ -360,20 +375,20 @@ namespace EventCaterMgt
                         //}
 
                      // price1.Text = "0";
-                    if (cusExist(cusid.Text) == true)
-                    {
-                        con.Open();
-                        string add = "select sum(Price) from orders123 where customer='" + cusid.Text + "'";
-                        MySqlCommand cmd = new MySqlCommand(add, con);
-                        MySqlDataReader read = cmd.ExecuteReader();
-                        if (read.Read())
-                        {
-                            Itot.Text = (read.GetDouble("sum(Price)") + Convert.ToDouble(count.Text) * Convert.ToDouble(price1.Text)).ToString();
-                            read.Close();
-                        }
+                    ////if (cusExist(cusid.Text) == true)
+                    ////{
+                    ////    con.Open();
+                    ////    string add = "select sum(Price) from orders123 where customer='" + cusid.Text + "'";
+                    ////    MySqlCommand cmd = new MySqlCommand(add, con);
+                    ////    MySqlDataReader read = cmd.ExecuteReader();
+                    ////    if (read.Read())
+                    ////    {
+                    ////        Itot.Text = (read.GetDouble("sum(Price)") + Convert.ToDouble(count.Text) * Convert.ToDouble(price1.Text)).ToString();
+                    ////        read.Close();
+                    ////    }
 
-                        con.Close();
-                    }
+                    ////    con.Close();
+                    ////}
                 }
 
                 
