@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using OrderManagement;
 using Cashier;
 using Customer_Management;
+using HRManagement;
 
 namespace Resturant
 {
@@ -20,7 +21,8 @@ namespace Resturant
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Dashboard());
-            Application.Run(new BillReportViewer());
+            //Application.Run(new BillReportViewer());
+            Application.Run(new Login());
         }
     }
 }

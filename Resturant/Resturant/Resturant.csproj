@@ -175,6 +175,12 @@
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="databaseConnector.cs" />
     <Compile Include="DBconnector.cs" />
+    <Compile Include="DeleteEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteEmployee.designer.cs">
+      <DependentUpon>DeleteEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeleteItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,18 @@
     </Compile>
     <Compile Include="DeliveryPayment.designer.cs">
       <DependentUpon>DeliveryPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee Home.designer.cs">
+      <DependentUpon>Employee Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="empSal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="empSal.designer.cs">
+      <DependentUpon>empSal.cs</DependentUpon>
     </Compile>
     <Compile Include="EpenditureReport.cs">
       <AutoGen>True</AutoGen>
@@ -221,8 +239,32 @@
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="leaveManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="leaveManagement.designer.cs">
+      <DependentUpon>leaveManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="meeting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="meeting.designer.cs">
+      <DependentUpon>meeting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Revenue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Revenue.Designer.cs">
+      <DependentUpon>Revenue.cs</DependentUpon>
     </Compile>
     <Compile Include="Income.cs" />
     <Compile Include="IncomeUI.cs">
@@ -320,7 +362,19 @@
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
+    <Compile Include="Search Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search Employee.designer.cs">
+      <DependentUpon>Search Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Send_Message.cs" />
+    <Compile Include="Signup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Signup.designer.cs">
+      <DependentUpon>Signup.cs</DependentUpon>
+    </Compile>
     <Compile Include="StockDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +423,12 @@
     </Compile>
     <Compile Include="TrackRevExp.designer.cs">
       <DependentUpon>TrackRevExp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateEmployee.designer.cs">
+      <DependentUpon>UpdateEmployee.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AddNewItem.resx">
       <DependentUpon>AddNewItem.cs</DependentUpon>
@@ -420,6 +480,9 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeleteEmployee.resx">
+      <DependentUpon>DeleteEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeleteItem.resx">
       <DependentUpon>DeleteItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,6 +491,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeliveryPayment.resx">
       <DependentUpon>DeliveryPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee Home.resx">
+      <DependentUpon>Employee Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="empSal.resx">
+      <DependentUpon>empSal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EpenditureReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -444,6 +513,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="leaveManagement.resx">
+      <DependentUpon>leaveManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="meeting.resx">
+      <DependentUpon>meeting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Revenue.resx">
+      <DependentUpon>Revenue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IncomeUI.resx">
       <DependentUpon>IncomeUI.cs</DependentUpon>
@@ -503,6 +584,12 @@
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Search Employee.resx">
+      <DependentUpon>Search Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Signup.resx">
+      <DependentUpon>Signup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StockDetails.resx">
       <DependentUpon>StockDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -526,6 +613,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TrackRevExp.resx">
       <DependentUpon>TrackRevExp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateEmployee.resx">
+      <DependentUpon>UpdateEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="customermanagementDataSet.xsc">
       <DependentUpon>customermanagementDataSet.xsd</DependentUpon>
@@ -809,6 +899,45 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\082677-green-metallic-orb-icon-business-trashcan3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-database-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\administrator_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\golddollar_icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-eps02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\militar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-user-icon-5165.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personal_loan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thumb_COLOURBOX10676363.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_maxa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

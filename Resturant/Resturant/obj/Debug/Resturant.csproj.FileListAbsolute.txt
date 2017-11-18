@@ -329,6 +329,16 @@ C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\bin\Deb
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\bin\Debug\stdole.dll
-C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.Form1.resources
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.Reports.resources
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.BillReportViewer.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\HRManagement.DeleteEmployee.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\HRManagement.Employee_Home.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\HRManagement.empSal.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\HRManagement.Form1.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\HRManagement.leaveManagement.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\HRManagement.Login.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\HRManagement.meeting.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.Revenue.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\HRManagement.Search_Employee.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\HRManagement.Signup.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\HRManagement.UpdateEmployee.resources
