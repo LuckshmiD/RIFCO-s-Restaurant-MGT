@@ -95,9 +95,6 @@
     <Compile Include="Bookings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bookings.designer.cs">
-      <DependentUpon>Bookings.cs</DependentUpon>
-    </Compile>
     <Compile Include="Cash_Validation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +257,9 @@
     <Compile Include="meeting.designer.cs">
       <DependentUpon>meeting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rating.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Revenue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,12 +326,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rating.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Rating.designer.cs">
-      <DependentUpon>Rating.cs</DependentUpon>
-    </Compile>
     <Compile Include="Recipe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -439,9 +433,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BillReportViewer.resx">
       <DependentUpon>BillReportViewer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bookings.resx">
-      <DependentUpon>Bookings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cash_Validation.resx">
       <DependentUpon>Cash_Validation.cs</DependentUpon>
@@ -563,9 +554,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Rating.resx">
-      <DependentUpon>Rating.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Recipe.resx">
       <DependentUpon>Recipe.cs</DependentUpon>
     </EmbeddedResource>
