@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Customer_Management;
 using HRManagement;
+using RCTRM;
 
 namespace Resturant
 {
@@ -52,6 +53,12 @@ namespace Resturant
         private void login_Click(object sender, EventArgs e)
         {
             new Login().Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Income in1 = new Income();
+            in1.GetSales();
         }
     }
 }

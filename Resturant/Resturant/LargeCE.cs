@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using EventCaterMgt;
+//using EventCaterMgt;
 
 
 namespace supplier
@@ -114,7 +114,7 @@ namespace supplier
                 con.Open();
 
                 //string option = comboBox4.SelectedItem.ToString();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO large (MenuName,StockName,StockSize,Total) VALUES ('" + mainMealCombo.Text + "','" + comboBox1.SelectedItem + "','" + textBox1.Text + "','" + textBox4.Text + "')", con);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO large (MenuName,StockName,StockSize,Total) VALUES ('" + mainMealCombo.Text + "','" + comboBox1.SelectedItem + "','" + Convert.ToDouble(textBox1.Text)+ "','" + Convert.ToDouble(textBox4.Text) + "')", con);
                 cmd.ExecuteReader();
                 con.Close();
 
@@ -132,10 +132,13 @@ namespace supplier
                 adp.Dispose();
                 con.Close();
                 MessageBox.Show(" Menu Details are Added");
-            //    textBox2.Text = "";
-                comboBox1.Text = "";
-                textBox1.Text = "";
+
+                mainMealCombo.SelectedIndex = -1;
+
+                comboBox1.SelectedIndex =-1;
                 textBox4.Text = "";
+             //   textBox1.Clear();
+                
             }
             catch (MySqlException ee)
             {
@@ -145,10 +148,12 @@ namespace supplier
 
         private void button3_Click(object sender, EventArgs e)
         {
-
             this.Hide();
-            createMenu main = new createMenu();
+            Main main = new Main();
             main.Show();
+            //this.Hide();
+            //createMenu main = new createMenu();
+            //main.Show();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -199,7 +204,7 @@ namespace supplier
                      
             
         }
-        public void retriveDessert()
+       /* public void retriveDessert()
         {
 
 
@@ -216,19 +221,19 @@ namespace supplier
 
 
         }
-
+        */
         private void Large_Load(object sender, EventArgs e)
         {
             try
             {
                 retriveMeal();
-                retriveDessert();
+                //retriveDessert();
                 MySqlConnection con = new MySqlConnection("Server=localhost;Database=rmsdatabase;Uid=root;Pwd=;");
                 string query = "select * from Stock";
                 string que1 = "select distinct MenuName from large ";
-                string que2 = "select * from items";
-                string que3 = "select * from bevdessert";
-                string que4 = "select * from lunchdinner";
+                //string que2 = "select * from items";
+                //string que3 = "select * from bevdessert";
+                //string que4 = "select * from lunchdinner";
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand(query, con);
 
@@ -238,14 +243,15 @@ namespace supplier
                     comboBox1.Items.Add(reader.GetString("StockName"));
                 }
                 reader.Close();
-                MySqlCommand cmd2= new MySqlCommand(que2, con);
+                /*MySqlCommand cmd2= new MySqlCommand(que2, con);
 
                 MySqlDataReader reader2 = cmd.ExecuteReader();
                 while (reader2.Read())
                 {
                     mainMealCombo.Items.Add(reader.GetString("itemname"));
                 }
-                reader.Close();
+                reader.Close();*/
+
                 MySqlCommand cmd1 = new MySqlCommand(que1, con);
 
                 MySqlDataReader reader1 = cmd1.ExecuteReader();
@@ -253,26 +259,26 @@ namespace supplier
                 {
                     comboBox3.Items.Add(reader1.GetString("MenuName"));
                 }
-                reader.Close();
+                reader1.Close();
 
-                MySqlCommand cmd3 = new MySqlCommand(que3, con);
+               /* MySqlCommand cmd3 = new MySqlCommand(que3, con);
 
                 MySqlDataReader reader3 = cmd.ExecuteReader();
                 while (reader3.Read())
                 {
                     beverageCombo.Items.Add(reader.GetString("bevdessert"));
                 }
-                reader.Close();
+                reader.Close();*/
 
-                MySqlCommand cmd4= new MySqlCommand(que4, con);
+                /*MySqlCommand cmd4= new MySqlCommand(que4, con);
 
-                MySqlDataReader reader4 = cmd.ExecuteReader();
+                MySqlDataReader reader4 = cmd4.ExecuteReader();
                 while (reader4.Read())
                 {
-                    comboBox1.Items.Add(reader.GetString("lunchdinner"));
+                    mainMealCombo.Items.Add(reader4.GetString("lunchdinner"));
                 }
-                reader.Close();
-
+                reader4.Close();
+                */
 
                 con.Close();
             }
@@ -370,7 +376,7 @@ namespace supplier
             con.Open();
             MySqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update  Large set MenuName='" + mainMealCombo.Text + "',StockName='" + comboBox1.SelectedItem + "',StockSize='" + textBox1.Text +"',Total='"+textBox4.Text+ "'where MenuCode='" + label8.Text + "'";
+            cmd.CommandText = "update  Large set MenuName='" + mainMealCombo.Text + "',StockName='" + comboBox1.SelectedItem + "',StockSize='" + Convert.ToDouble(textBox1.Text) +"',Total='"+Convert.ToDouble(textBox4.Text)+ "'where MenuCode='" + label8.Text + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -381,7 +387,7 @@ namespace supplier
             MessageBox.Show("Record Updated successfully");
             label8.Text = "";
             mainMealCombo.SelectedIndex=-1;
-            comboBox1.SelectedItem = "";
+            comboBox1.SelectedIndex=-1;
             textBox1.Text = "";
             textBox4.Text = "";
 
@@ -390,13 +396,14 @@ namespace supplier
 
         private void button7_Click(object sender, EventArgs e)
         {
+            display_data();
             string valueOfData = textBox3.Text.ToString();
             searchData(valueOfData);
         }
 
         public void searchData(string valueOfData)
         {
-            MySqlConnection con = new MySqlConnection("Server=localhost;Database=project;Uid=root;Pwd=;");
+            MySqlConnection con = new MySqlConnection("Server=localhost;Database=rmsdatabase;Uid=root;Pwd=;");
             MySqlCommand cmd;
 
             string query = "select * from Large where CONCAT(MenuCode,MenuName,StockName,StockSize,Total) like '%" + valueOfData + "%'";
@@ -419,8 +426,8 @@ namespace supplier
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-                mainMealCombo.Text = row.Cells[0].Value.ToString();
-                textBox3.Text = row.Cells[1].Value.ToString();
+                label8.Text = row.Cells[0].Value.ToString();
+                mainMealCombo.Text = row.Cells[1].Value.ToString();
                 comboBox1.SelectedItem = row.Cells[2].Value.ToString();
                 textBox1.Text = row.Cells[3].Value.ToString();
                 textBox4.Text = row.Cells[4].Value.ToString();
@@ -470,6 +477,20 @@ namespace supplier
             finally
             {
                 con.Close();
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                label8.Text = row.Cells[0].Value.ToString();
+                mainMealCombo.Text = row.Cells[1].Value.ToString();
+                comboBox1.SelectedItem = row.Cells[2].Value.ToString();
+                textBox1.Text = row.Cells[3].Value.ToString();
+                textBox4.Text = row.Cells[4].Value.ToString();
+
             }
         }
     }

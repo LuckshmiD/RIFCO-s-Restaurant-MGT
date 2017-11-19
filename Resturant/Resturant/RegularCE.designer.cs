@@ -54,10 +54,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(109, 215);
+            this.textBox1.Location = new System.Drawing.Point(109, 219);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(121, 20);
             this.textBox1.TabIndex = 69;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label8
             // 
@@ -115,6 +116,7 @@
             this.button7.TabIndex = 58;
             this.button7.Text = "Search";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
             // button6
             // 
@@ -124,6 +126,7 @@
             this.button6.TabIndex = 57;
             this.button6.Text = "Update";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
             // button5
             // 
@@ -133,6 +136,7 @@
             this.button5.TabIndex = 56;
             this.button5.Text = "Total Price";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // label5
             // 
@@ -150,6 +154,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 54;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -164,6 +169,8 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(482, 383);
             this.dataGridView1.TabIndex = 53;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // button3
             // 
@@ -210,6 +217,7 @@
             this.button2.TabIndex = 48;
             this.button2.Text = "Delete";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // button1
             // 
@@ -228,6 +236,7 @@
             this.mainMealCombo.Name = "mainMealCombo";
             this.mainMealCombo.Size = new System.Drawing.Size(121, 21);
             this.mainMealCombo.TabIndex = 65;
+            this.mainMealCombo.SelectedIndexChanged += new System.EventHandler(this.mainMealCombo_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -267,7 +276,7 @@
             this.MaximizeBox = false;
             this.Name = "RegularCE";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Regular_Load);
+            this.Load += new System.EventHandler(this.RegularCE_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

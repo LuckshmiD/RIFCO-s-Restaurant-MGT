@@ -24,42 +24,47 @@ namespace RCTRM
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            bool recnexists;
-            String date = Convert.ToString(dateTimePicker1.Text);
-
-            Expenses ex1 = new Expenses();
-            recnexists = ex1.Reciptnumberexsist(txtRecNo.Text);
-
-            //amtisnull = ex1.checkNull(txtAmount.Text);
-            if (txtAmount.Text.Length != 0 && comboBox2.Text.Length != 0 && txtRecNo.Text.Length != 0 && comboBox1.Text.Length != 0)
+            try
             {
-                float amt = float.Parse(txtAmount.Text);
+                bool recnexists;
+                String date = Convert.ToString(dateTimePicker1.Text);
 
-                if (recnexists != true)
+                Expenses ex1 = new Expenses();
+                recnexists = ex1.Reciptnumberexsist(txtRecNo.Text);
+
+                //amtisnull = ex1.checkNull(txtAmount.Text);
+                if (txtAmount.Text.Length != 0 && comboBox2.Text.Length != 0 && txtRecNo.Text.Length != 0 && comboBox1.Text.Length != 0)
                 {
-                    //MessageBox.Show(comboBox2.Text);
-                    //MessageBox.Show(comboBox1.Text);
-                    //MessageBox.Show(txtRecNo.Text);
+                    float amt = float.Parse(txtAmount.Text);
 
-                    ex1.addExpense(comboBox1.Text, comboBox2.Text, date, txtRecNo.Text, amt);
-                    ex1.viewGrid(dataGridView1);
-                    comboBox2.Text = "";
-                    comboBox1.Text = "";
-                    txtRecNo.Text = "";
-                    txtAmount.Text = "";
+                    if (recnexists != true)
+                    {
+                        //MessageBox.Show(comboBox2.Text);
+                        //MessageBox.Show(comboBox1.Text);
+                        //MessageBox.Show(txtRecNo.Text);
+
+                        ex1.addExpense(comboBox1.Text, comboBox2.Text, date, txtRecNo.Text, amt);
+                        ex1.viewGrid(dataGridView1);
+                        comboBox2.Text = "";
+                        comboBox1.Text = "";
+                        txtRecNo.Text = "";
+                        txtAmount.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invoice/Bill Number Already Exsist");
+                    }
+
                 }
-                else
-                {
-                    MessageBox.Show("Invoice/Bill Number Already Exsist");
-                }
-
-            }
-
             else
             {
                 MessageBox.Show("Fill all fields");
             }
-
+         }
+         catch (Exception ex)
+        {
+                MessageBox.Show(ex.Message);
+        }
 
 
         }
@@ -68,104 +73,129 @@ namespace RCTRM
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-            comboBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            comboBox1.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            txtRecNo.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            dateTimePicker1.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            txtAmount.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-
+            try
+            {
+                comboBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                comboBox1.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                txtRecNo.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                dateTimePicker1.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                txtAmount.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            bool recnexists;
-            if (txtAmount.Text.Length != 0 && comboBox2.Text.Length != 0 && txtRecNo.Text.Length != 0 && comboBox1.Text.Length != 0)
+            try
             {
-                String date = Convert.ToString(dateTimePicker1.Text);
-                float amt = float.Parse(txtAmount.Text);
-                Expenses ex1 = new Expenses();
-                recnexists = ex1.Reciptnumberexsist(txtRecNo.Text);
-                if (recnexists != true)
+                bool recnexists;
+                if (txtAmount.Text.Length != 0 && comboBox2.Text.Length != 0 && txtRecNo.Text.Length != 0 && comboBox1.Text.Length != 0)
                 {
-                    ex1.alterExpense(comboBox2.Text, comboBox1.Text, date, txtRecNo.Text, amt);
-                    ex1.viewGrid(dataGridView1);
-                    comboBox2.Text = "";
-                    comboBox1.Text = "";
-                    txtRecNo.Text = "";
-                    txtAmount.Text = "";
+                    String date = Convert.ToString(dateTimePicker1.Text);
+                    float amt = float.Parse(txtAmount.Text);
+                    Expenses ex1 = new Expenses();
+                    recnexists = ex1.Reciptnumberexsist(txtRecNo.Text);
+                    if (recnexists != true)
+                    {
+                        ex1.alterExpense(comboBox2.Text, comboBox1.Text, date, txtRecNo.Text, amt);
+                        ex1.viewGrid(dataGridView1);
+                        comboBox2.Text = "";
+                        comboBox1.Text = "";
+                        txtRecNo.Text = "";
+                        txtAmount.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invice/Bill Number Already Exsist");
+                    }
                 }
+
                 else
                 {
-                    MessageBox.Show("Invice/Bill Number Already Exsist");
+                    MessageBox.Show("Fields are empty");
                 }
             }
-
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Fields are empty");
+                MessageBox.Show(ex.Message);
             }
         }
 
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Expenses ex1 = new Expenses();
+                ex1.deleteExpense(txtRecNo.Text);
+                ex1.viewGrid(dataGridView1);
 
-            Expenses ex1 = new Expenses();
-            ex1.deleteExpense(txtRecNo.Text);
-            ex1.viewGrid(dataGridView1);
-
-            comboBox2.Text = "";
-            comboBox1.Text = "";
-            txtRecNo.Text = "";
-            txtAmount.Text = "";
-
+                comboBox2.Text = "";
+                comboBox1.Text = "";
+                txtRecNo.Text = "";
+                txtAmount.Text = "";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (txtSearch.Text.Length != 0)
+            try
             {
-                string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rest";
-                MySqlConnection DBConnect = new MySqlConnection(ConnectString);
-                
-
-                string query = "SELECT * FROM `expense` WHERE `Invoice/Bill Number` like '" + txtSearch.Text + "'";
-                // "SELECT * FROM `expense` WHERE `Invoice/Bill Number` = '" + txtSearch.Text + "'";
-
-                MySqlCommand commandDatabase = new MySqlCommand(query, DBConnect);
-                commandDatabase.CommandTimeout = 60;
-                MySqlDataReader reader;
-                try
+                if (txtSearch.Text.Length != 0)
                 {
-                    DBConnect.Open();
-                    reader = commandDatabase.ExecuteReader();
-                    if (reader.Read())
+                    string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rest";
+                    MySqlConnection DBConnect = new MySqlConnection(ConnectString);
+
+
+                    string query = "SELECT * FROM `expense` WHERE `Invoice/Bill Number` like '" + txtSearch.Text + "'";
+                    // "SELECT * FROM `expense` WHERE `Invoice/Bill Number` = '" + txtSearch.Text + "'";
+
+                    MySqlCommand commandDatabase = new MySqlCommand(query, DBConnect);
+                    commandDatabase.CommandTimeout = 60;
+                    MySqlDataReader reader;
+                    try
                     {
-                        txtRecNo.Text = reader.GetString("Invoice/Bill Number");
-                        comboBox2.Text = reader.GetString("Descri");
-                        comboBox1.Text = reader.GetString("Type");
-                        dateTimePicker1.Text = reader.GetString("Date");
-                        txtAmount.Text = reader.GetString("Amount");
-                        btnEdit.Visible = true;
-                        btnDelete.Visible = true;
-                        txtRecNo.ReadOnly = true;
-                        txtSearch.Text = "";
+                        DBConnect.Open();
+                        reader = commandDatabase.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            txtRecNo.Text = reader.GetString("Invoice/Bill Number");
+                            comboBox2.Text = reader.GetString("Descri");
+                            comboBox1.Text = reader.GetString("Type");
+                            dateTimePicker1.Text = reader.GetString("Date");
+                            txtAmount.Text = reader.GetString("Amount");
+                            btnEdit.Visible = true;
+                            btnDelete.Visible = true;
+                            txtRecNo.ReadOnly = true;
+                            txtSearch.Text = "";
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invoice/Bill Number Not Found!");
+                        }
+                        //MessageBox.Show("Succesfully Deleted");
+                        DBConnect.Close();
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Invoice/Bill Number Not Found!");
+                        MessageBox.Show(ex.Message);
                     }
-                    //MessageBox.Show("Succesfully Deleted");
-                    DBConnect.Close();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Search Field Is Empty!");
                 }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("Search Field Is Empty!");
+                MessageBox.Show(ex.Message);
             }
         }
 

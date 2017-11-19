@@ -457,7 +457,7 @@ namespace EventCaterMgt
                     con.Open();
                     MySqlCommand cmd1 = con.CreateCommand();
                     cmd1.CommandType = CommandType.Text;
-                    cmd1.CommandText = "Insert into cater(datetime,address,count,duration,cusContact,time,cusId,cusname) values('" + date.Text + "','" + address.Text + "','" + Convert.ToInt32(count.Text) + "','" + Convert.ToInt32(duration.SelectedItem) + "','" + cuscontact.Text + "','" + time.Text + "','" + Convert.ToInt32(cusid.Text) + "','" + cusname.Text + "')";
+                    cmd1.CommandText = "Insert into cater(datetime,address,count,duration,cusContact,time,cusname) values('" + date.Text + "','" + address.Text + "','" + Convert.ToInt32(count.Text) + "','" + Convert.ToInt32(duration.SelectedItem) + "','" + cuscontact.Text + "','" + time.Text + "','" + cusname.Text + "')";
                     cmd1.ExecuteReader();
                     con.Close();
                   //  MessageBox.Show("Successfully Saved");
@@ -471,17 +471,26 @@ namespace EventCaterMgt
                     //hdamount.Text = "..";                        
                 }
 
-
+                string day1 = DateTime.Today.ToString("yyyy-MM-dd");
 
                 string add = "insert into paymentecm (payprice,cusid,dateToBePaid) values('" + Convert.ToDouble(duhead.Text) + "','" + cusid.Text+ "','"+date.Text+"')";
-               // string inc = "insert into income(Descri,Type,Date,Voucher_No,Amount) values('Cash','Sales','"+date.Text+"','V"+cusid.Text+"','"+Convert.ToDouble(duhead.Text)+"')";
-   
+                string inc = "insert into income(Descri,Type,Date,Voucher_No,Amount) values('Cash','Sales','" +day1+ "','V" + cusid.Text + "','" + Convert.ToDouble(duhead.Text) + "')";
                     con.Open();
                     MySqlCommand cmd = new MySqlCommand(add, con);
 
                     cmd.ExecuteReader();
                     con.Close();
-                    MessageBox.Show("Successfully Payment  Added");
+
+                    con.Open();
+                    MySqlCommand cmnd = new MySqlCommand(inc, con);
+
+                    cmnd.ExecuteReader();
+                    con.Close();
+
+
+
+
+                MessageBox.Show("Successfully Payment  Added");
                   
                     Item1.Text = "";
                     duration.SelectedIndex =-1;

@@ -228,33 +228,7 @@ namespace RCTRM
             this.Hide();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            Income in1 = new Income(); 
-            DBconnector db1 = new DBconnector();
-            MySqlConnection conn = db1.getConnection();
-
-
-            DateTime day = DateTime.Today;
-            String date = Convert.ToString(day);
-            string hour = day.ToString("HH");
-            string minutes = day.ToString("mm");
-            int h = int.Parse(hour);
-            int m = int.Parse(minutes);
-            if (h == 23 && m >= 0)
-            {
-
-                string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rest";
-                MySqlConnection DBConnect = new MySqlConnection(ConnectString);
-                MySqlCommand commandDatabase = DBConnect.CreateCommand();
-                commandDatabase.CommandText = "SELECT sum(Amount) from expense where date = '" + day + "'";
-                int result = ((int)commandDatabase.ExecuteScalar());
-                in1.addIncome(comboBox2.Text, comboBox1.Text, date, txtVouNo.Text, result);
-                conn.Close();
-
-            }
-
-        }
+        
 
         private void txtDescr_TextChanged(object sender, EventArgs e)
         {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.clock = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.tenMinutes = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // button1
@@ -362,6 +364,11 @@
             this.label10.Text = "Table 6";
             this.label10.Click += new System.EventHandler(this.label1_Click);
             // 
+            // tenMinutes
+            // 
+            this.tenMinutes.Interval = 600000;
+            this.tenMinutes.Tick += new System.EventHandler(this.tenMinutes_Tick);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,5 +436,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Timer tenMinutes;
     }
 }

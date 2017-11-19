@@ -122,6 +122,40 @@ namespace RCTRM
 
         }
 
+        public bool GetSales()
+        {
+            
+            
+            DBconnector db1 = new DBconnector();
+            MySqlConnection conn = db1.getConnection();
+
+            float amnt;
+            string day1 = DateTime.Today.ToString("yyyy-MM-dd");
+            DateTime day = DateTime.Today;
+            String date = Convert.ToString(day);
+            string hour = day.ToString("HH");
+            string minutes = day.ToString("mm");
+            int h = int.Parse(hour);
+            int m = int.Parse(minutes);
+            if (h == 23 && m >= 0)
+            {
+                conn.Open();
+                MySqlCommand com = new MySqlCommand("SELECT sum(amount) from payment where dateTime = '" + date + "'", conn);
+                MySqlDataReader reader = com.ExecuteReader();
+
+                reader.Read();
+                amnt = reader.GetFloat(0);
+               // MessageBox.Show("Done");
+
+                addIncome("Cash", "Sales", day1, date, amnt);
+                conn.Close();
+                 return true;
+            }
+            
+
+            return false;
+        }
 
     }   
+
 }

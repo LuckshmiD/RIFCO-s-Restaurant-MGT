@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Resturant.Properties;
 using System.Runtime.InteropServices;
+using RCTRM;
+using Transport;
 
 namespace Cashier
 {
@@ -257,6 +259,9 @@ namespace Cashier
             t.Tick += new EventHandler(this.t_Tick);
 
             t.Start();
+
+            tenMinutes.Tick += new EventHandler(this.tenMinutes_Tick);
+            tenMinutes.Start();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -528,6 +533,15 @@ namespace Cashier
         private void button5_MouseLeave(object sender, EventArgs e)
         {
 
+        }
+
+        private void tenMinutes_Tick(object sender, EventArgs e)
+        {
+            Income i = new Income();
+            i.GetSales();
+
+            DeliveryOrders d = new DeliveryOrders();
+            d.AssignDriver();
         }
     }
 }

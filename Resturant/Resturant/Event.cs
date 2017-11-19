@@ -340,7 +340,7 @@ namespace EventCaterMgt
                     else
                     {
                         MessageBox.Show("Number not found Please Register");
-                        //new Registratio().Show();
+                        new Registratio().Show();
 
                     }
                 }
@@ -348,7 +348,7 @@ namespace EventCaterMgt
                 else
                 {
                     MessageBox.Show("Number not found Please Register");
-                    //new Registratio().Show();
+                    new Registratio().Show();
 
                 }
 
@@ -380,7 +380,7 @@ namespace EventCaterMgt
                 }
                 double du, hd, tot;
                 du = Convert.ToDouble(duamount.Text);
-                hd = Convert.ToDouble(count.Text);//hd amount
+               // hd = Convert.ToDouble(count.Text);//hd amount
                 tot = du;
 
                 duhead.Text = Convert.ToString(tot);
@@ -494,8 +494,10 @@ namespace EventCaterMgt
                     con.Close();
                     // MessageBox.Show("Successfully Saved");
 
+                    //DateTime day = DateTime.Today;
+                    string day1 = DateTime.Today.ToString("yyyy-MM-dd");
 
-                    // string inc = "insert into income(Descri,Type,Date,Voucher_No,Amount) values('Cash','Sales','"+date.Text+"','V"+cusid.Text+"','"+Convert.ToDouble(duhead.Text)+"')";
+                    string inc = "insert into income(Descri,Type,Date,Voucher_No,Amount) values('Cash','Sales','"+day1+"','V"+cusid.Text+"','"+Convert.ToDouble(duhead.Text)+"')";
                     string add = "insert into paymentecm (payprice,cusid,dateToBePaid) values('" + Convert.ToDouble(duhead.Text) + "','" + cusid.Text + "','" + date.Text + "')";
 
                         con.Open();
@@ -503,8 +505,15 @@ namespace EventCaterMgt
 
                         cmd.ExecuteReader();
                         con.Close();
-                        MessageBox.Show("Successfully Payment added");
+                        con.Open();
+                        MySqlCommand cmnd = new MySqlCommand(inc, con);
 
+                        cmnd.ExecuteReader();
+                        con.Close();
+
+                    MessageBox.Show("Successfully Payment added");
+
+                        
                        // dsrtcombo.Text = "Choose From Here";
                         duration.SelectedIndex = -1;
                         packprice.Text = "0";
@@ -528,7 +537,7 @@ namespace EventCaterMgt
                        
 
                         string add1 = "insert into eventlist select * from eventlisttemp";
-                        // string inc = "insert into income(Descri,Type,Date,Voucher_No,Amount) values('Cash','Sales','"+date.Text+"','V"+cusid.Text+"','"+Convert.ToDouble(duhead.Text)+"')";
+                        //string inc1 = "insert into income(Descri,Type,Date,Voucher_No,Amount) values('Cash','Sales','"+date.Text+"','V"+cusid.Text+"','"+Convert.ToDouble(duhead.Text)+"')";
 
                         con.Open();
                         cmd = new MySqlCommand(add1, con);
@@ -547,7 +556,12 @@ namespace EventCaterMgt
                         cmd.ExecuteReader();
                         con.Close();
 
-                        DataTable emptyDT1 = new DataTable();
+                        //con.Open();
+                        //cmd = new MySqlCommand(inc1, con);
+                        //cmd.ExecuteReader();
+                        //con.Close();
+
+                    DataTable emptyDT1 = new DataTable();
                         dataGridView2.DataSource = emptyDT1;
 
                     fillEventorderlist();

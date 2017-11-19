@@ -433,7 +433,7 @@ namespace supplier
 
         public void searchData(string valueOfData)
         {
-            MySqlConnection con = new MySqlConnection("Server=localhost;Database=project;Uid=root;Pwd=;");
+            MySqlConnection con = new MySqlConnection("Server=localhost;Database=rmsdatabase;Uid=root;Pwd=;");
             MySqlCommand cmd;
 
             string query = "select * from supplier where CONCAT(SupplierCode,SupplierName,Address,Status,District,PhoneNumber,EmailAddress) like '%" + valueOfData + "%'";

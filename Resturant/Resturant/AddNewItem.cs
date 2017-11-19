@@ -262,7 +262,7 @@ namespace OrderManagement
                 {
                     DatabaseConnection dc2 = new DatabaseConnection();
                     MySqlConnection conn2 = dc2.getConnection();
-                    string que1 = "INSERT INTO `mealprice`(`MenuId`,`MenuName`,`StockName`,'StocSize',`Total`) SELECT `itemcode`,`itemname`,`StockName`.'StockSize',`Total` FROM `recipe`)";
+                    string que1 = "INSERT INTO `mealprice`(`MenuId`,`MenuName`,`StockName`,'StocSize',`Total`) SELECT `MenuId`,`ItemName`,`StockName`.'StockSize',`Total` FROM `recipe`)";
                     MySqlCommand cmd = new MySqlCommand(que1, conn2);
 
                     cmd.ExecuteNonQuery();

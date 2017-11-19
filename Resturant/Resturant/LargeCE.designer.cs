@@ -48,8 +48,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.mainMealCombo = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.beverageCombo = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -124,6 +122,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(482, 383);
             this.dataGridView1.TabIndex = 27;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // comboBox1
@@ -241,24 +240,6 @@
             this.label9.TabIndex = 43;
             this.label9.Text = "Main Meal";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(243, 61);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(114, 13);
-            this.label10.TabIndex = 44;
-            this.label10.Text = "Beverage And Deserts";
-            // 
-            // beverageCombo
-            // 
-            this.beverageCombo.FormattingEnabled = true;
-            this.beverageCombo.Location = new System.Drawing.Point(246, 97);
-            this.beverageCombo.Name = "beverageCombo";
-            this.beverageCombo.Size = new System.Drawing.Size(121, 21);
-            this.beverageCombo.TabIndex = 45;
-            this.beverageCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(98, 195);
@@ -273,8 +254,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 508);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.beverageCombo);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.mainMealCombo);
             this.Controls.Add(this.label8);
@@ -326,8 +305,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox mainMealCombo;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox beverageCombo;
         private System.Windows.Forms.TextBox textBox1;
     }
 }

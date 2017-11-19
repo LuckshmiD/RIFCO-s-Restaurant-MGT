@@ -60,7 +60,7 @@ namespace supplier
         {
             textBox5.Enabled = true;
             textBox5.Focus();
-            comboBox1.Enabled = false;
+            //comboBox1.Enabled = false;
 
         }
 
@@ -370,7 +370,7 @@ namespace supplier
             MySqlConnection con = new MySqlConnection("Server=localhost;Database=rmsdatabase;Uid=root;Pwd=;");
             MySqlCommand cmd;
 
-            string query = "select * from stock where CONCAT(StockCode,StockName,StockSize,Status,UnitPrice,Date) like '%" + valueOfData + "%'";
+            string query = "select* from stock where CONCAT(StockCode, StockName, StockSize,Status,UnitPrice,Date) like '%" + valueOfData + "%'";
             cmd = new MySqlCommand(query, con);
             adp = new MySqlDataAdapter(cmd);
             dt = new DataTable();
@@ -393,5 +393,24 @@ namespace supplier
             }
         }
 
+        private void Stockdetails_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                label9.Text = row.Cells[0].Value.ToString();
+                textBox2.Text = row.Cells[1].Value.ToString();
+                textBox3.Text = row.Cells[2].Value.ToString();
+                comboBox1.SelectedItem = row.Cells[3].Value.ToString();
+                textBox5.Text = row.Cells[4].Value.ToString();
+                dateTimePicker1.Text = row.Cells[5].Value.ToString();
+            }
+        }
     }
 }

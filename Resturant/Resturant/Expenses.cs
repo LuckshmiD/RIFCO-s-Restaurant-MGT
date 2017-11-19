@@ -16,19 +16,23 @@ namespace RCTRM
 
         public void addExpense(String descrI, String typE, String datE, String repno, float amt)
         {
-            String descr = descrI;
-            String type = typE;
-            String date = datE;
-            String repNo = repno;
-            float amount = amt;
-            string query;
-            DBconnector db1;
-            bool stat;
+            try
+            {
 
 
-            //MessageBox.Show(descr);
+                String descr = descrI;
+                String type = typE;
+                String date = datE;
+                String repNo = repno;
+                float amount = amt;
+                string query;
+                DBconnector db1;
+                bool stat;
 
-            if (descr == "Salaries & Wages")
+
+                //MessageBox.Show(descr);
+
+                if (descr == "Salaries & Wages")
                 {
 
                     db1 = new DBconnector();
@@ -39,7 +43,7 @@ namespace RCTRM
                         MessageBox.Show("Succesfully Expense Added");
                     }
 
-                }  
+                }
                 else if (descr == "Stock" || descr == "Transportaion")
                 {
                     db1 = new DBconnector();
@@ -49,7 +53,7 @@ namespace RCTRM
                     {
                         MessageBox.Show("Succesfully Expense Added");
                     }
-            }
+                }
                 else
                 {
                     db1 = new DBconnector();
@@ -60,38 +64,56 @@ namespace RCTRM
                         MessageBox.Show("Succesfully Expense Added");
                     }
                 }
-            } 
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+         }
+
         
         public void alterExpense(String descrI, String typE, String datE, String repno, float amt)
         {
-            
-            String descr = descrI;
-            String type = typE;
-            String date = datE;
-            String repNo = repno;
-            float amount = amt;
-
-            DBconnector db1 = new DBconnector();
-            string query = "UPDATE expense SET Descri='" + descr + "',Type='" + type + "',Date='" + date + "',`Invoice/Bill Number`='" + repno + "',Amount='" + amount + "' WHERE `Invoice/Bill Number` = '" + repNo + "'";
-            bool stat = db1.executeStatement(query);
-            if (stat == true)
+            try
             {
-                MessageBox.Show("Succesfully Expense Alterd");
-            }
 
+                String descr = descrI;
+                String type = typE;
+                String date = datE;
+                String repNo = repno;
+                float amount = amt;
+
+                DBconnector db1 = new DBconnector();
+                string query = "UPDATE expense SET Descri='" + descr + "',Type='" + type + "',Date='" + date + "',`Invoice/Bill Number`='" + repno + "',Amount='" + amount + "' WHERE `Invoice/Bill Number` = '" + repNo + "'";
+                bool stat = db1.executeStatement(query);
+                if (stat == true)
+                {
+                    MessageBox.Show("Succesfully Expense Alterd");
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public void deleteExpense(String repno)
         {
-            String repNo = repno;
-            DBconnector db1 = new DBconnector();
-            string query = "DELETE FROM expense WHERE `Invoice/Bill Number` = '" + repNo + "'";
-            bool stat = db1.executeStatement(query);
-            if (stat == true)
+            try
             {
-                MessageBox.Show("Succesfully Expense Deleted");
+                String repNo = repno;
+                DBconnector db1 = new DBconnector();
+                string query = "DELETE FROM expense WHERE `Invoice/Bill Number` = '" + repNo + "'";
+                bool stat = db1.executeStatement(query);
+                if (stat == true)
+                {
+                    MessageBox.Show("Succesfully Expense Deleted");
+                }
             }
-
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public bool Reciptnumberexsist(String repno)

@@ -13,6 +13,7 @@ namespace Cashier
         public databaseConnector()
         {
             string cs = @"server=localhost;userid=root;password=;database=RMSDatabase";
+            //string cs = @"server=us-cdbr-iron-east-05.cleardb.net;userid=b86e9de17eea11;password=71591d98;database=heroku_42b0089c8c9f140";
             connection = new MySqlConnection(cs); 
             command = new MySqlCommand();
             connection.Open();

@@ -55,6 +55,9 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PDUConverter, Version=1.21.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81, processorArchitecture=MSIL">
       <HintPath>..\packages\GSMComm.1.21.1\lib\PDUConverter.dll</HintPath>
     </Reference>
@@ -74,6 +77,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add Driver UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add Driver UI.designer.cs">
+      <DependentUpon>Add Driver UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add Driver.cs" />
     <Compile Include="AddNewItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +125,12 @@
     </Compile>
     <Compile Include="Cater.designer.cs">
       <DependentUpon>Cater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Change_Availability.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Change_Availability.designer.cs">
+      <DependentUpon>Change_Availability.cs</DependentUpon>
     </Compile>
     <Compile Include="Chart.cs">
       <SubType>Form</SubType>
@@ -199,6 +215,7 @@
     <Compile Include="DeliveryMenu.designer.cs">
       <DependentUpon>DeliveryMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeliveryOrders.cs" />
     <Compile Include="DeliveryPayment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +265,12 @@
     <Compile Include="Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LargeCE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LargeCE.designer.cs">
+      <DependentUpon>LargeCE.cs</DependentUpon>
+    </Compile>
     <Compile Include="leaveManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,11 +289,23 @@
     <Compile Include="meeting.designer.cs">
       <DependentUpon>meeting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Profittrend.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Profittrend.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Rating.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Rating.designer.cs">
       <DependentUpon>Rating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegularCE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegularCE.designer.cs">
+      <DependentUpon>RegularCE.cs</DependentUpon>
     </Compile>
     <Compile Include="Revenue.cs">
       <SubType>Form</SubType>
@@ -286,12 +321,6 @@
       <DependentUpon>IncomeUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Item.cs" />
-    <Compile Include="LargeCE.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LargeCE.designer.cs">
-      <DependentUpon>LargeCE.cs</DependentUpon>
-    </Compile>
     <Compile Include="LoginEcm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -350,12 +379,6 @@
     <Compile Include="Registration.designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
-    <Compile Include="RegularCE.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RegularCE.designer.cs">
-      <DependentUpon>RegularCE.cs</DependentUpon>
-    </Compile>
     <Compile Include="RegUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -387,23 +410,17 @@
     <Compile Include="Starting_Page.Designer.cs">
       <DependentUpon>Starting_Page.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockDetails.cs">
+    <Compile Include="Stockdetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockDetails.designer.cs">
-      <DependentUpon>StockDetails.cs</DependentUpon>
+    <Compile Include="Stockdetails.designer.cs">
+      <DependentUpon>Stockdetails.cs</DependentUpon>
     </Compile>
     <Compile Include="SupplierDetails.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SupplierDetails.designer.cs">
       <DependentUpon>SupplierDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SupplierDetailsSu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SupplierDetailsSu.designer.cs">
-      <DependentUpon>SupplierDetailsSu.cs</DependentUpon>
     </Compile>
     <Compile Include="Table.cs" />
     <Compile Include="TableView.cs">
@@ -436,12 +453,21 @@
     <Compile Include="TrackRevExp.designer.cs">
       <DependentUpon>TrackRevExp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transport_management.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport_management.designer.cs">
+      <DependentUpon>Transport_management.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateEmployee.designer.cs">
       <DependentUpon>UpdateEmployee.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Add Driver UI.resx">
+      <DependentUpon>Add Driver UI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddNewItem.resx">
       <DependentUpon>AddNewItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -463,6 +489,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cater.resx">
       <DependentUpon>Cater.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Change_Availability.resx">
+      <DependentUpon>Change_Availability.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chart.resx">
       <DependentUpon>Chart.cs</DependentUpon>
@@ -529,6 +558,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LargeCE.resx">
+      <DependentUpon>LargeCE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="leaveManagement.resx">
       <DependentUpon>leaveManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -538,17 +570,21 @@
     <EmbeddedResource Include="meeting.resx">
       <DependentUpon>meeting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Profittrend.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Profittrend.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rating.resx">
       <DependentUpon>Rating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegularCE.resx">
+      <DependentUpon>RegularCE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Revenue.resx">
       <DependentUpon>Revenue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IncomeUI.resx">
       <DependentUpon>IncomeUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LargeCE.resx">
-      <DependentUpon>LargeCE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginEcm.resx">
       <DependentUpon>LoginEcm.cs</DependentUpon>
@@ -590,9 +626,6 @@
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegularCE.resx">
-      <DependentUpon>RegularCE.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="RegUser.resx">
       <DependentUpon>RegUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -608,14 +641,11 @@
     <EmbeddedResource Include="Starting_Page.resx">
       <DependentUpon>Starting_Page.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockDetails.resx">
-      <DependentUpon>StockDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Stockdetails.resx">
+      <DependentUpon>Stockdetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SupplierDetails.resx">
       <DependentUpon>SupplierDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SupplierDetailsSu.resx">
-      <DependentUpon>SupplierDetailsSu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TableView.resx">
       <DependentUpon>TableView.cs</DependentUpon>
@@ -631,6 +661,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TrackRevExp.resx">
       <DependentUpon>TrackRevExp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport_management.resx">
+      <DependentUpon>Transport_management.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateEmployee.resx">
       <DependentUpon>UpdateEmployee.cs</DependentUpon>

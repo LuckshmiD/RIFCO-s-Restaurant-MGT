@@ -36,5 +36,22 @@ namespace Resturant
             
             
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CrystalReport13.SetParameterValue("startdate", dateTimePicker3.Value);
+            CrystalReport13.SetParameterValue("enddate", dateTimePicker4.Value);
+            crystalReportViewer2.ReportSource = CrystalReport13;
+            crystalReportViewer2.Refresh();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Profittrend1.SetParameterValue("startdate", dateTimePicker5.Value);
+            Profittrend1.SetParameterValue("enddate", dateTimePicker6.Value);
+            crystalReportViewer3.ReportSource = Profittrend1;
+            crystalReportViewer3.Refresh();
+        }
     }
 }
