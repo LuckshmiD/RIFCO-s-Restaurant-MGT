@@ -298,7 +298,6 @@ C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Deb
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Customer_Management.RegUser.resources
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\supplier.Stockdetails.resources
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\supplier.SupplierDetails.resources
-C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\OrderManagement.SupplierDetailsSu.resources
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Cashier.TableView.resources
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\OrderManagement.TakeawayMenu.resources
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Cashier.TakeawayPayment.resources
@@ -344,3 +343,12 @@ C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Deb
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\HRManagement.UpdateEmployee.resources
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.Starting_Page.resources
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.AdminModuleInterface.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Transport.Add_Driver_UI.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Transport.Change_Availability.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Transport.Transport_management.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.EmpReport.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.leavereport.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.SalaryReport.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.meetingReport.resources

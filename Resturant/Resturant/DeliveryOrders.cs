@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
 using OrderManagement;
+using Cashier;
 
 namespace Transport
 {
@@ -92,6 +93,9 @@ namespace Transport
 
                 //assigning orders
 
+                Send_Message mes = new Send_Message();
+                MySqlDataReader temp;
+                string contact = "";
                 int di = 0;
                 int count = 1;
                 for (int oi = 0; oi < ordersCount; oi++)
@@ -101,6 +105,13 @@ namespace Transport
                     {
                         command.CommandText = "INSERT INTO `O_assigned_D` (`orderid`, `driverid`, `address`) VALUES ('" + orderid[oi] + "', '" + driverid[di] + "', '" + address[oi] + "');";
                         command.ExecuteNonQuery();
+
+                        command.CommandText = "SELECT Contact_number FROM `drivers` WHERE DriverID = " + driverid[di];
+                        temp = command.ExecuteReader();
+                        temp.Read();
+                        contact = temp.GetString("Contact_number");
+                        mes.sms("Deliver order '" + orderid[oi] + "' to address - " + address[oi], contact);
+                        temp.Close();
 
                         command.CommandText = "UPDATE `drivers` SET `status`=0 WHERE `DriverID`=" + driverid[di];
                         command.ExecuteNonQuery();
@@ -114,6 +125,13 @@ namespace Transport
                         ++di;
                         command.CommandText = "INSERT INTO `O_assigned_D` (`orderid`, `driverid`, `address`) VALUES ('" + orderid[oi] + "', '" + driverid[di] + "', '" + address[oi] + "');";
                         command.ExecuteNonQuery();
+
+                        command.CommandText = "SELECT Contact_number FROM `drivers` WHERE DriverID = " + driverid[di];
+                        temp = command.ExecuteReader();
+                        temp.Read();
+                        contact = temp.GetString("Contact_number");
+                        mes.sms("Deliver order '" + orderid[oi] + "' to address - " + address[oi], contact);
+                        temp.Close();
 
                         command.CommandText = "UPDATE `drivers` SET `status`=0 WHERE `DriverID`=" + driverid[di];
                         command.ExecuteNonQuery();
@@ -132,12 +150,14 @@ namespace Transport
 
         }
 
-        public float calculateDistance(string origin, string destination)
+        public float calculateDistance(string destination)
         {
+            string origin = "BOC Merchant Tower, Saint Michaels Road, Colombo";
             System.Threading.Thread.Sleep(1000);
             float distance = 0;
             //string from = origin.Text;
             //string to = destination.Text;
+            
             string url = "http://maps.googleapis.com/maps/api/directions/json?origin=" + origin + "&destination=" + destination + "&sensor=false";
             string requesturl = url;
             //string requesturl = @"http://maps.googleapis.com/maps/api/directions/json?origin=" + from + "&alternatives=false&units=imperial&destination=" + to + "&sensor=false";

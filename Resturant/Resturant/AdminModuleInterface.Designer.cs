@@ -34,6 +34,8 @@
             this.supplier = new System.Windows.Forms.Button();
             this.customer = new System.Windows.Forms.Button();
             this.finance = new System.Windows.Forms.Button();
+            this.addDriver = new System.Windows.Forms.Button();
+            this.driAvail = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cashier
@@ -78,7 +80,7 @@
             // 
             // customer
             // 
-            this.customer.Location = new System.Drawing.Point(110, 90);
+            this.customer.Location = new System.Drawing.Point(10, 90);
             this.customer.Name = "customer";
             this.customer.Size = new System.Drawing.Size(94, 49);
             this.customer.TabIndex = 4;
@@ -88,7 +90,7 @@
             // 
             // finance
             // 
-            this.finance.Location = new System.Drawing.Point(211, 91);
+            this.finance.Location = new System.Drawing.Point(111, 90);
             this.finance.Name = "finance";
             this.finance.Size = new System.Drawing.Size(93, 48);
             this.finance.TabIndex = 5;
@@ -96,11 +98,33 @@
             this.finance.UseVisualStyleBackColor = true;
             this.finance.Click += new System.EventHandler(this.finance_Click);
             // 
+            // addDriver
+            // 
+            this.addDriver.Location = new System.Drawing.Point(211, 91);
+            this.addDriver.Name = "addDriver";
+            this.addDriver.Size = new System.Drawing.Size(93, 47);
+            this.addDriver.TabIndex = 6;
+            this.addDriver.Text = "Add Driver";
+            this.addDriver.UseVisualStyleBackColor = true;
+            this.addDriver.Click += new System.EventHandler(this.addDriver_Click);
+            // 
+            // driAvail
+            // 
+            this.driAvail.Location = new System.Drawing.Point(311, 91);
+            this.driAvail.Name = "driAvail";
+            this.driAvail.Size = new System.Drawing.Size(93, 47);
+            this.driAvail.TabIndex = 7;
+            this.driAvail.Text = "Driver Availability";
+            this.driAvail.UseVisualStyleBackColor = true;
+            this.driAvail.Click += new System.EventHandler(this.driAvail_Click);
+            // 
             // AdminModuleInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(420, 177);
+            this.Controls.Add(this.driAvail);
+            this.Controls.Add(this.addDriver);
             this.Controls.Add(this.finance);
             this.Controls.Add(this.customer);
             this.Controls.Add(this.supplier);
@@ -122,5 +146,7 @@
         private System.Windows.Forms.Button supplier;
         private System.Windows.Forms.Button customer;
         private System.Windows.Forms.Button finance;
+        private System.Windows.Forms.Button addDriver;
+        private System.Windows.Forms.Button driAvail;
     }
 }

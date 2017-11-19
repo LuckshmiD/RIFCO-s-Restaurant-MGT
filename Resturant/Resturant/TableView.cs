@@ -52,6 +52,11 @@ namespace Cashier
 
             dataGridView1.DataSource = table.get_table();
             label1.Text = "Table " + table.get_table_no().ToString();
+
+            if (t == 11)
+            {
+                close.Visible = false;
+            }
         }
 
         private void TableView_Load(object sender, EventArgs e)
@@ -105,12 +110,12 @@ namespace Cashier
                     reader.Close();
                     Send_Message sm = new Send_Message();
 
-                    if (false && mobileNumber > 0)
+                    if (mobileNumber > 0)
                     {
                         
                         sm.sms(reciept, "0770112998");
                     }
-                    if ((email != "") || (email != null))
+                    else if ((email != "") || (email != null))
                     {
                         
                         sm.email(email, reciept);

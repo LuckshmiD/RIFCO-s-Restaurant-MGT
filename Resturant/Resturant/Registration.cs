@@ -9,11 +9,14 @@ namespace Customer_Management
 {
     public partial class Registratio : Form
     {
-
-
-        public Registratio()
+        string parent = "";
+       
+        public Registratio(string callingForm)
         {
             InitializeComponent();
+
+
+            parent = callingForm;
             Customer c2 = new Customer();
 
 
@@ -186,9 +189,24 @@ namespace Customer_Management
 
         private void label11_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form1 f1 = new Form1();
-            f1.ShowDialog();
+            if (parent == "Form1")
+            {
+                this.Hide();
+                Form1 f1 = new Form1();
+                f1.ShowDialog();
+            }
+            else if(parent == "Delivery")
+            {
+                this.Close();
+            }
+            else if (parent == "Cater")
+            {
+                this.Close();
+            }
+            else if (parent == "Event")
+            {
+                this.Close();
+            }
         }
 
 
@@ -209,19 +227,7 @@ namespace Customer_Management
                 MessageBox.Show("Please enter a valid name");
                 return; // return because we don't want to run normal code of buton click
             }
-            //else if (textaddress.Text.Trim() == string.Empty)
-            //{
-              //  MessageBox.Show("Please enter a valid address");
-                //return; // return because we don't want to run normal code of buton click
-            //}
-            //else if (textemail.Text.Trim() == string.Empty)
-            // {
-            //   MessageBox.Show("Please enter a valid address");
-            //  return; // return because we don't want to run normal code of buton click
-            // }
-
-
-
+            
 
             string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
 
@@ -525,11 +531,51 @@ namespace Customer_Management
 
         private void label10_Click(object sender, EventArgs e)
         {
-            Methods m1 = new Methods();
-            m1.getAddress(textmobile.Text);
-            m1.getName(textmobile.Text);
-            //m1.getNumber(label12.Text);
+            int i;
+            if ((textmobile.Text.Trim() == string.Empty || (textmobile.Text.Length != 10) || (!int.TryParse(textmobile.Text, out i))))
+            {
+                MessageBox.Show("Please enter a valid mobile number of 10 digits only");
+                return; 
+            }
+            else if (textname.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Please enter a valid name");
+                return; 
+            }
+            else if (textaddress.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Please enter a valid address");
+                return; 
+            }
 
+
+
+            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
+
+            string type = "RegisteredM";
+            string query = "INSERT INTO CUSTOMER (MobileNumber,Name,Address,Email,Type) VALUES ('" + this.textmobile.Text + "','" + this.textname.Text + "','" + this.textaddress.Text + "','" + this.textemail.Text + "','" + type + "');";
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            try
+            {
+                databaseConnection.Open();
+                MySqlDataReader myReader = commandDatabase.ExecuteReader();
+                
+                databaseConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+           
+
+           
+
+            Methods m1 = new Methods();            
+            new OrderManagement.MakeOrder(12, m1.getCID(textmobile.Text)).Show();
         }
 
         private void label12_Click(object sender, EventArgs e)

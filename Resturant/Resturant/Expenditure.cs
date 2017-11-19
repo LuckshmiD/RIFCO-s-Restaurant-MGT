@@ -109,7 +109,7 @@ namespace RCTRM
                     }
                     else
                     {
-                        MessageBox.Show("Invice/Bill Number Already Exsist");
+                        MessageBox.Show("Reciept Number Already Exsist");
                     }
                 }
 
@@ -150,11 +150,11 @@ namespace RCTRM
             {
                 if (txtSearch.Text.Length != 0)
                 {
-                    string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rest";
+                    string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rmsdatabase";
                     MySqlConnection DBConnect = new MySqlConnection(ConnectString);
 
 
-                    string query = "SELECT * FROM `expense` WHERE `Invoice/Bill Number` like '" + txtSearch.Text + "'";
+                    string query = "SELECT * FROM expense WHERE Recipt_No like '" + txtSearch.Text + "'";
                     // "SELECT * FROM `expense` WHERE `Invoice/Bill Number` = '" + txtSearch.Text + "'";
 
                     MySqlCommand commandDatabase = new MySqlCommand(query, DBConnect);
@@ -178,7 +178,7 @@ namespace RCTRM
                         }
                         else
                         {
-                            MessageBox.Show("Invoice/Bill Number Not Found!");
+                            MessageBox.Show("Recipt_No Number Not Found!");
                         }
                         //MessageBox.Show("Succesfully Deleted");
                         DBConnect.Close();
@@ -254,7 +254,7 @@ namespace RCTRM
             if (h == 23 && m >= 0)
             {
 
-                string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rest";
+                string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rmsdatabase";
                 MySqlConnection DBConnect = new MySqlConnection(ConnectString);
                 MySqlCommand commandDatabase = DBConnect.CreateCommand();
                 commandDatabase.CommandText = "SELECT sum(Amount) from salary where date = '" + day + "'";

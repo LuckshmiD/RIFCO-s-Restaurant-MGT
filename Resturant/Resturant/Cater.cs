@@ -289,14 +289,14 @@ namespace EventCaterMgt
                     else
                     {
                         MessageBox.Show("Number not found Please Register");
-                        new Registratio().Show();
+                        new Registratio("Cater").Show();
 
                     }
                 }
 
                 else {
                     MessageBox.Show("Number not found Please Register");
-                    new Registratio().Show();
+                    new Registratio("Cater").Show();
                                  
             }
                 

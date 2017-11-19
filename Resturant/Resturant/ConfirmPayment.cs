@@ -10,12 +10,15 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Resturant.Properties;
 using MySql.Data.MySqlClient;
+using Transport;
 
 namespace Cashier
 {
     public partial class ConfirmPayment : Form
     {
         Table tbl;
+        float deliveryFeeAmount = 0;
+        int custID = 0;
 
         protected override CreateParams CreateParams
         {
@@ -39,7 +42,7 @@ namespace Cashier
             int nHeightEllipse // width of ellipse
         );
 
-        public ConfirmPayment(int tableNumber)
+        public ConfirmPayment(int tableNumber, int CustomerID)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -47,8 +50,35 @@ namespace Cashier
 
             tbl = new Table(tableNumber);
             dataGridView1.DataSource = tbl.get_OrderlistTable();
+            custID = CustomerID;
 
             priceLabel.Text = priceLabel.Text + tbl.get_orderlist_price();
+
+
+            if (tableNumber == 12)
+            {
+                databaseConnector db = new databaseConnector();
+                MySqlDataReader reader = db.getData("SELECT Address FROM `customer` WHERE CID = " + CustomerID);
+                reader.Read();
+                string address = reader.GetString("Address");
+
+                DeliveryOrders d = new DeliveryOrders();
+                float distance = d.calculateDistance(address);
+
+
+                if (distance < 1000)
+                {
+                    deliveryFeeAmount = 0;
+                }
+                else
+                {
+                    deliveryFeeAmount = (distance / 1000) * 30;
+                }
+
+                deliveryFee.Visible = true;
+                deliveryFee.Text = deliveryFee.Text + "Rs. " + deliveryFeeAmount.ToString();
+
+            }
         }
 
         
@@ -131,6 +161,58 @@ namespace Cashier
                 //com.Parameters.Add("@portionsize", MySqlDbType.VarChar).Value = psize.Text;
                 //com.Parameters.Add("@quantity", MySqlDbType.Int32).Value = qty.Value;
 
+                if(tbl.get_table_no() == 12)
+                {
+                    Payment pay = new Payment();
+                    string date = DateTime.Today.ToString("dd-MM-yyyy");
+                    string time = DateTime.Now.ToString("HH:mm:ss");
+
+                    MySqlDataReader tableData = tbl.get_table_data();
+                    string reciept = "Rifco's Chicken Tikka\nTel - 0770650095\n\n\nDate  : " + date + "\nTime : " + time + "\n\n";
+                    string name;
+                    int quantity;
+                    float price;
+
+                    while (tableData.Read())
+                    {
+                        name = tableData.GetString("item_name");
+                        quantity = tableData.GetInt32("quantity");
+                        price = tableData.GetFloat("price");                       
+
+                        reciept = reciept + name + " (" + quantity.ToString() + " X " + price.ToString() + ") = " + (price * quantity).ToString() + "\n";
+                    }
+
+                    tableData.Close();
+
+                    reciept = reciept + "Delivery Fee " + "= " + deliveryFeeAmount.ToString() + "\n";
+                    reciept = reciept + "Total Sum = " + (tbl.get_total_price() + deliveryFeeAmount).ToString() + "\n\nThank You!\nCome Again!\n";
+                    string nameOfTheFile = DateTime.Today.ToString("dd") + DateTime.Today.ToString("MM") + DateTime.Today.ToString("yyyy") + DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss");
+
+                    pay.printReceipt(reciept, nameOfTheFile);
+
+                    if (custID != 0)
+                    {                       
+                        MySqlDataReader reader = db1.getData("SELECT Email, MobileNumber FROM `customer` WHERE CID = " + custID);
+
+                        reader.Read();
+                        string email = reader.GetString("Email");
+                        long mobileNumber = reader.GetInt64("MobileNumber");
+                        reader.Close();
+                        Send_Message sm = new Send_Message();
+                        
+                        if ((email != "") && (email != null))
+                        {
+
+                            sm.email(email, reciept);
+                        }
+                        if (mobileNumber > 0)
+                        {
+
+                            sm.sms(reciept, "0770112998");
+                        }
+                    }
+
+                }
                 MessageBox.Show("Order dispatched");
 
 
@@ -156,6 +238,12 @@ namespace Cashier
             db.executeStatement("DELETE FROM `orderlist" + tbl.get_table_no() + "`");
             
             db.closeConnection();
+
+            if (tbl.get_table_no() == 11)
+            {
+                TableView tv = new TableView(tbl.get_table_no());
+                tv.ShowDialog();
+            }
 
             this.Close();
         }

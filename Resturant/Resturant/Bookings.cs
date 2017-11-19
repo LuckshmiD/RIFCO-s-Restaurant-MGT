@@ -365,23 +365,23 @@ namespace Customer_Management
                 MySqlDataReader reader;
 
 
-                try
-                {
-                    databaseConnection.Open();
-                    reader = commandDatabase.ExecuteReader();
-                    reader.Close();
+                //try
+                //{
+                //    databaseConnection.Open();
+                //    reader = commandDatabase.ExecuteReader();
+                //    reader.Close();
 
-                    string query2 = "INSERT INTO expiredres (TableID,MobileNumber,ResDate,StartTime,EndTime) VALUES ('" + this.tablenolabel.Text + "','" + this.textmobile.Text + "','" + this.datetext.Value.Date.ToString("yyyy-MM-dd") + "','" + this.starttext.Text + "','" + this.endtext.Text + "')";
-                    MySqlCommand cmd1 = new MySqlCommand(query2, databaseConnection);
-                    MySqlDataReader myReader = cmd1.ExecuteReader();
-                    myReader.Close();
+                //    string query2 = "INSERT INTO expiredres (TableID,MobileNumber,ResDate,StartTime,EndTime) VALUES ('" + this.tablenolabel.Text + "','" + this.textmobile.Text + "','" + this.datetext.Value.Date.ToString("yyyy-MM-dd") + "','" + this.starttext.Text + "','" + this.endtext.Text + "')";
+                //    MySqlCommand cmd1 = new MySqlCommand(query2, databaseConnection);
+                //    MySqlDataReader myReader = cmd1.ExecuteReader();
+                //    myReader.Close();
 
-                }
-                catch (Exception ex)
-                {
+                //}
+                //catch (Exception ex)
+                //{
 
-                    MessageBox.Show(ex.Message);
-                }
+                //    MessageBox.Show(ex.Message);
+                //}
 
                 {
 

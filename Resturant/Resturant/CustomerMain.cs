@@ -50,7 +50,7 @@ namespace Customer_Management
         private void label1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Registratio r1 = new Registratio();
+            Registratio r1 = new Registratio("Form1");
             r1.ShowDialog();
         }
 
@@ -64,7 +64,7 @@ namespace Customer_Management
         private void registration_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Registratio r1 = new Registratio();
+            Registratio r1 = new Registratio("Form1");
             r1.ShowDialog();
         }
 
@@ -86,6 +86,7 @@ namespace Customer_Management
 
         private void label7_Click(object sender, EventArgs e)
         {
+            this.Close();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -115,9 +116,6 @@ namespace Customer_Management
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            RegUser ro = new RegUser();
-            ro.ShowDialog();
         }
 
         private void notification_Click(object sender, EventArgs e)
@@ -135,16 +133,14 @@ namespace Customer_Management
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Nonuser non = new Nonuser();
-            non.ShowDialog();
+           
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
 
             this.Hide();
-            Registratio r1 = new Registratio();
+            Registratio r1 = new Registratio("Form1");
             r1.ShowDialog();
         }
 

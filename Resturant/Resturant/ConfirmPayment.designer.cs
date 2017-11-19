@@ -32,25 +32,28 @@
             this.priceLabel = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
             this.confirmPay = new System.Windows.Forms.Button();
+            this.deliveryFee = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 10);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(802, 470);
+            this.dataGridView1.Size = new System.Drawing.Size(602, 382);
             this.dataGridView1.TabIndex = 0;
             // 
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
             this.priceLabel.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceLabel.Location = new System.Drawing.Point(324, 519);
+            this.priceLabel.Location = new System.Drawing.Point(243, 422);
+            this.priceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(139, 33);
+            this.priceLabel.Size = new System.Drawing.Size(113, 26);
             this.priceLabel.TabIndex = 1;
             this.priceLabel.Text = "Total Price : ";
             // 
@@ -62,9 +65,10 @@
             this.back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.back.Location = new System.Drawing.Point(12, 593);
+            this.back.Location = new System.Drawing.Point(9, 482);
+            this.back.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(86, 85);
+            this.back.Size = new System.Drawing.Size(64, 69);
             this.back.TabIndex = 2;
             this.back.UseVisualStyleBackColor = true;
             this.back.Click += new System.EventHandler(this.back_Click);
@@ -81,9 +85,10 @@
             this.confirmPay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.confirmPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.confirmPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.confirmPay.Location = new System.Drawing.Point(728, 593);
+            this.confirmPay.Location = new System.Drawing.Point(546, 482);
+            this.confirmPay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.confirmPay.Name = "confirmPay";
-            this.confirmPay.Size = new System.Drawing.Size(86, 85);
+            this.confirmPay.Size = new System.Drawing.Size(64, 69);
             this.confirmPay.TabIndex = 3;
             this.confirmPay.UseVisualStyleBackColor = true;
             this.confirmPay.Click += new System.EventHandler(this.confirmPay_Click);
@@ -92,16 +97,28 @@
             this.confirmPay.MouseHover += new System.EventHandler(this.confirmPay_MouseHover);
             this.confirmPay.MouseUp += new System.Windows.Forms.MouseEventHandler(this.confirmPay_MouseUp);
             // 
+            // deliveryFee
+            // 
+            this.deliveryFee.AutoSize = true;
+            this.deliveryFee.Location = new System.Drawing.Point(272, 462);
+            this.deliveryFee.Name = "deliveryFee";
+            this.deliveryFee.Size = new System.Drawing.Size(75, 13);
+            this.deliveryFee.TabIndex = 4;
+            this.deliveryFee.Text = "Delivery Fee : ";
+            this.deliveryFee.Visible = false;
+            // 
             // ConfirmPayment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(826, 690);
+            this.ClientSize = new System.Drawing.Size(620, 561);
+            this.Controls.Add(this.deliveryFee);
             this.Controls.Add(this.confirmPay);
             this.Controls.Add(this.back);
             this.Controls.Add(this.priceLabel);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ConfirmPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfirmPayment";
@@ -118,5 +135,6 @@
         private System.Windows.Forms.Label priceLabel;
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.Button confirmPay;
+        private System.Windows.Forms.Label deliveryFee;
     }
 }

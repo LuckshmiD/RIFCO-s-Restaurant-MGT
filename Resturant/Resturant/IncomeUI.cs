@@ -133,7 +133,7 @@ namespace RCTRM
             if (txtSearch.Text.Length != 0)
             {
 
-                string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rest";
+                string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rmsdatabase";
                 MySqlConnection DBConnect = new MySqlConnection(ConnectString);
                 //int search1 = Convert.ToInt32(txtSearch.Text);
                 Income in1 = new Income();

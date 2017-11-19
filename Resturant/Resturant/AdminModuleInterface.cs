@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using HRManagement;
 using EventCaterMgt;
 using supplier;
+using Transport;
 
 namespace Resturant
 {
@@ -48,6 +49,16 @@ namespace Resturant
         private void finance_Click(object sender, EventArgs e)
         {
             new RCTRM.Dashboard().Show();
+        }
+
+        private void addDriver_Click(object sender, EventArgs e)
+        {
+            new Add_Driver_UI().Show();
+        }
+
+        private void driAvail_Click(object sender, EventArgs e)
+        {
+            new Change_Availability().Show();
         }
     }
 }

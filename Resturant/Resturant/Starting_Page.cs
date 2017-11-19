@@ -37,7 +37,7 @@ namespace Resturant
 
         private void delivery_Click(object sender, EventArgs e)
         {
-            new Registratio().Show();
+            new Registratio("Delivery").Show();
         }
 
         private void takeaway_Click(object sender, EventArgs e)

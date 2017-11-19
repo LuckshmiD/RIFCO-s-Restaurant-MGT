@@ -305,7 +305,7 @@ namespace OrderManagement
                 //com.Parameters.Add("@portionsize", MySqlDbType.VarChar).Value = psize.Text;
                 //com.Parameters.Add("@quantity", MySqlDbType.Int32).Value = qty.Value;
 
-                ConfirmPayment cp = new ConfirmPayment(1);
+                ConfirmPayment cp = new ConfirmPayment(1, 0);
                 MessageBox.Show("Order dispatched");
                 cp.Show();
 

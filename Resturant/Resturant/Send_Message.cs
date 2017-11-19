@@ -16,7 +16,7 @@ namespace Cashier
         private GsmCommMain comm = new GsmCommMain("COM9");
 
         private string from = "rifcoschickentikka@gmail.com";
-        string subject = "test";
+        string subject = "Order Reciept";
 
         public void email(string to , string message)
         {

@@ -82,7 +82,7 @@ namespace Customer_Management
                 message.Subject = textsubject.Text.Trim(); ;
                 message.Body = textbody.Text.Trim();
                
-                message.From = new MailAddress("myprojectmail001@gmail.com");
+                message.From = new MailAddress("rifcoschickentikka@gmail.com");
 
 
 
@@ -96,10 +96,10 @@ namespace Customer_Management
                 }
 
                 // Email Address from where you send the mail
-                var fromAddress = "myprojectmail001@gmail.com";
+                var fromAddress = "rifcoschickentikka@gmail.com";
 
                 //Password of your mail address
-                const string fromPassword = "myproject001";
+                const string fromPassword = "itpproject1234567";
 
                 // smtp settings
                 var smtp = new System.Net.Mail.SmtpClient();

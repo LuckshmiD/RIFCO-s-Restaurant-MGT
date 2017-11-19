@@ -34,9 +34,9 @@ namespace RCTRM
 
                 if (descr == "Salaries & Wages")
                 {
-
+                    
                     db1 = new DBconnector();
-                    query = "INSERT INTO expense(Descri,Type,Date,`Invoice/Bill Number`,Amount)Values('" + descr + "','" + type + "','" + date + "','HR" + repno + "','" + amount + "')";
+                    query = "INSERT INTO expense(Descri,Type,Date,Recipt_No,Amount)Values('" + descr + "','" + type + "','" + date + "','HR" + repno + "','" + amount + "')";
                     stat = db1.executeStatement(query);
                     if (stat == true)
                     {
@@ -46,8 +46,9 @@ namespace RCTRM
                 }
                 else if (descr == "Stock" || descr == "Transportaion")
                 {
+                    
                     db1 = new DBconnector();
-                    query = "INSERT INTO expense(Descri,Type,Date,`Invoice/Bill Number`,Amount)Values('" + descr + "','" + type + "','" + date + "','AD" + repno + "','" + amount + "')";
+                    query = "INSERT INTO expense(Descri,Type,Date,Recipt_No,Amount)Values('" + descr + "','" + type + "','" + date + "','AD" + repno + "','" + amount + "')";
                     stat = db1.executeStatement(query);
                     if (stat == true)
                     {
@@ -56,8 +57,9 @@ namespace RCTRM
                 }
                 else
                 {
+                    
                     db1 = new DBconnector();
-                    query = "INSERT INTO expense(Descri,Type,Date,`Invoice/Bill Number`,Amount)Values('" + descr + "','" + type + "','" + date + "','UT" + repno + "','" + amount + "')";
+                    query = "INSERT INTO expense(Descri,Type,Date,Recipt_No,Amount)Values('" + descr + "','" + type + "','" + date + "','UT" + repno + "','" + amount + "')";
                     stat = db1.executeStatement(query);
                     if (stat == true)
                     {
@@ -84,7 +86,7 @@ namespace RCTRM
                 float amount = amt;
 
                 DBconnector db1 = new DBconnector();
-                string query = "UPDATE expense SET Descri='" + descr + "',Type='" + type + "',Date='" + date + "',`Invoice/Bill Number`='" + repno + "',Amount='" + amount + "' WHERE `Invoice/Bill Number` = '" + repNo + "'";
+                string query = "UPDATE expense SET Descri='" + descr + "',Type='" + type + "',Date='" + date + "',Recipt_No='" + repno + "',Amount='" + amount + "' WHERE Recipt_No = '" + repNo + "'";
                 bool stat = db1.executeStatement(query);
                 if (stat == true)
                 {
@@ -103,7 +105,7 @@ namespace RCTRM
             {
                 String repNo = repno;
                 DBconnector db1 = new DBconnector();
-                string query = "DELETE FROM expense WHERE `Invoice/Bill Number` = '" + repNo + "'";
+                string query = "DELETE FROM expense WHERE Recipt_No = '" + repNo + "'";
                 bool stat = db1.executeStatement(query);
                 if (stat == true)
                 {
@@ -126,7 +128,7 @@ namespace RCTRM
             try
             {
                 conn.Open();
-                MySqlCommand com = new MySqlCommand("SELECT `Invoice/Bill Number` FROM expense where `Invoice/Bill Number` ='" + repNo +"'" ,conn);
+                MySqlCommand com = new MySqlCommand("SELECT Recipt_No FROM expense where Recipt_No ='" + repNo +"'" ,conn);
                 MySqlDataReader reader = com.ExecuteReader();
 
                 return reader.Read();
@@ -149,7 +151,7 @@ namespace RCTRM
             {
                 DataGridView dataGridView1 = datagrid;
 
-                string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rest; Allow Zero Datetime=True";
+                string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rmsdatabase; Allow Zero Datetime=True";
                 MySqlConnection DBConnect = new MySqlConnection(ConnectString);
 
                 string query = "Select * from expense";
@@ -172,7 +174,7 @@ namespace RCTRM
                 DataGridView dataGridView1 = datagrid;
                 string query = query1;
 
-                string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rest; Allow Zero Datetime=True";
+                string ConnectString = "datasource = 127.0.0.1; username = root;password = ; database = rmsdatabase; Allow Zero Datetime=True";
                 MySqlConnection DBConnect = new MySqlConnection(ConnectString);
 
                 //string query = "Select * from 'type'";

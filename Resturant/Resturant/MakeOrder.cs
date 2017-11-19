@@ -52,8 +52,19 @@ namespace OrderManagement
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
 
             tableno = no;
-            tablelabel.Text = tablelabel.Text + tableno;
+            if (no >= 0 && no < 11)
+            {
+                tablelabel.Text = tablelabel.Text + tableno;
+            }
+            else if (no == 11) {
+                tablelabel.Text = "Take Away";
+            }
+            else if (no == 12)
+            {
+                tablelabel.Text = "Delivery";
+            }
             custid = id;
+
         }
 
 
@@ -242,7 +253,7 @@ namespace OrderManagement
                     }
                 else if (itemcode.Text == "" || itemname.Text == "" || psize.Text == "")
                 {
-                    MessageBox.Show("Please select and item to add");
+                    MessageBox.Show("Please select an item to add");
                 }
                 else if (qty.Value == 0)
                 {
@@ -307,12 +318,14 @@ namespace OrderManagement
                 MySqlCommand com = new MySqlCommand("Select * from orderlist"+tableno , con);
                 MySqlDataReader read = com.ExecuteReader();
 
+                
 
                 if (read.Read())
                 {
-                    ConfirmPayment cp = new ConfirmPayment(tableno);
+                    
+                    ConfirmPayment cp = new ConfirmPayment(tableno, custid);
 
-                    cp.Show();
+                    cp.ShowDialog();
                 }
                 else{
                     MessageBox.Show("Please select an item before finalizing order");

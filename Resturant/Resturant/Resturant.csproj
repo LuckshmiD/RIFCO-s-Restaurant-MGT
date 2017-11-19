@@ -222,11 +222,23 @@
     <Compile Include="DeliveryPayment.designer.cs">
       <DependentUpon>DeliveryPayment.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmpCrystalReport2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmpCrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Employee Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Employee Home.designer.cs">
       <DependentUpon>Employee Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmpReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpReport.Designer.cs">
+      <DependentUpon>EmpReport.cs</DependentUpon>
     </Compile>
     <Compile Include="empSal.cs">
       <SubType>Form</SubType>
@@ -271,11 +283,23 @@
     <Compile Include="LargeCE.designer.cs">
       <DependentUpon>LargeCE.cs</DependentUpon>
     </Compile>
+    <Compile Include="leaveCrystalReport2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>leaveCrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="leaveManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="leaveManagement.designer.cs">
       <DependentUpon>leaveManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="leavereport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="leavereport.Designer.cs">
+      <DependentUpon>leavereport.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -288,6 +312,18 @@
     </Compile>
     <Compile Include="meeting.designer.cs">
       <DependentUpon>meeting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="meetingCrystalReport2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>meetingCrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="meetingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="meetingReport.Designer.cs">
+      <DependentUpon>meetingReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Profittrend.cs">
       <AutoGen>True</AutoGen>
@@ -390,6 +426,18 @@
     </Compile>
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryCrystalReport2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalaryCrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SalaryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryReport.Designer.cs">
+      <DependentUpon>SalaryReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Search Employee.cs">
       <SubType>Form</SubType>
@@ -536,8 +584,15 @@
     <EmbeddedResource Include="DeliveryPayment.resx">
       <DependentUpon>DeliveryPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmpCrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EmpCrystalReport2.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employee Home.resx">
       <DependentUpon>Employee Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmpReport.resx">
+      <DependentUpon>EmpReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="empSal.resx">
       <DependentUpon>empSal.cs</DependentUpon>
@@ -561,14 +616,28 @@
     <EmbeddedResource Include="LargeCE.resx">
       <DependentUpon>LargeCE.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="leaveCrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>leaveCrystalReport2.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="leaveManagement.resx">
       <DependentUpon>leaveManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="leavereport.resx">
+      <DependentUpon>leavereport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="meeting.resx">
       <DependentUpon>meeting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="meetingCrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>meetingCrystalReport2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="meetingReport.resx">
+      <DependentUpon>meetingReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profittrend.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -631,6 +700,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryCrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SalaryCrystalReport2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryReport.resx">
+      <DependentUpon>SalaryReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Search Employee.resx">
       <DependentUpon>Search Employee.cs</DependentUpon>

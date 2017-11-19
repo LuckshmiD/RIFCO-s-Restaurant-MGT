@@ -340,7 +340,7 @@ namespace EventCaterMgt
                     else
                     {
                         MessageBox.Show("Number not found Please Register");
-                        new Registratio().Show();
+                        new Registratio("Event").Show();
 
                     }
                 }
@@ -348,7 +348,7 @@ namespace EventCaterMgt
                 else
                 {
                     MessageBox.Show("Number not found Please Register");
-                    new Registratio().Show();
+                    new Registratio("Event").Show();
 
                 }
 

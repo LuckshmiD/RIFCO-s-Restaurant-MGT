@@ -44,9 +44,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(84, 469);
+            this.button1.Location = new System.Drawing.Point(63, 381);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 35);
+            this.button1.Size = new System.Drawing.Size(63, 28);
             this.button1.TabIndex = 1;
             this.button1.Text = "SAVE";
             this.button1.UseVisualStyleBackColor = true;
@@ -54,9 +55,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(220, 469);
+            this.button2.Location = new System.Drawing.Point(165, 381);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 35);
+            this.button2.Size = new System.Drawing.Size(63, 28);
             this.button2.TabIndex = 2;
             this.button2.Text = "DELETE";
             this.button2.UseVisualStyleBackColor = true;
@@ -66,10 +68,9 @@
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::Resturant.Properties.Resources.back;
-            this.button3.Location = new System.Drawing.Point(25, 24);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Location = new System.Drawing.Point(19, 20);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(214, 63);
+            this.button3.Size = new System.Drawing.Size(160, 51);
             this.button3.TabIndex = 12;
             this.button3.Text = "Back";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -78,28 +79,31 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(241, 163);
+            this.dateTimePicker1.Location = new System.Drawing.Point(181, 132);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(273, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(206, 20);
             this.dateTimePicker1.TabIndex = 13;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(67, 163);
+            this.label1.Location = new System.Drawing.Point(50, 132);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.Size = new System.Drawing.Size(104, 17);
             this.label1.TabIndex = 14;
             this.label1.Text = "Meeting Date";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(546, 133);
+            this.dataGridView1.Location = new System.Drawing.Point(410, 108);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(649, 392);
+            this.dataGridView1.Size = new System.Drawing.Size(487, 318);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
@@ -112,26 +116,29 @@
             "Cashier",
             "Cleaner",
             "Manager"});
-            this.comboBox1.Location = new System.Drawing.Point(241, 236);
+            this.comboBox1.Location = new System.Drawing.Point(181, 192);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 24);
+            this.comboBox1.Size = new System.Drawing.Size(134, 21);
             this.comboBox1.TabIndex = 16;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(67, 240);
+            this.label2.Location = new System.Drawing.Point(50, 195);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 20);
+            this.label2.Size = new System.Drawing.Size(87, 17);
             this.label2.TabIndex = 17;
             this.label2.Text = "Deparment";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(363, 469);
+            this.button4.Location = new System.Drawing.Point(272, 381);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(84, 35);
+            this.button4.Size = new System.Drawing.Size(63, 28);
             this.button4.TabIndex = 18;
             this.button4.Text = "UPDATE";
             this.button4.UseVisualStyleBackColor = true;
@@ -139,16 +146,19 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(262, 114);
+            this.textBox1.Location = new System.Drawing.Point(196, 93);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.Size = new System.Drawing.Size(76, 20);
             this.textBox1.TabIndex = 19;
+            this.textBox1.Visible = false;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(546, 74);
+            this.button5.Location = new System.Drawing.Point(410, 60);
+            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(84, 35);
+            this.button5.Size = new System.Drawing.Size(63, 28);
             this.button5.TabIndex = 20;
             this.button5.Text = "VIEW ALL";
             this.button5.UseVisualStyleBackColor = true;
@@ -156,9 +166,9 @@
             // 
             // meeting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1207, 673);
+            this.ClientSize = new System.Drawing.Size(905, 547);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button4);
@@ -170,6 +180,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "meeting";
             this.Text = "meeting";
             this.Load += new System.EventHandler(this.meeting_Load);
