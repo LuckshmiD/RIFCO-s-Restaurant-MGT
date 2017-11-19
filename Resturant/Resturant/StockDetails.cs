@@ -82,63 +82,76 @@ namespace supplier
                 MySqlConnection con = new MySqlConnection("Server=localhost;Database=rmsdatabase;Uid=root;Pwd=;");
                 //insert 
 
-                String type = comboBox1.Text;
-                /*if (comboBox1.SelectedIndex == 0)
+                if ((textBox2.Text == "") || (textBox3.Text == "") || (comboBox1.Text == "") || (textBox5.Text == "") || (dateTimePicker1.Text == ""))
                 {
-                    type ="Active";
+                    MessageBox.Show("Field(s) cannnot be blank");
 
                 }
-                else
+
+                /*else if ((!textBox3.Text.All(c => Char.IsNumber(c)))||(!textBox5.Text.All(c => Char.IsNumber(c))))
                 {
-                    type = "Deactive";
+                    MessageBox.Show("Enter Numeric values only");
                 }*/
-
-                /*var sqlQuery = "";
-                if (IfSupplierExists(con , textBox1.Text))
-                {
-                    sqlQuery = @"UPDATE [dbo].[Stock] SET [StockName] ='" + textBox2.Text + "',[Size] = '" + textBox3.Text + "',[Status] ='" + comboBox1.SelectedIndex + "',[Cost] = '" + textBox5.Text + "',[ExpiryDate] = '" + textBox6.Text + "'  WHERE <[StockCode] ='" + textBox1.Text + "')";
-                }
+                
                 else
                 {
-                    sqlQuery = @"INSERT INTO [dbo].[Stock]
-                                  ([StockCode],[StockName],[Size],[Status],[Cost],[ExpiryDate])
-                              VALUES
-                                   ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + comboBox1.SelectedIndex + "','" + textBox5.Text + "','" + textBox6.Text + "')";
-                }
-                */
+                    /*if (comboBox1.SelectedIndex == 0)
+                    {
+                        type ="Active";
 
-                con.Open();
+                    }
+                    else
+                    {
+                        type = "Deactive";
+                    }*/
 
-                MySqlCommand cmd = new MySqlCommand(@"INSERT INTO Stock
+                    /*var sqlQuery = "";
+                    if (IfSupplierExists(con , textBox1.Text))
+                    {
+                        sqlQuery = @"UPDATE [dbo].[Stock] SET [StockName] ='" + textBox2.Text + "',[Size] = '" + textBox3.Text + "',[Status] ='" + comboBox1.SelectedIndex + "',[Cost] = '" + textBox5.Text + "',[ExpiryDate] = '" + textBox6.Text + "'  WHERE <[StockCode] ='" + textBox1.Text + "')";
+                    }
+                    else
+                    {
+                        sqlQuery = @"INSERT INTO [dbo].[Stock]
+                                      ([StockCode],[StockName],[Size],[Status],[Cost],[ExpiryDate])
+                                  VALUES
+                                       ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + comboBox1.SelectedIndex + "','" + textBox5.Text + "','" + textBox6.Text + "')";
+                    }
+                    */
+
+                    con.Open();
+
+                    MySqlCommand cmd = new MySqlCommand(@"INSERT INTO Stock
                                   (StockName,StockSize,Status,UnitPrice,Date)
                               VALUES
                                    ('" + textBox2.Text + "','" + textBox3.Text + "','" + comboBox1.Text + "','" + textBox5.Text + "','" + dateTimePicker1.Text + "')", con);
-                cmd.ExecuteReader();
-                con.Close();
-                //remove the all the rows of the table
-                while (dataGridView1.Rows.Count > 1)
-                {
-                    dataGridView1.Rows.RemoveAt(0);
+                    cmd.ExecuteReader();
+                    con.Close();
+                    //remove the all the rows of the table
+                    while (dataGridView1.Rows.Count > 1)
+                    {
+                        dataGridView1.Rows.RemoveAt(0);
+                    }
+
+                    //reading database
+                    //LoadData();
+
+                    dataGridView1.DataSource = null;
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Refresh();
+                    con.Open();
+                    MySqlDataAdapter adp = new MySqlDataAdapter("select * from Stock", con);
+                    adp.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                    this.dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    adp.Dispose();
+                    con.Close();
+                    MessageBox.Show("Stock Details are Added");
+                    textBox2.Text = "";
+                    textBox3.Text = "";
+                    textBox5.Text = "";
+                    //textBox6.Text = "";
                 }
-
-                //reading database
-                //LoadData();
-
-                dataGridView1.DataSource = null;
-                dataGridView1.Rows.Clear();
-                dataGridView1.Refresh();
-                con.Open();
-                MySqlDataAdapter adp = new MySqlDataAdapter("select * from Stock", con);
-                adp.Fill(dt);
-                dataGridView1.DataSource = dt;
-                this.dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                adp.Dispose();
-                con.Close();
-                MessageBox.Show("Stock Details are Added");
-                textBox2.Text = "";
-                textBox3.Text = "";
-                textBox5.Text = "";
-                //textBox6.Text = "";
             }
             catch (MySqlException ee)
             {

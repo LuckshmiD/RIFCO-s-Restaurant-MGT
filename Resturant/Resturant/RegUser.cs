@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Net.Mail;
 using OrderManagement;
+using Cashier;
 
 
 namespace Customer_Management
@@ -285,28 +286,38 @@ namespace Customer_Management
 
         private void button2_Click_2(object sender, EventArgs e)
         {
+            Cashier.Table tbl = new Cashier.Table(table);
 
-            string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
 
-            string query = "INSERT INTO CUSTOMER(Type) values ('NonRegistered');";
-            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
-            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
-            commandDatabase.CommandTimeout = 60;
-            try
+
+            if (tbl.get_number_of_items() == 0)
             {
-                databaseConnection.Open();
-                MySqlDataReader myReader = commandDatabase.ExecuteReader();
 
-                //MessageBox.Show("Customer has been successfully Registererd");
-                databaseConnection.Close();
+                string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=rmsdatabase;";
+
+                string query = "INSERT INTO CUSTOMER(Type) values ('NonRegistered');";
+                MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+                MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+                commandDatabase.CommandTimeout = 60;
+                try
+                {
+                    databaseConnection.Open();
+                    MySqlDataReader myReader = commandDatabase.ExecuteReader();
+
+                    //MessageBox.Show("Customer has been successfully Registererd");
+                    databaseConnection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+
+                new MakeOrder(table, 0).Show();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+            else {
+                MessageBox.Show("Table is already occupied");
             }
-
-
-            new MakeOrder(table, 0).Show();
         }
 
         private void button1_Click_1(object sender, EventArgs e)

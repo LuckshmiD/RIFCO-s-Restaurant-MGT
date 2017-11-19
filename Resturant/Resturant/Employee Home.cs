@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Resturant;
 
 namespace HRManagement
 {
@@ -68,6 +69,24 @@ namespace HRManagement
         private void Employee_Home_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            new leavereport().Show();
+            this.Hide();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            SalaryReport cr = new SalaryReport();
+            cr.Show();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            new meetingReport().Show();
+            this.Hide();
         }
     }
 }

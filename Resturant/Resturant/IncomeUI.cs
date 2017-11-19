@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Resturant.Properties;
 
 namespace RCTRM
 {
@@ -243,6 +244,56 @@ namespace RCTRM
             txtAmount.Text = "";
             comboBox1.Text = "";
             txtSearch.Text = "";
+        }
+
+        private void button1_MouseMove(object sender, MouseEventArgs e)
+        {
+            button1.BackgroundImage = Resources.backspace_dark;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackgroundImage = Resources.left_arrow_thin_symbol_in_circular_button;
+        }
+
+        private void btnAdd_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnAdd.BackgroundImage = Resources.plus;
+        }
+
+        private void btnAdd_MouseLeave(object sender, EventArgs e)
+        {
+            btnAdd.BackgroundImage = Resources.plus__1_;
+        }
+
+        private void btnEdit_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnEdit.BackgroundImage = Resources.update_arrows;
+        }
+
+        private void btnEdit_MouseLeave(object sender, EventArgs e)
+        {
+            btnEdit.BackgroundImage = Resources.update_arrows__1_;
+        }
+
+        private void btnSearch_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnSearch.BackgroundImage = Resources.search;
+        }
+
+        private void btnSearch_MouseLeave(object sender, EventArgs e)
+        {
+            btnSearch.BackgroundImage = Resources.search__1_;
+        }
+
+        private void button2_MouseMove(object sender, MouseEventArgs e)
+        {
+            button2.BackgroundImage = Resources.backspace_arrow;
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.BackgroundImage = Resources.backspace;
         }
     }
 }

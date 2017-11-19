@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-//using EventCaterMgt;
+using EventCaterMgt;
 
 
 namespace supplier
@@ -441,6 +441,13 @@ namespace supplier
                 MySqlConnection con = new MySqlConnection("Server=localhost;Database=rmsdatabase;Uid=root;Pwd=;");
                 //insert 
 
+                if ((mainMealCombo.Text == "") || (comboBox1.Text == "") || (comboBox1.Text == "") || (textBox1.Text == "") || (textBox4.Text == ""))
+                {
+                    MessageBox.Show("Field(s) cannnot be blank");
+
+                }
+
+
                 /*var sqlQuery = "";
                 if (IfSupplierExists(con , textBox1.Text))
                 {
@@ -454,32 +461,34 @@ namespace supplier
                                    ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + comboBox1.SelectedIndex + "','" + textBox5.Text + "','" + textBox6.Text + "')";
                 }
                 */
+                else
+                {
+                    con.Open();
 
-                con.Open();
+                    //string option = comboBox4.SelectedItem.ToString();
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO regular (MenuName,StockName,StockSize,Total) VALUES ('" + mainMealCombo.Text + "','" + comboBox1.SelectedItem + "','" + Convert.ToDouble(textBox1.Text) + "','" + Convert.ToDouble(textBox4.Text) + "')", con);
+                    cmd.ExecuteReader();
+                    con.Close();
 
-                //string option = comboBox4.SelectedItem.ToString();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO regular (MenuName,StockName,StockSize,Total) VALUES ('" + mainMealCombo.Text + "','" + comboBox1.SelectedItem + "','" + Convert.ToDouble(textBox1.Text) + "','" +Convert.ToDouble( textBox4.Text)+ "')", con);
-                cmd.ExecuteReader();
-                con.Close();
+                    //reading database
+                    //LoadData();
 
-                //reading database
-                //LoadData();
-
-                dataGridView1.DataSource = null;
-                dataGridView1.Rows.Clear();
-                dataGridView1.Refresh();
-                con.Open();
-                MySqlDataAdapter adp = new MySqlDataAdapter("select * from regular", con);
-                adp.Fill(dt);
-                dataGridView1.DataSource = dt;
-                //this.dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                adp.Dispose();
-                con.Close();
-                MessageBox.Show(" Menu Details are Added");
-                mainMealCombo.SelectedItem = "";
-                comboBox1.SelectedIndex=-1;
-                textBox4.Text = "";
-                //textBox1.Text = "";
+                    dataGridView1.DataSource = null;
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Refresh();
+                    con.Open();
+                    MySqlDataAdapter adp = new MySqlDataAdapter("select * from regular", con);
+                    adp.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                    //this.dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    adp.Dispose();
+                    con.Close();
+                    MessageBox.Show(" Menu Details are Added");
+                    mainMealCombo.SelectedItem = "";
+                    comboBox1.SelectedIndex = -1;
+                    textBox4.Text = "";
+                    //textBox1.Text = "";
+                }
             }
             catch (MySqlException ee)
             {
@@ -490,12 +499,8 @@ namespace supplier
         private void button3_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Main main = new Main();
+            createMenu main = new createMenu();
             main.Show();
-
-            //this.Hide();
-            //createMenu main = new createMenu();
-            //main.Show();
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)

@@ -76,6 +76,10 @@ namespace OrderManagement
 
         private void MakeOrder_Load(object sender, EventArgs e)
         {
+
+            //refresher.Tick += new EventHandler(this.refresher_Tick);
+            //refresher.Start();
+
             fillDataGridViewMenu();
             //fillDataGridViewStarters();
             //fillDataGridViewChicken();
@@ -638,6 +642,31 @@ namespace OrderManagement
                 MessageBox.Show(te.Message);
                 con.Close();
             }
+        }
+
+        private void refresher_Tick(object sender, EventArgs e)
+        {
+            //this.Refresh();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            databaseConnector db = new databaseConnector();
+
+
+            db.executeStatement("DELETE FROM `orderlist" + tableno + "`");
+
+            db.closeConnection();
+
+            if (tableno >=0 && tableno < 12) {
+                //new RegUser().Show();
+                this.Close();
+            }
+            else if (tableno == 12) {
+                //new Registratio("Delivery").Show();
+                this.Close();
+            }
+            //this.Refresh();
         }
     }
 }

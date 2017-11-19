@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menu = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -51,6 +52,9 @@
             this.CloseWindow = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.refresher = new System.Windows.Forms.Timer(this.components);
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.menu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableorder)).BeginInit();
@@ -315,6 +319,7 @@
             this.CloseWindow.Size = new System.Drawing.Size(36, 38);
             this.CloseWindow.TabIndex = 34;
             this.CloseWindow.UseVisualStyleBackColor = true;
+            this.CloseWindow.Visible = false;
             this.CloseWindow.Click += new System.EventHandler(this.CloseWindow_Click);
             this.CloseWindow.MouseLeave += new System.EventHandler(this.CloseWindow_MouseLeave);
             this.CloseWindow.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CloseWindow_MouseMove);
@@ -342,15 +347,47 @@
             this.button1.Size = new System.Drawing.Size(36, 38);
             this.button1.TabIndex = 36;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             this.button1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button1_MouseMove);
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::Resturant.Properties.Resources.Rifco_s_Chicken_Tikka;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(771, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 88);
+            this.button2.TabIndex = 37;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // refresher
+            // 
+            this.refresher.Interval = 1;
+            this.refresher.Tick += new System.EventHandler(this.refresher_Tick);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(544, 529);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(170, 39);
+            this.button6.TabIndex = 38;
+            this.button6.Text = "Cancel";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // MakeOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1216, 587);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.CloseWindow);
@@ -412,5 +449,8 @@
         private System.Windows.Forms.Button CloseWindow;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Timer refresher;
+        private System.Windows.Forms.Button button6;
     }
 }

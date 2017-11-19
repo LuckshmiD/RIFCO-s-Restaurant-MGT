@@ -426,9 +426,9 @@ namespace EventCaterMgt
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            MainECM mv = new MainECM();
-            mv.Show();
+            //this.Hide();
+            //MainECM mv = new MainECM();
+            //mv.Show();
         }
 
         private void updatePackage_Click(object sender, EventArgs e)

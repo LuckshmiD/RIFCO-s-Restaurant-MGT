@@ -63,64 +63,6 @@ namespace Cashier
 
         private void t_Tick(object sender, EventArgs e)
         {
-            
-            string hour = DateTime.Now.ToString("HH");
-            string minutes = DateTime.Now.ToString("mm");
-            string am_pm = DateTime.Now.ToString(" tt");
-
-            int h = int.Parse(hour);
-
-            if (h==13)
-            {
-                hour = "01";
-            }
-            else if (h == 14)
-            {
-                hour = "02";
-            }
-            else if(h == 15)
-            {
-                hour = "03";
-            }
-            else if(h == 16)
-            {
-                hour = "04";
-            }
-            else if(h == 17)
-            {
-                hour = "05";
-            }
-            else if(h == 18)
-            {
-                hour = "06";
-            }
-            else if(h == 19)
-            {
-                hour = "07";
-            }
-            else if(h == 20)
-            {
-                hour = "08";
-            }
-            else if(h == 21)
-            {
-                hour = "09";
-            }
-            else if(h == 22)
-            {
-                hour = "10";
-            }
-            else if(h == 23)
-            {
-                hour = "11";
-            }
-            if (h == 00)
-            {
-                hour = "12";
-            }
-
-            clock.Text = hour + ":" + minutes + " " + am_pm;
-
             if (tbl1.get_number_of_items() == 0)
             {
                 button1.Enabled = false;

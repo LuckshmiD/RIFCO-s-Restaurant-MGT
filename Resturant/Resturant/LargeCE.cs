@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-//using EventCaterMgt;
+using EventCaterMgt;
 
 
 namespace supplier
@@ -95,7 +95,13 @@ namespace supplier
                 DataTable dt = new DataTable();
 
                 MySqlConnection con = new MySqlConnection("Server=localhost;Database=rmsdatabase;Uid=root;Pwd=;");
-                //insert 
+                //insert
+
+                if ((mainMealCombo.Text == "") || (comboBox1.Text == "") || (comboBox1.Text == "") || (textBox1.Text == "") || (textBox4.Text == ""))
+                {
+                    MessageBox.Show("Field(s) cannnot be blank");
+
+                }
 
                 /*var sqlQuery = "";
                 if (IfSupplierExists(con , textBox1.Text))
@@ -149,11 +155,8 @@ namespace supplier
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Main main = new Main();
+            createMenu main = new createMenu();
             main.Show();
-            //this.Hide();
-            //createMenu main = new createMenu();
-            //main.Show();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

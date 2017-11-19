@@ -55,10 +55,6 @@ namespace Resturant
             new Login().Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Income in1 = new Income();
-            in1.GetSales();
-        }
+        
     }
 }

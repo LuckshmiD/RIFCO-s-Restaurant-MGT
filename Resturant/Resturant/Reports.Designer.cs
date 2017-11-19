@@ -31,7 +31,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.CrystalReport11 = new Resturant.CrystalReport1();
+            this.CrystalReport14 = new Resturant.CrystalReport1();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,8 +54,10 @@
             this.crystalReportViewer3 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.Profittrend2 = new Resturant.Profittrend();
             this.Profittrend1 = new Resturant.Profittrend();
-            this.CrystalReport12 = new Resturant.CrystalReport1();
             this.CrystalReport13 = new Resturant.CrystalReport1();
+            this.CrystalReport11 = new Resturant.CrystalReport1();
+            this.CrystalReport12 = new Resturant.CrystalReport1();
+            this.backbtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -75,6 +77,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.backbtn);
             this.tabPage1.Controls.Add(this.crystalReportViewer2);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
@@ -97,9 +100,9 @@
             this.crystalReportViewer2.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer2.DisplayStatusBar = false;
             this.crystalReportViewer2.DisplayToolbar = false;
-            this.crystalReportViewer2.Location = new System.Drawing.Point(6, 77);
+            this.crystalReportViewer2.Location = new System.Drawing.Point(6, 92);
             this.crystalReportViewer2.Name = "crystalReportViewer2";
-            this.crystalReportViewer2.ReportSource = this.CrystalReport13;
+            this.crystalReportViewer2.ReportSource = this.CrystalReport14;
             this.crystalReportViewer2.Size = new System.Drawing.Size(1055, 384);
             this.crystalReportViewer2.TabIndex = 6;
             this.crystalReportViewer2.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
@@ -108,7 +111,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(541, 27);
+            this.label3.Location = new System.Drawing.Point(485, 52);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 20);
             this.label3.TabIndex = 5;
@@ -118,26 +121,28 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(237, 28);
+            this.label2.Location = new System.Drawing.Point(181, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "From";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(74, 29);
+            this.label1.Location = new System.Drawing.Point(430, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(140, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Revenue Report";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(845, 25);
+            this.button2.Location = new System.Drawing.Point(789, 50);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(102, 29);
             this.button2.TabIndex = 2;
@@ -147,17 +152,18 @@
             // 
             // dateTimePicker4
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(596, 26);
+            this.dateTimePicker4.Location = new System.Drawing.Point(540, 51);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker4.TabIndex = 1;
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(311, 27);
+            this.dateTimePicker3.Location = new System.Drawing.Point(255, 52);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker3.TabIndex = 0;
+            this.dateTimePicker3.ValueChanged += new System.EventHandler(this.dateTimePicker3_ValueChanged);
             // 
             // tabPage2
             // 
@@ -173,14 +179,14 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1067, 467);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Expenditure Report";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(479, 27);
+            this.label4.Location = new System.Drawing.Point(466, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 20);
             this.label4.TabIndex = 9;
@@ -190,7 +196,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(186, 28);
+            this.label5.Location = new System.Drawing.Point(173, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 20);
             this.label5.TabIndex = 8;
@@ -200,7 +206,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 28);
+            this.label6.Location = new System.Drawing.Point(397, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(165, 20);
             this.label6.TabIndex = 7;
@@ -209,7 +215,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(758, 27);
+            this.button1.Location = new System.Drawing.Point(745, 45);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 23);
             this.button1.TabIndex = 3;
@@ -219,14 +225,14 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(526, 27);
+            this.dateTimePicker2.Location = new System.Drawing.Point(513, 45);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(248, 27);
+            this.dateTimePicker1.Location = new System.Drawing.Point(235, 45);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 1;
@@ -238,10 +244,10 @@
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.DisplayStatusBar = false;
             this.crystalReportViewer1.DisplayToolbar = false;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(13, 64);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(18, 89);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ReportSource = this.EpenditureReport1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(895, 385);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(972, 373);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             this.crystalReportViewer1.Load += new System.EventHandler(this.crystalReportViewer1_Load);
@@ -257,7 +263,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1067, 467);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Profit Trend Report";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -297,6 +303,16 @@
             this.crystalReportViewer3.Size = new System.Drawing.Size(1053, 417);
             this.crystalReportViewer3.TabIndex = 0;
             this.crystalReportViewer3.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // backbtn
+            // 
+            this.backbtn.Location = new System.Drawing.Point(54, 54);
+            this.backbtn.Name = "backbtn";
+            this.backbtn.Size = new System.Drawing.Size(75, 23);
+            this.backbtn.TabIndex = 7;
+            this.backbtn.Text = "Back";
+            this.backbtn.UseVisualStyleBackColor = true;
+            this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
             // 
             // Reports
             // 
@@ -347,5 +363,7 @@
         private Profittrend Profittrend2;
         private CrystalReport1 CrystalReport12;
         private CrystalReport1 CrystalReport13;
+        private CrystalReport1 CrystalReport14;
+        private System.Windows.Forms.Button backbtn;
     }
 }

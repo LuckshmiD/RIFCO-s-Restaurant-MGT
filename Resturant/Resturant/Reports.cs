@@ -53,5 +53,25 @@ namespace Resturant
             crystalReportViewer3.ReportSource = Profittrend1;
             crystalReportViewer3.Refresh();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker3_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backbtn_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

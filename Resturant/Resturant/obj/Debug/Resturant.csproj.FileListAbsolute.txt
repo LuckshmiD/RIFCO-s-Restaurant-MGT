@@ -352,3 +352,4 @@ C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Deb
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.leavereport.resources
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.SalaryReport.resources
 C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.meetingReport.resources
+C:\Users\Batman\Desktop\Restaurant_Management_System\Resturant\Resturant\obj\Debug\Resturant.payRep.resources

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.clock = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -52,6 +51,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tenMinutes = new System.Windows.Forms.Timer(this.components);
+            this.logo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -94,16 +94,6 @@
             this.button2.Click += new System.EventHandler(this.button2_Click);
             this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button2_MouseDown);
             this.button2.MouseHover += new System.EventHandler(this.button2_MouseHover);
-            // 
-            // clock
-            // 
-            this.clock.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clock.Location = new System.Drawing.Point(732, 37);
-            this.clock.Name = "clock";
-            this.clock.Size = new System.Drawing.Size(424, 96);
-            this.clock.TabIndex = 2;
-            this.clock.Text = "00:00 AM";
-            this.clock.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
@@ -369,11 +359,26 @@
             this.tenMinutes.Interval = 600000;
             this.tenMinutes.Tick += new System.EventHandler(this.tenMinutes_Tick);
             // 
+            // logo
+            // 
+            this.logo.BackgroundImage = global::Resturant.Properties.Resources.Rifco_s_Chicken_Tikka;
+            this.logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.logo.FlatAppearance.BorderSize = 0;
+            this.logo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.logo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.logo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logo.Location = new System.Drawing.Point(609, 12);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(115, 95);
+            this.logo.TabIndex = 13;
+            this.logo.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 687);
+            this.Controls.Add(this.logo);
             this.Controls.Add(this.close);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
@@ -393,7 +398,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.clock);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -416,7 +420,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label clock;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -437,5 +440,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Timer tenMinutes;
+        private System.Windows.Forms.Button logo;
     }
 }

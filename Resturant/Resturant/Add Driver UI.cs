@@ -28,7 +28,7 @@ namespace Transport
             try
             {
 
-                if ((idIn.Text == "") || (licNo.Text == "") || (nameIn.Text == "") || (addressIn.Text == "") || (numbIn.Text == "") || (plateIn.Text == ""))
+                if ((idIn.Text == "") || (licNo.Text == "") || (nameIn.Text == "") || (addressIn.Text == "") || (numbIn.Text == ""))
                 {
                     MessageBox.Show("Field(s) cannnot be blank");
 
@@ -65,7 +65,7 @@ namespace Transport
 
                     MySqlCommand cmd = conUI.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "INSERT INTO drivers values('" + idIn.Text + "','" + nameIn.Text + "','" + licNo.Text + "','" + addressIn.Text + "'," + Convert.ToInt64(numbIn.Text) + ",'" + plateIn.Text + "')";
+                    cmd.CommandText = "INSERT INTO drivers values('" + idIn.Text + "','" + nameIn.Text + "','" + licNo.Text + "','" + addressIn.Text + "'," + Convert.ToInt64(numbIn.Text) + ",')";
                     cmd.ExecuteNonQuery();
 
                     //MessageBox.Show("check2");
@@ -76,7 +76,7 @@ namespace Transport
                     licNo.Text = "";
                     addressIn.Text = "";
                     numbIn.Text = "";
-                    plateIn.Text = "";
+                    
                     MessageBox.Show("Record inserted successfully");
 
                     Filldgv_delete();
@@ -256,7 +256,7 @@ namespace Transport
 
                
 
-                if ((idIn.Text == "") || (licNo.Text == "") || (nameIn.Text == "") || (addressIn.Text == "") || (numbIn.Text == "") || (plateIn.Text == ""))
+                if ((idIn.Text == "") || (licNo.Text == "") || (nameIn.Text == "") || (addressIn.Text == "") || (numbIn.Text == "") )
                 {
                     MessageBox.Show("Field(s) cannnot be blank");
 
@@ -289,13 +289,13 @@ namespace Transport
                 else
                 {
                     //string upd = "UPDATE drivers SET Name = " + nameIn.Text + "', License_Number ='" + licNo.Text + "', Address ='" + addressIn.Text + "', Contact_Number = " + Convert.ToInt32(numbIn.Text) + "', Assigned_Vehicle = ' " + plateIn.Text + "WHERE `drivers`.`DriverID = `" + idIn.Text;
-                    MySqlCommand com = new MySqlCommand("UPDATE  drivers SET Name=@Name,License_Number=@License_Number,Address=@Address,Contact_Number=@Contact_Number, Assigned_Vehicle=@Assigned_Vehicle WHERE DriverID='" + idIn.Text + "'", connupd);
+                    MySqlCommand com = new MySqlCommand("UPDATE  drivers SET Name=@Name,License_Number=@License_Number,Address=@Address,Contact_Number=@Contact_Number WHERE DriverID='" + idIn.Text + "'", connupd);
 
                     com.Parameters.Add("@Name", MySqlDbType.VarChar).Value = nameIn.Text;
                     com.Parameters.Add("@License_Number", MySqlDbType.VarChar).Value = licNo.Text;
                     com.Parameters.Add("@Address", MySqlDbType.VarChar).Value = addressIn.Text;
                     com.Parameters.Add("@Contact_Number", MySqlDbType.Int64).Value = Convert.ToInt64(numbIn.Text);
-                    com.Parameters.Add("@Assigned_Vehicle", MySqlDbType.VarChar).Value = plateIn.Text;
+                    /*com.Parameters.Add("@Assigned_Vehicle", MySqlDbType.VarChar).Value = plateIn.Te*//*xt;*/
 
 
                     //MySqlCommand cmd = new MySqlCommand(upd, connupd);
@@ -309,7 +309,7 @@ namespace Transport
                     licNo.Text = "";
                     addressIn.Text = "";
                     numbIn.Text = "";
-                    plateIn.Text = "";
+                    
                     MessageBox.Show("Record Updated successfully");
 
 
@@ -343,7 +343,7 @@ namespace Transport
             licNo.Text = dgv_delete.CurrentRow.Cells[2].Value.ToString();
             addressIn.Text = dgv_delete.CurrentRow.Cells[3].Value.ToString();
             numbIn.Text = dgv_delete.CurrentRow.Cells[4].Value.ToString();
-            plateIn.Text = dgv_delete.CurrentRow.Cells[5].Value.ToString();
+           
         }
     }
 }
