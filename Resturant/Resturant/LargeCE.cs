@@ -116,35 +116,36 @@ namespace supplier
                                    ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + comboBox1.SelectedIndex + "','" + textBox5.Text + "','" + textBox6.Text + "')";
                 }
                 */
+                else
+                {
+                    con.Open();
 
-                con.Open();
+                    //string option = comboBox4.SelectedItem.ToString();
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO large (MenuName,StockName,StockSize,Total) VALUES ('" + mainMealCombo.Text + "','" + comboBox1.SelectedItem + "','" + Convert.ToDouble(textBox1.Text) + "','" + Convert.ToDouble(textBox4.Text) + "')", con);
+                    cmd.ExecuteReader();
+                    con.Close();
 
-                //string option = comboBox4.SelectedItem.ToString();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO large (MenuName,StockName,StockSize,Total) VALUES ('" + mainMealCombo.Text + "','" + comboBox1.SelectedItem + "','" + Convert.ToDouble(textBox1.Text)+ "','" + Convert.ToDouble(textBox4.Text) + "')", con);
-                cmd.ExecuteReader();
-                con.Close();
+                    //reading database
+                    //LoadData();
 
-                //reading database
-                //LoadData();
+                    dataGridView1.DataSource = null;
+                    dataGridView1.Rows.Clear();
+                    dataGridView1.Refresh();
+                    con.Open();
+                    MySqlDataAdapter adp = new MySqlDataAdapter("select * from Large", con);
+                    adp.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                    //this.dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    adp.Dispose();
+                    con.Close();
+                    MessageBox.Show(" Menu Details are Added");
 
-                dataGridView1.DataSource = null;
-                dataGridView1.Rows.Clear();
-                dataGridView1.Refresh();
-                con.Open();
-                MySqlDataAdapter adp = new MySqlDataAdapter("select * from Large", con);
-                adp.Fill(dt);
-                dataGridView1.DataSource = dt;
-                //this.dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                adp.Dispose();
-                con.Close();
-                MessageBox.Show(" Menu Details are Added");
+                    mainMealCombo.SelectedIndex = -1;
 
-                mainMealCombo.SelectedIndex = -1;
-
-                comboBox1.SelectedIndex =-1;
-                textBox4.Text = "";
-             //   textBox1.Clear();
-                
+                    comboBox1.SelectedIndex = -1;
+                    textBox4.Text = "";
+                    //   textBox1.Clear();
+                }
             }
             catch (MySqlException ee)
             {

@@ -159,6 +159,9 @@
     <Compile Include="createMenu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="createMenu.designer.cs">
+      <DependentUpon>createMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Credit_Card_Validation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +280,9 @@
     <Compile Include="LargeCE.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LargeCE.designer.cs">
+      <DependentUpon>LargeCE.cs</DependentUpon>
+    </Compile>
     <Compile Include="leaveCrystalReport2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -305,6 +311,9 @@
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Main.designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="meeting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,23 +332,17 @@
     <Compile Include="meetingReport.Designer.cs">
       <DependentUpon>meetingReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="OderReport.cs">
+    <Compile Include="OrderReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>OderReport.rpt</DependentUpon>
+      <DependentUpon>OrderReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PayemtReport.cs">
+    <Compile Include="PaymentReportFin.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PayemtReport.rpt</DependentUpon>
+      <DependentUpon>PaymentReportFin.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="payRep.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="payRep.Designer.cs">
-      <DependentUpon>payRep.cs</DependentUpon>
     </Compile>
     <Compile Include="Profittrend.cs">
       <AutoGen>True</AutoGen>
@@ -355,6 +358,9 @@
     </Compile>
     <Compile Include="RegularCE.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegularCE.designer.cs">
+      <DependentUpon>RegularCE.cs</DependentUpon>
     </Compile>
     <Compile Include="Revenue.cs">
       <SubType>Form</SubType>
@@ -468,8 +474,14 @@
     <Compile Include="Stockdetails.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Stockdetails.designer.cs">
+      <DependentUpon>Stockdetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="SupplierDetails.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierDetails.designer.cs">
+      <DependentUpon>SupplierDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Table.cs" />
     <Compile Include="TableView.cs">
@@ -554,6 +566,9 @@
     <EmbeddedResource Include="ConfirmPayment.resx">
       <DependentUpon>ConfirmPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="createMenu.resx">
+      <DependentUpon>createMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Credit_Card_Validation.resx">
       <DependentUpon>Credit_Card_Validation.cs</DependentUpon>
     </EmbeddedResource>
@@ -611,6 +626,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LargeCE.resx">
+      <DependentUpon>LargeCE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="leaveCrystalReport2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>leaveCrystalReport2.cs</LastGenOutput>
@@ -624,6 +642,9 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="meeting.resx">
       <DependentUpon>meeting.cs</DependentUpon>
     </EmbeddedResource>
@@ -634,16 +655,13 @@
     <EmbeddedResource Include="meetingReport.resx">
       <DependentUpon>meetingReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OderReport.rpt">
+    <EmbeddedResource Include="OrderReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>OderReport.cs</LastGenOutput>
+      <LastGenOutput>OrderReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="PayemtReport.rpt">
+    <EmbeddedResource Include="PaymentReportFin.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>PayemtReport.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="payRep.resx">
-      <DependentUpon>payRep.cs</DependentUpon>
+      <LastGenOutput>PaymentReportFin.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Profittrend.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -651,6 +669,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Rating.resx">
       <DependentUpon>Rating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegularCE.resx">
+      <DependentUpon>RegularCE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Revenue.resx">
       <DependentUpon>Revenue.cs</DependentUpon>
@@ -716,6 +737,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Starting_Page.resx">
       <DependentUpon>Starting_Page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stockdetails.resx">
+      <DependentUpon>Stockdetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierDetails.resx">
+      <DependentUpon>SupplierDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TableView.resx">
       <DependentUpon>TableView.cs</DependentUpon>

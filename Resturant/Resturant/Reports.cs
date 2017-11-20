@@ -73,5 +73,20 @@ namespace Resturant
         {
             
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            PaymentReportFin1.SetParameterValue("startdate", dateTimePicker7.Value);
+            crystalReportViewer4.ReportSource = PaymentReportFin1;
+            crystalReportViewer4.Refresh();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            OrderReport1.SetParameterValue("type", comboBox1.Text);
+            OrderReport1.SetParameterValue("date", dateTimePicker8.Value.ToLongDateString());
+            crystalReportViewer5.ReportSource = OrderReport1;
+            crystalReportViewer5.Refresh();
+        }
     }
 }

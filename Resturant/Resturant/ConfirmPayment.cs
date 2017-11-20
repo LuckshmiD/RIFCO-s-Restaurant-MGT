@@ -208,7 +208,7 @@ namespace Cashier
                         if (mobileNumber > 0)
                         {
 
-                            sm.sms(reciept, "0770112998");
+                            sm.sms(reciept, mobileNumber.ToString());
                         }
                     }
 

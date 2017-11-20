@@ -113,9 +113,9 @@ namespace Cashier
                     if (mobileNumber > 0)
                     {
                         
-                        sm.sms(reciept, "0770112998");
+                        sm.sms(reciept, mobileNumber.ToString());
                     }
-                    else if ((email != "") || (email != null))
+                    if ((email != "") || (email != null))
                     {
                         
                         sm.email(email, reciept);
@@ -172,10 +172,10 @@ namespace Cashier
                     reader.Close();
                     Send_Message sm = new Send_Message();
 
-                    if (false && mobileNumber > 0)
+                    if (mobileNumber > 0)
                     {
                         //
-                        sm.sms(reciept, "0770112998");
+                        sm.sms(reciept, mobileNumber.ToString());
                     }
                     if ((email != "") || (email != null))
                     {

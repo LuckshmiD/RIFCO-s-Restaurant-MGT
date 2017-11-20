@@ -34,10 +34,12 @@
             this.TableLabel = new System.Windows.Forms.Label();
             this.TableComboBox = new System.Windows.Forms.ComboBox();
             this.login = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dinein
             // 
+            this.dinein.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dinein.Location = new System.Drawing.Point(12, 12);
             this.dinein.Name = "dinein";
             this.dinein.Size = new System.Drawing.Size(109, 41);
@@ -48,6 +50,7 @@
             // 
             // delivery
             // 
+            this.delivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delivery.Location = new System.Drawing.Point(12, 59);
             this.delivery.Name = "delivery";
             this.delivery.Size = new System.Drawing.Size(109, 41);
@@ -58,6 +61,7 @@
             // 
             // takeaway
             // 
+            this.takeaway.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.takeaway.Location = new System.Drawing.Point(12, 106);
             this.takeaway.Name = "takeaway";
             this.takeaway.Size = new System.Drawing.Size(109, 41);
@@ -69,14 +73,16 @@
             // TableLabel
             // 
             this.TableLabel.AutoSize = true;
+            this.TableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TableLabel.Location = new System.Drawing.Point(138, 26);
             this.TableLabel.Name = "TableLabel";
-            this.TableLabel.Size = new System.Drawing.Size(53, 13);
+            this.TableLabel.Size = new System.Drawing.Size(63, 13);
             this.TableLabel.TabIndex = 3;
             this.TableLabel.Text = "Table # : ";
             // 
             // TableComboBox
             // 
+            this.TableComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TableComboBox.FormattingEnabled = true;
             this.TableComboBox.Items.AddRange(new object[] {
             "1",
@@ -91,11 +97,12 @@
             "10"});
             this.TableComboBox.Location = new System.Drawing.Point(197, 23);
             this.TableComboBox.Name = "TableComboBox";
-            this.TableComboBox.Size = new System.Drawing.Size(29, 21);
+            this.TableComboBox.Size = new System.Drawing.Size(38, 21);
             this.TableComboBox.TabIndex = 4;
             // 
             // login
             // 
+            this.login.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login.Location = new System.Drawing.Point(306, 44);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(101, 70);
@@ -104,11 +111,26 @@
             this.login.UseVisualStyleBackColor = true;
             this.login.Click += new System.EventHandler(this.login_Click);
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Resturant.Properties.Resources.Rifco_s_Chicken_Tikka;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(179, 59);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(78, 74);
+            this.button1.TabIndex = 6;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Starting_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(443, 174);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.login);
             this.Controls.Add(this.TableComboBox);
             this.Controls.Add(this.TableLabel);
@@ -132,5 +154,6 @@
         private System.Windows.Forms.Label TableLabel;
         private System.Windows.Forms.ComboBox TableComboBox;
         private System.Windows.Forms.Button login;
+        private System.Windows.Forms.Button button1;
     }
 }

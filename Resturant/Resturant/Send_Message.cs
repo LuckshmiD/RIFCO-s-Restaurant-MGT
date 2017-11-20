@@ -13,7 +13,7 @@ namespace Cashier
 {
     class Send_Message
     {
-        private GsmCommMain comm = new GsmCommMain("COM9");
+        private GsmCommMain comm = new GsmCommMain("COM5");
 
         private string from = "rifcoschickentikka@gmail.com";
         string subject = "Order Reciept";

@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.backbtn = new System.Windows.Forms.Button();
             this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.CrystalReport14 = new Resturant.CrystalReport1();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,15 +54,31 @@
             this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
             this.crystalReportViewer3 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.Profittrend2 = new Resturant.Profittrend();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.crystalReportViewer4 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.PaymentReportFin1 = new Resturant.PaymentReportFin();
+            this.dateTimePicker7 = new System.Windows.Forms.DateTimePicker();
+            this.button4 = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.Profittrend1 = new Resturant.Profittrend();
             this.CrystalReport13 = new Resturant.CrystalReport1();
             this.CrystalReport11 = new Resturant.CrystalReport1();
             this.CrystalReport12 = new Resturant.CrystalReport1();
-            this.backbtn = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.dateTimePicker8 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.crystalReportViewer5 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.OrderReport1 = new Resturant.OrderReport();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -69,6 +86,8 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -92,6 +111,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Revenue Report";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // backbtn
+            // 
+            this.backbtn.Location = new System.Drawing.Point(54, 54);
+            this.backbtn.Name = "backbtn";
+            this.backbtn.Size = new System.Drawing.Size(75, 23);
+            this.backbtn.TabIndex = 7;
+            this.backbtn.Text = "Back";
+            this.backbtn.UseVisualStyleBackColor = true;
+            this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
             // 
             // crystalReportViewer2
             // 
@@ -304,15 +333,152 @@
             this.crystalReportViewer3.TabIndex = 0;
             this.crystalReportViewer3.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // backbtn
+            // tabPage4
             // 
-            this.backbtn.Location = new System.Drawing.Point(54, 54);
-            this.backbtn.Name = "backbtn";
-            this.backbtn.Size = new System.Drawing.Size(75, 23);
-            this.backbtn.TabIndex = 7;
-            this.backbtn.Text = "Back";
-            this.backbtn.UseVisualStyleBackColor = true;
-            this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
+            this.tabPage4.Controls.Add(this.label7);
+            this.tabPage4.Controls.Add(this.crystalReportViewer4);
+            this.tabPage4.Controls.Add(this.dateTimePicker7);
+            this.tabPage4.Controls.Add(this.button4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1067, 467);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Payment Report";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(448, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(138, 20);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Payment Report";
+            // 
+            // crystalReportViewer4
+            // 
+            this.crystalReportViewer4.ActiveViewIndex = 0;
+            this.crystalReportViewer4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer4.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer4.DisplayStatusBar = false;
+            this.crystalReportViewer4.DisplayToolbar = false;
+            this.crystalReportViewer4.Location = new System.Drawing.Point(8, 86);
+            this.crystalReportViewer4.Name = "crystalReportViewer4";
+            this.crystalReportViewer4.ReportSource = this.PaymentReportFin1;
+            this.crystalReportViewer4.Size = new System.Drawing.Size(1053, 358);
+            this.crystalReportViewer4.TabIndex = 2;
+            this.crystalReportViewer4.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // dateTimePicker7
+            // 
+            this.dateTimePicker7.Location = new System.Drawing.Point(364, 51);
+            this.dateTimePicker7.Name = "dateTimePicker7";
+            this.dateTimePicker7.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker7.TabIndex = 1;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(601, 48);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Generate";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.label10);
+            this.tabPage5.Controls.Add(this.label9);
+            this.tabPage5.Controls.Add(this.label8);
+            this.tabPage5.Controls.Add(this.comboBox1);
+            this.tabPage5.Controls.Add(this.dateTimePicker8);
+            this.tabPage5.Controls.Add(this.button5);
+            this.tabPage5.Controls.Add(this.crystalReportViewer5);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1067, 467);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Order Report";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(689, 56);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(99, 23);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Generate";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // dateTimePicker8
+            // 
+            this.dateTimePicker8.Location = new System.Drawing.Point(466, 60);
+            this.dateTimePicker8.Name = "dateTimePicker8";
+            this.dateTimePicker8.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker8.TabIndex = 2;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "dinein",
+            "delivery",
+            "takeaway"});
+            this.comboBox1.Location = new System.Drawing.Point(191, 59);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(155, 21);
+            this.comboBox1.TabIndex = 3;
+            // 
+            // crystalReportViewer5
+            // 
+            this.crystalReportViewer5.ActiveViewIndex = 0;
+            this.crystalReportViewer5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer5.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer5.DisplayStatusBar = false;
+            this.crystalReportViewer5.DisplayToolbar = false;
+            this.crystalReportViewer5.Location = new System.Drawing.Point(8, 93);
+            this.crystalReportViewer5.Name = "crystalReportViewer5";
+            this.crystalReportViewer5.ReportSource = this.OrderReport1;
+            this.crystalReportViewer5.Size = new System.Drawing.Size(1053, 368);
+            this.crystalReportViewer5.TabIndex = 0;
+            this.crystalReportViewer5.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(79, 62);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 18);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Order Type ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(356, 62);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 18);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Order Date";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(388, 19);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(132, 24);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Order Report";
             // 
             // Reports
             // 
@@ -329,6 +495,10 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -365,5 +535,22 @@
         private CrystalReport1 CrystalReport13;
         private CrystalReport1 CrystalReport14;
         private System.Windows.Forms.Button backbtn;
+        private System.Windows.Forms.TabPage tabPage4;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer4;
+        //private PaymentReport PaymentReport1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker7;
+        private System.Windows.Forms.Button button4;
+        //private PaymentReport PaymentReport2;
+        private System.Windows.Forms.Label label7;
+        private PaymentReportFin PaymentReportFin1;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker8;
+        private System.Windows.Forms.Button button5;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer5;
+        private OrderReport OrderReport1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }
